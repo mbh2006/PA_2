@@ -121,6 +121,7 @@ def run_grpo(config_path: str, output: str | None = None, updates: int | None = 
             pol_loss_v = None
             grad_norm_v = None
             diag = {}
+            nonfinite_skips = 0
             for _ in range(policy_epochs):
                 new_logp, _ = response_token_logprobs(policy, seq, attn, pw, rid)
                 loss, diag = grpo_policy_loss(
@@ -134,12 +135,26 @@ def run_grpo(config_path: str, output: str | None = None, updates: int | None = 
                     loss_type=loss_type,
                     max_completion_length=max_completion_length,
                 )
+                if not bool(torch.isfinite(loss).item()):
+                    nonfinite_skips += 1
+                    print(f"[{run_name}] update {i + 1}: non-finite loss; skipping this epoch", flush=True)
+                    optimizer.zero_grad(set_to_none=True)
+                    continue
                 loss.backward()
                 grad_norm_v = torch.nn.utils.clip_grad_norm_(trainable_parameters(policy), max_grad_norm)
+                if not bool(torch.isfinite(grad_norm_v).item()):
+                    nonfinite_skips += 1
+                    print(f"[{run_name}] update {i + 1}: non-finite grad norm; skipping step", flush=True)
+                    optimizer.zero_grad(set_to_none=True)
+                    continue
                 optimizer.step()
                 optimizer.zero_grad(set_to_none=True)
                 pol_loss_v = float(loss.detach())
 
+            if pol_loss_v is None:
+                pol_loss_v = float("nan")
+            if grad_norm_v is None:
+                grad_norm_v = float("nan")
             kl_value = float(sampled_kl(old_logp, ref_logp, rmask))
             record = {
                 "update": i + 1,
@@ -158,6 +173,7 @@ def run_grpo(config_path: str, output: str | None = None, updates: int | None = 
                 "truncated_count": int(sum(gen["truncated"])),
                 "loss_type": loss_type,
                 "elapsed_seconds": round(time.time() - t_upd, 1),
+                "nonfinite_skips": nonfinite_skips,
             }
             history.append(record)
             rollouts_file.write(

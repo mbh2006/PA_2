@@ -140,7 +140,8 @@ def run_ppo(config_path: str, output: str | None = None, updates: int | None = N
                 old_logp, _ = response_token_logprobs(policy, seq, attn, pw, rid)
                 with reference_mode(policy):
                     ref_logp, _ = response_token_logprobs(policy, seq, attn, pw, rid)
-                values = token_values(value_model, seq, attn)[:, pw:]
+                # fp32 value path: fp16 squared errors/gradients can become non-finite.
+                values = token_values(value_model, seq, attn)[:, pw:].float()
 
             raw_reward = float(
                 score_reward_pairs(
@@ -156,16 +157,34 @@ def run_ppo(config_path: str, output: str | None = None, updates: int | None = N
 
             pol_loss_v = val_loss_v = clip_frac_v = ratio_v = entropy_v = None
             p_grad = v_grad = None
+            nonfinite_skips = 0
             for _ in range(ppo_epochs):
                 new_logp, _ = response_token_logprobs(policy, seq, attn, pw, rid)
                 pol_loss, ratio, clip_frac = ppo_policy_loss(new_logp, old_logp, advantages, rmask, eps=eps)
                 v_pred = token_values(value_model, seq, attn)[:, pw:]
-                val_loss = value_mse_loss(v_pred, returns, rmask)
+                val_loss = value_mse_loss(v_pred.float(), returns, rmask)
                 loss = pol_loss + value_coef * val_loss
+
+                if not bool(torch.isfinite(loss).item()):
+                    nonfinite_skips += 1
+                    print(f"[{run_name}] update {i + 1}: non-finite loss (policy={float(pol_loss):.4g}, "
+                          f"value={float(val_loss):.4g}); skipping this epoch", flush=True)
+                    policy_optimizer.zero_grad(set_to_none=True)
+                    value_optimizer.zero_grad(set_to_none=True)
+                    continue
+
                 loss.backward()
 
                 p_grad = torch.nn.utils.clip_grad_norm_(trainable_parameters(policy), max_grad_norm)
                 v_grad = torch.nn.utils.clip_grad_norm_(trainable_parameters(value_model), max_grad_norm)
+                if not bool(torch.isfinite(p_grad).item() and torch.isfinite(v_grad).item()):
+                    nonfinite_skips += 1
+                    print(f"[{run_name}] update {i + 1}: non-finite grad norms "
+                          f"(policy={float(p_grad):.4g}, value={float(v_grad):.4g}); skipping step", flush=True)
+                    policy_optimizer.zero_grad(set_to_none=True)
+                    value_optimizer.zero_grad(set_to_none=True)
+                    continue
+
                 policy_optimizer.step()
                 value_optimizer.step()
                 policy_optimizer.zero_grad(set_to_none=True)
@@ -177,6 +196,13 @@ def run_ppo(config_path: str, output: str | None = None, updates: int | None = N
                 ratio_v = float(masked_mean(ratio, rmask))
                 entropy_v = float(sample_entropy(new_logp.detach(), rmask))
 
+            if pol_loss_v is None:
+                # every epoch of this update was skipped (non-finite); keep the record well-formed
+                pol_loss_v = val_loss_v = clip_frac_v = ratio_v = entropy_v = float("nan")
+            if p_grad is None:
+                p_grad = float("nan")
+            if v_grad is None:
+                v_grad = float("nan")
             kl_value = float(sampled_kl(old_logp, ref_logp, rmask))
             record = {
                 "update": i + 1,
@@ -196,6 +222,7 @@ def run_ppo(config_path: str, output: str | None = None, updates: int | None = N
                 "terminated_with_eos": terminated,
                 "truncated": bool(gen["truncated"][0]),
                 "elapsed_seconds": round(time.time() - t_upd, 1),
+                "nonfinite_skips": nonfinite_skips,
             }
             history.append(record)
             rollouts_file.write(
@@ -248,6 +275,7 @@ def run_ppo(config_path: str, output: str | None = None, updates: int | None = N
         "wall_clock_seconds": round(time.time() - t0, 1),
         "peak_vram_gib": peak_vram,
         "mean_reward_last5": float(sum(r["effective_reward"] for r in history[-5:]) / max(len(history[-5:]), 1)),
+        "total_nonfinite_skips": sum(r.get("nonfinite_skips", 0) for r in history),
         "history": history,
     }
     (results_dir / f"ppo_{run_name}.json").write_text(json.dumps(summary, indent=2), encoding="utf-8")
