@@ -1,17 +1,29 @@
 """Task 2 clipping study.
 
-Part A — fixed cached-batch geometry: reconstruct the cached rollouts' token ids
-(preferring the shipped salvage cache, falling back to re-tokenization), re-score
-them with the released midpoint policy (and the final standard adapter when
-available), then report the clipped surrogate and affected-token fraction for
-each epsilon in configs/ppo.yaml. Verification statistics (recomputed vs stored
-old log-probs) are always reported so the ratio source is auditable.
+Part A — fixed cached-batch geometry. The release ships TWO cached PPO rollout
+batches that turn out to contain DIFFERENT rollouts (verified 2026-10-09):
+
+  * official `cached/ppo_rollout.pt` — 32 rollouts with old/ref log-probs, critic
+    `values` and terminal rewards, but NO token ids. Token ids are reconstructed
+    from the fixed eval-prompt text + response text, appending EOS for terminated
+    responses (stored log-prob arrays include EOS). `returns` are absent, so only
+    clip/affected fractions are reported for this batch (robustness check).
+  * `cached/ppo_rollout_salvage_raw.pt` — a different 32-rollout batch WITH exact
+    `full_ids`, `response_ids`, `prompt_len` and `returns`. This is the batch used
+    for the clipped-surrogate table; advantages = returns − values, where values
+    come from the released frozen critic checkpoint.
+
+For every adapter (released midpoint and, when present, the standard continuation)
+the cached batch is re-scored and, per epsilon: mean/std/min/max ratio, clip
+fraction (== affected-token fraction over valid response tokens), and the mean
+clipped surrogate where returns are available. `mean|Δlogp|` between recomputed
+and stored old log-probs is reported per batch/adapter so the ratio source and
+provenance are auditable.
 
 Part B — matched short forks: identical 8-update continuations from the same
 supplied midpoint, changing only clip_epsilon, each followed by the common
-held-out evaluation. Stability statistic: standard deviation of the per-update
-clip fraction and of the policy gradient norm over the fork, plus final ratio
-deviation.
+held-out evaluation. Stability statistic: std of per-update clip fraction and of
+policy gradient norm, plus final ratio deviation.
 
 Run:  python -m task2_ppo.analyze_clipping --config configs/ppo.yaml
       python -m task2_ppo.analyze_clipping --config configs/ppo.yaml --cache-only
@@ -21,14 +33,13 @@ from __future__ import annotations
 
 import argparse
 import json
-import math
 import statistics
 
 import torch
 
 from common.data import load_yaml, read_jsonl, repo_path
 from common.generation import response_token_logprobs
-from common.models import clear_gpu, load_policy, load_tokenizer
+from common.models import clear_gpu, load_policy, load_tokenizer, load_value_model, token_values
 from common.rl_eval import evaluate_adapter_on_rl_eval
 from task2_ppo.continue_train import run_ppo
 
@@ -38,8 +49,6 @@ def load_cached_rollouts(path):
     if not isinstance(rows, list) or not rows:
         raise ValueError("Expected a non-empty list in the supplied PPO rollout cache")
 
-    # Instructor iterations used two equivalent names for these fields. Normalize once here so
-    # the student analysis code sees one stable interface.
     normalized = []
     for row in rows:
         row = dict(row)
@@ -55,69 +64,79 @@ def load_cached_rollouts(path):
     return normalized
 
 
-def load_salvage(path):
-    p = repo_path(path)
-    if not p.exists():
-        return {}
-    rows = torch.load(p, map_location="cpu", weights_only=False)
-    out = {}
-    for row in rows:
-        key = (row.get("source_index"), str(row.get("response", ""))[:64])
-        out[key] = row
-    return out
-
-
-def reconstruct_sequences(cfg, cached_rows, salvage):
-    """Return list of dicts with full_ids (LongTensor), prompt_len, response_ids, advantage/targets if available."""
-    tokenizer = load_tokenizer(cfg["base_model"])
-    eval_rows = {row.get("prompt_id"): row for row in read_jsonl(cfg["paths"]["rl_prompt_eval"])}
-    eval_by_index = {row.get("source_index"): row for row in eval_rows.values()}
-
+def reconstruct_official_sequences(cfg, tokenizer):
+    """Official cache: no ids -> re-tokenize prompt+response, append EOS when terminated."""
+    rows = load_cached_rollouts(cfg["cached_rollouts"])
+    eval_by_index = {r.get("source_index"): r for r in read_jsonl(cfg["paths"]["rl_prompt_eval"])}
     out = []
-    used_salvage = 0
-    for row in cached_rows:
-        key = (row.get("source_index"), str(row.get("response", ""))[:64])
-        s = salvage.get(key)
-        full_ids = None
-        prompt_len = None
-        returns = None
-        if s is not None and s.get("full_ids") is not None:
-            full_ids = torch.as_tensor(s["full_ids"], dtype=torch.long)
-            prompt_len = int(s.get("prompt_len") or s.get("prompt_length") or 0)
-            returns = s.get("returns")
-            used_salvage += 1
-        if full_ids is None or prompt_len in (None, 0):
-            er = eval_by_index.get(row.get("source_index"))
-            prompt_text = er.get("prompt") if er else None
-            if prompt_text is None:
-                raise ValueError(f"cannot reconstruct prompt for source_index={row.get('source_index')}")
-            prompt_ids = tokenizer(prompt_text, add_special_tokens=False)["input_ids"]
-            resp_ids = tokenizer(str(row["response"]), add_special_tokens=False)["input_ids"]
-            full_ids = torch.tensor(list(prompt_ids) + list(resp_ids), dtype=torch.long)
-            prompt_len = len(prompt_ids)
-        if returns is None:
-            returns = s.get("returns") if s else None
+    missing_prompt = 0
+    for row in rows:
+        er = eval_by_index.get(row.get("source_index"))
+        prompt_text = er.get("prompt") if er else None
+        if prompt_text is None:
+            missing_prompt += 1
+            continue
+        prompt_ids = tokenizer(prompt_text, add_special_tokens=False)["input_ids"]
+        resp_ids = tokenizer(str(row["response"]), add_special_tokens=False)["input_ids"]
+        if bool(row.get("terminated_with_eos")):
+            resp_ids = resp_ids + [tokenizer.eos_token_id]
         out.append(
             {
                 "source_index": row.get("source_index"),
-                "prompt_id": row.get("prompt_id"),
-                "full_ids": full_ids,
-                "prompt_len": prompt_len,
-                "response_ids": full_ids[prompt_len:],
+                "full_ids": torch.tensor(list(prompt_ids) + list(resp_ids), dtype=torch.long),
+                "prompt_len": len(prompt_ids),
+                "response_ids": torch.tensor(resp_ids, dtype=torch.long),
                 "old_logprobs": row["old_logprobs"].float(),
                 "ref_logprobs": row["ref_logprobs"].float(),
                 "values": row.get("values").float() if row.get("values") is not None else None,
-                "effective_terminal_reward": row.get("effective_terminal_reward"),
-                "returns": torch.as_tensor(returns, dtype=torch.float32) if returns is not None else None,
+                "returns": None,
             }
         )
-    print(f"reconstructed {len(out)} cached rollouts ({used_salvage} from salvage full_ids)", flush=True)
+    print(f"official batch: reconstructed {len(out)} rollouts (missing prompts: {missing_prompt})", flush=True)
+    return out
+
+
+def load_salvage_sequences():
+    """Salvage batch: exact ids + returns shipped in the file."""
+    rows = torch.load(repo_path("cached/ppo_rollout_salvage_raw.pt"), map_location="cpu", weights_only=False)
+    out = []
+    for row in rows:
+        full = torch.as_tensor(row["full_ids"], dtype=torch.long)
+        rid = torch.as_tensor(row["response_ids"], dtype=torch.long)
+        out.append(
+            {
+                "source_index": row.get("source_index"),
+                "full_ids": full,
+                "prompt_len": int(row["prompt_len"]),
+                "response_ids": rid,
+                "old_logprobs": row["old_logprobs"].float(),
+                "ref_logprobs": row["ref_logprobs"].float(),
+                "values": None,
+                "returns": torch.as_tensor(row["returns"], dtype=torch.float32),
+            }
+        )
+    print(f"salvage batch: loaded {len(out)} rollouts with exact ids and returns", flush=True)
     return out
 
 
 @torch.no_grad()
+def estimate_values_with_critic(cfg, sequences):
+    """Fill missing `values` with the released frozen critic checkpoint."""
+    value_model = load_value_model(cfg, cfg["paths"]["ppo_midpoint_value"], train_mode="frozen")
+    device = next(value_model.parameters()).device
+    for item in sequences:
+        if item.get("values") is not None:
+            continue
+        ids = item["full_ids"].unsqueeze(0).to(device)
+        attn = torch.ones_like(ids)
+        v = token_values(value_model, ids, attn)[0, item["prompt_len"] :].float().cpu()
+        item["values"] = v
+    clear_gpu(value_model)
+    return sequences
+
+
+@torch.no_grad()
 def rescore_sequences(cfg, sequences, adapter):
-    """Return list of new logprobs under the given adapter; also report mismatch vs stored old values."""
     tokenizer = load_tokenizer(cfg["base_model"])
     policy = load_policy(cfg, adapter_path=adapter, trainable=False)
     device = next(policy.parameters()).device
@@ -126,26 +145,28 @@ def rescore_sequences(cfg, sequences, adapter):
         ids = item["full_ids"].unsqueeze(0).to(device)
         attn = torch.ones_like(ids)
         rid = item["response_ids"].unsqueeze(0).to(device)
-        pw = item["prompt_len"]
-        logp, _ = response_token_logprobs(policy, ids, attn, pw, rid)
+        logp, _ = response_token_logprobs(policy, ids, attn, item["prompt_len"], rid)
         new_logps.append(logp[0].float().cpu())
     clear_gpu(policy)
     return new_logps
 
 
-def cached_batch_clip_analysis(cfg, eps_values, adapters: dict[str, str]):
-    cached_rows = load_cached_rollouts(cfg["cached_rollouts"])
-    salvage = load_salvage("cached/ppo_rollout_salvage_raw.pt")
-    sequences = reconstruct_sequences(cfg, cached_rows, salvage)
+def analyze_batch(cfg, sequences, eps_values, adapters, use_surrogate: bool):
+    report = {
+        "num_rollouts": len(sequences),
+        "length_histogram": {},
+        "adapter_analyses": {},
+        "source_indices_in_eval_pool": None,
+    }
 
-    # sanity: token lengths vs stored log-prob lengths
-    len_counts = {}
+    len_counts: dict[tuple[int, int], int] = {}
     for item in sequences:
         pair = (len(item["response_ids"]), len(item["old_logprobs"]))
         len_counts[pair] = len_counts.get(pair, 0) + 1
-    print("(response_len, stored_logp_len) histogram:", len_counts, flush=True)
+    report["length_histogram"] = {str(k): v for k, v in len_counts.items()}
 
-    report = {"num_rollouts": len(sequences), "adapter_analyses": {}, "length_histogram": {str(k): v for k, v in len_counts.items()}}
+    eval_pool = {r.get("source_index") for r in read_jsonl(cfg["paths"]["rl_prompt_eval"])}
+    report["source_indices_in_eval_pool"] = sum(1 for it in sequences if it.get("source_index") in eval_pool)
 
     for tag, adapter in adapters.items():
         if adapter and not repo_path(adapter).exists():
@@ -153,11 +174,11 @@ def cached_batch_clip_analysis(cfg, eps_values, adapters: dict[str, str]):
             continue
         new_logps = rescore_sequences(cfg, sequences, adapter)
 
-        # verification: recomputed vs stored old log-probs
         diffs = []
         for item, nl in zip(sequences, new_logps):
             m = min(len(nl), len(item["old_logprobs"]))
-            diffs.append(float((nl[:m] - item["old_logprobs"][:m]).abs().mean()))
+            if m:
+                diffs.append(float((nl[:m] - item["old_logprobs"][:m]).abs().mean()))
         mean_abs_diff = statistics.fmean(diffs) if diffs else None
 
         eps_table = {}
@@ -168,15 +189,16 @@ def cached_batch_clip_analysis(cfg, eps_values, adapters: dict[str, str]):
                 if m == 0:
                     continue
                 ratio = torch.exp(nl[:m] - item["old_logprobs"][:m])
-                if item["returns"] is not None and item["values"] is not None:
-                    mv = min(m, len(item["returns"]), len(item["values"]))
-                    adv = (item["returns"][:mv] - item["values"][:mv]).clamp(-10.0, 10.0)
-                    ratio_ = ratio[:mv]
-                    s1 = ratio_ * adv
-                    s2 = ratio_.clamp(1.0 - eps, 1.0 + eps) * adv
-                    surrogates.append(float(torch.minimum(s1, s2).mean()))
                 ratios.append(ratio)
                 affected.append((ratio < (1.0 - eps)) | (ratio > (1.0 + eps)))
+                if use_surrogate and item.get("returns") is not None and item.get("values") is not None:
+                    mv = min(m, len(item["returns"]), len(item["values"]))
+                    if mv:
+                        adv = (item["returns"][:mv] - item["values"][:mv]).clamp(-10.0, 10.0)
+                        ratio_ = ratio[:mv]
+                        s1 = ratio_ * adv
+                        s2 = ratio_.clamp(1.0 - eps, 1.0 + eps) * adv
+                        surrogates.append(float(torch.minimum(s1, s2).mean()))
             ratio_all = torch.cat(ratios) if ratios else torch.tensor([])
             aff_all = torch.cat(affected) if affected else torch.tensor([], dtype=torch.bool)
             eps_table[str(eps)] = {
@@ -193,11 +215,33 @@ def cached_batch_clip_analysis(cfg, eps_values, adapters: dict[str, str]):
             "mean_abs_logp_diff_vs_stored_old": mean_abs_diff,
             "epsilon_table": eps_table,
         }
-        print(f"cache analysis vs {tag}: mean|dlogp|={mean_abs_diff:.6f}", flush=True)
+        print(f"batch analysis vs {tag}: mean|dlogp|={mean_abs_diff if mean_abs_diff is None else round(mean_abs_diff, 6)}", flush=True)
         for e, vals in eps_table.items():
-            print(f"  eps={e}: clip_frac={vals['clip_fraction']:.4f} affected={vals['affected_token_fraction']:.4f} "
-                  f"mean_ratio={vals['mean_ratio']:.4f} surrogate={vals['mean_clipped_surrogate']}", flush=True)
+            print(
+                f"  eps={e}: clip_frac={vals['clip_fraction']} affected={vals['affected_token_fraction']} "
+                f"mean_ratio={vals['mean_ratio']} surrogate={vals['mean_clipped_surrogate']}",
+                flush=True,
+            )
+    return report
 
+
+def cached_batch_clip_analysis(cfg, eps_values, adapters: dict[str, str]):
+    tokenizer = load_tokenizer(cfg["base_model"])
+    official = reconstruct_official_sequences(cfg, tokenizer)
+    salvage = load_salvage_sequences()
+    salvage = estimate_values_with_critic(cfg, salvage)
+
+    report = {
+        "note": (
+            "official and salvage caches contain DIFFERENT rollouts (verified 0/32 match). "
+            "official: reconstructed ids (+EOS), no returns -> clip/affected only; "
+            "salvage: exact ids + supplied returns, values from the frozen critic -> surrogate available."
+        ),
+        "batches": {
+            "official": analyze_batch(cfg, official, eps_values, adapters, use_surrogate=False),
+            "salvage": analyze_batch(cfg, salvage, eps_values, adapters, use_surrogate=True),
+        },
+    }
     results_dir = repo_path(cfg["results_dir"])
     results_dir.mkdir(parents=True, exist_ok=True)
     (results_dir / "clip_study_cache.json").write_text(json.dumps(report, indent=2), encoding="utf-8")

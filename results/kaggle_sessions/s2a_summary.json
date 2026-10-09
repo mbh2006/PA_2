@@ -1,0 +1,8 @@
+{
+  "session": "s2a-ppo",
+  "stage_seconds": {
+    "ppo_standard_train": 385.5,
+    "ppo_standard_eval": 839.2,
+    "clip_cache_geometry": 32.5
+  }
+}

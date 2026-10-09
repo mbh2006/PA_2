@@ -81,31 +81,33 @@ def fig_trajectories(ppo: dict, outbase: Path):
 
 
 def fig_clip_study(cache: dict, study: dict, outbase: Path):
-    have_cache = bool(cache and cache.get("adapter_analyses"))
+    batches = (cache or {}).get("batches", {})
     forks = (study or {}).get("forks", [])
-    if not have_cache and not forks:
+    if not batches and not forks:
         return False
 
-    ncols = 2 if (have_cache and forks) else 1
+    ncols = (1 if batches else 0) + (1 if forks else 0)
     fig, axes = plt.subplots(1, ncols, figsize=(6 * ncols, 4))
     axes = [axes] if ncols == 1 else list(axes.flat)
+    idx = 0
 
-    if have_cache:
-        ax = axes[0]
-        for tag, analysis in cache["adapter_analyses"].items():
-            eps = sorted(float(e) for e in analysis["epsilon_table"])
-            clip = [analysis["epsilon_table"][f"{e:g}"]["clip_fraction"] for e in eps]
-            aff = [analysis["epsilon_table"][f"{e:g}"]["affected_token_fraction"] for e in eps]
-            ax.plot(eps, clip, "o-", label=f"clip frac ({tag})")
-            ax.plot(eps, aff, "s--", label=f"affected frac ({tag})")
+    if batches:
+        ax = axes[idx]
+        idx += 1
+        for bname, brep in batches.items():
+            for tag, analysis in brep.get("adapter_analyses", {}).items():
+                eps = sorted(float(e) for e in analysis["epsilon_table"])
+                clip = [analysis["epsilon_table"][f"{e:g}"]["clip_fraction"] for e in eps]
+                style = "o-" if tag == "midpoint" else "s--"
+                ax.plot(eps, clip, style, label=f"{bname}: {tag}")
         ax.set_xlabel("clip ε")
-        ax.set_ylabel("fraction of tokens")
+        ax.set_ylabel("clip fraction")
         ax.set_title("Cached-batch clipping geometry")
         ax.legend(fontsize=7)
         ax.grid(alpha=0.3)
 
     if forks:
-        ax = axes[-1]
+        ax = axes[idx]
         eps = [f["clip_epsilon"] for f in forks]
         reward = [f["heldout_reward"] for f in forks]
         kl = [f["heldout_kl"] for f in forks]
@@ -179,19 +181,28 @@ def tables_md(ppo: dict, cache: dict, study: dict, kl_study: dict, eval_std: dic
             "",
         ]
 
-    if cache and cache.get("adapter_analyses"):
-        lines += ["## 3. Cached-batch clipping geometry", ""]
-        for tag, analysis in cache["adapter_analyses"].items():
-            lines.append(f"**Adapter: {tag}** — mean |Δlogp| vs stored old: {fmt(analysis.get('mean_abs_logp_diff_vs_stored_old'), 6)}")
+    batches = (cache or {}).get("batches", {})
+    if batches:
+        lines += ["## 3. Cached-batch clipping geometry (two supplied batches)", ""]
+        lines.append(f"_{cache.get('note', '')}_")
+        lines.append("")
+        for bname, brep in batches.items():
+            lines.append(f"### Batch: {bname} ({brep.get('num_rollouts')} rollouts; source indices in eval pool: {brep.get('source_indices_in_eval_pool')})")
             lines.append("")
-            lines.append("| ε | mean ratio | clip fraction | affected fraction | mean clipped surrogate |")
-            lines.append("|---|---|---|---|---|")
-            for e, vals in analysis["epsilon_table"].items():
+            for tag, analysis in brep.get("adapter_analyses", {}).items():
                 lines.append(
-                    f"| {e} | {fmt(vals['mean_ratio'], 4)} | {fmt(vals['clip_fraction'])} | "
-                    f"{fmt(vals['affected_token_fraction'])} | {fmt(vals['mean_clipped_surrogate'], 4)} |"
+                    f"**Adapter: {tag}** — mean |Δlogp| vs stored old: {fmt(analysis.get('mean_abs_logp_diff_vs_stored_old'), 6)}"
                 )
-            lines.append("")
+                lines.append("")
+                lines.append("| ε | mean ratio | std ratio | min ratio | max ratio | clip fraction | affected fraction | mean clipped surrogate |")
+                lines.append("|---|---|---|---|---|---|---|---|")
+                for e, vals in analysis["epsilon_table"].items():
+                    lines.append(
+                        f"| {e} | {fmt(vals['mean_ratio'], 4)} | {fmt(vals['std_ratio'], 4)} | "
+                        f"{vals['min_ratio']:.3g} | {fmt(vals['max_ratio'], 3)} | {fmt(vals['clip_fraction'])} | "
+                        f"{fmt(vals['affected_token_fraction'])} | {fmt(vals['mean_clipped_surrogate'], 4)} |"
+                    )
+                lines.append("")
     if (study or {}).get("forks"):
         lines += ["## 4. Matched short forks (8 updates)", ""]
         lines.append("| ε | held-out reward | held-out KL | held-out length | clip-frac std | grad-norm std | final ratio dev |")
