@@ -128,11 +128,13 @@ def run_ppo(config_path: str, output: str | None = None, updates: int | None = N
                 top_p=float(gen_cfg.get("top_p", 0.9)),
                 do_sample=bool(gen_cfg.get("do_sample", True)),
             )
-            seq = gen["sequences"]
-            attn = gen["attention_mask"]
+            # batch_generate returns tensors created inside torch.inference_mode();
+            # clone them into normal tensors before any autograd-tracked use.
+            seq = gen["sequences"].clone()
+            attn = gen["attention_mask"].clone()
             pw = gen["prompt_width"]
-            rid = gen["response_ids"]
-            rmask = gen["response_mask"].to(device)
+            rid = gen["response_ids"].clone()
+            rmask = gen["response_mask"].clone().to(device)
 
             with torch.no_grad():
                 old_logp, _ = response_token_logprobs(policy, seq, attn, pw, rid)

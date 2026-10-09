@@ -95,11 +95,13 @@ def run_grpo(config_path: str, output: str | None = None, updates: int | None = 
                 top_p=float(gen_cfg.get("top_p", 0.9)),
                 do_sample=bool(gen_cfg.get("do_sample", True)),
             )
-            seq = gen["sequences"]
-            attn = gen["attention_mask"]
+            # batch_generate returns tensors created inside torch.inference_mode();
+            # clone them into normal tensors before any autograd-tracked use.
+            seq = gen["sequences"].clone()
+            attn = gen["attention_mask"].clone()
             pw = gen["prompt_width"]
-            rid = gen["response_ids"]
-            rmask = gen["response_mask"].to(device)
+            rid = gen["response_ids"].clone()
+            rmask = gen["response_mask"].clone().to(device)
             token_mask = mask_truncated_sequences(rmask, gen["truncated"]) if mask_truncated else rmask
 
             with torch.no_grad():
