@@ -34,3 +34,43 @@
 - KL (sampled): -0.00000
 - length: 300.2 (± 261.3)
 - prompts: 100, truncated: 0.130
+
+## 3. Cached-batch clipping geometry (two supplied batches)
+
+_official and salvage caches contain DIFFERENT rollouts (verified 0/32 match). official: reconstructed ids (+EOS), no returns -> clip/affected only; salvage: exact ids + supplied returns, values from the frozen critic -> surrogate available._
+
+### Batch: official (32 rollouts; source indices in eval pool: 32)
+
+**Adapter: midpoint** — mean |Δlogp| vs stored old: 0.049209
+
+| ε | mean ratio | std ratio | min ratio | max ratio | clip fraction | affected fraction | mean clipped surrogate |
+|---|---|---|---|---|---|---|---|
+| 0.05 | 1.0120 | 0.5337 | 2.24e-09 | 32.579 | 0.154 | 0.154 | — |
+| 0.2 | 1.0120 | 0.5337 | 2.24e-09 | 32.579 | 0.041 | 0.041 | — |
+| 0.5 | 1.0120 | 0.5337 | 2.24e-09 | 32.579 | 0.021 | 0.021 | — |
+
+### Batch: salvage (32 rollouts; source indices in eval pool: 32)
+
+**Adapter: midpoint** — mean |Δlogp| vs stored old: 0.019977
+
+| ε | mean ratio | std ratio | min ratio | max ratio | clip fraction | affected fraction | mean clipped surrogate |
+|---|---|---|---|---|---|---|---|
+| 0.05 | 1.0010 | 0.0353 | 0.688 | 1.555 | 0.110 | 0.110 | 2.5997 |
+| 0.2 | 1.0010 | 0.0353 | 0.688 | 1.555 | 0.003 | 0.003 | 2.6076 |
+| 0.5 | 1.0010 | 0.0353 | 0.688 | 1.555 | 0.000 | 0.000 | 2.6079 |
+
+## 4. Matched short forks (8 updates)
+
+| ε | held-out reward | held-out KL | held-out length | clip-frac std | grad-norm std | final ratio dev |
+|---|---|---|---|---|---|---|
+| 0.05 | 1.572 | 0.00000 | 303.8 | 0.000 | 1.910 | 0.000 |
+| 0.20 | 1.572 | 0.00000 | 303.8 | 0.000 | 1.910 | 0.000 |
+| 0.50 | 1.572 | 0.00000 | 303.8 | 0.000 | 1.910 | 0.000 |
+
+## 5. KL-pressure study (8-update forks)
+
+| β_KL | final reward | final KL | final entropy | final length | held-out reward | held-out KL | held-out length |
+|---|---|---|---|---|---|---|---|
+| 0.00 | 0.790 | -0.00029 | 0.638 | 278.0 | 1.535 | -0.00001 | 316.4 |
+| 0.10 | 0.512 | 0.00024 | 0.681 | 373.3 | 1.572 | 0.00000 | 303.8 |
+| 0.20 | 0.588 | 0.00002 | 0.693 | 373.3 | 1.702 | -0.00001 | 298.8 |

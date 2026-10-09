@@ -1,0 +1,19 @@
+{
+  "name": "kl_0",
+  "adapter": "/kaggle/working/repo/outputs/task2_ppo/kl_0",
+  "num_prompts": 100,
+  "reward_model_score_mean": 1.53537841796875,
+  "reward_model_score_std": 1.6441707735775475,
+  "kl_sampled_response_estimator": -1.2447966754850938e-05,
+  "kl_per_sequence_mean": 5.551554645762735e-05,
+  "response_length_mean": 316.4,
+  "response_length_std": 271.5833941904402,
+  "truncated_fraction": 0.11,
+  "eos_fraction": 0.89,
+  "max_new_tokens": 768,
+  "decoding": {
+    "temperature": 0.7,
+    "top_p": 0.9,
+    "do_sample": true
+  }
+}

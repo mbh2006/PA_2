@@ -1,0 +1,236 @@
+{
+  "cache_analysis": {
+    "note": "official and salvage caches contain DIFFERENT rollouts (verified 0/32 match). official: reconstructed ids (+EOS), no returns -> clip/affected only; salvage: exact ids + supplied returns, values from the frozen critic -> surrogate available.",
+    "batches": {
+      "official": {
+        "num_rollouts": 32,
+        "length_histogram": {
+          "(313, 313)": 1,
+          "(389, 389)": 1,
+          "(228, 228)": 1,
+          "(14, 14)": 2,
+          "(512, 512)": 8,
+          "(336, 336)": 1,
+          "(43, 43)": 1,
+          "(229, 229)": 1,
+          "(10, 10)": 1,
+          "(419, 419)": 1,
+          "(2, 2)": 1,
+          "(272, 272)": 1,
+          "(440, 440)": 1,
+          "(244, 244)": 1,
+          "(492, 492)": 1,
+          "(19, 19)": 1,
+          "(363, 363)": 1,
+          "(22, 22)": 1,
+          "(468, 468)": 1,
+          "(12, 12)": 1,
+          "(80, 80)": 1,
+          "(34, 34)": 1,
+          "(267, 267)": 1,
+          "(8, 8)": 1
+        },
+        "adapter_analyses": {
+          "midpoint": {
+            "adapter": "checkpoints/ppo_midpoint_policy",
+            "mean_abs_logp_diff_vs_stored_old": 0.04920902096637292,
+            "epsilon_table": {
+              "0.05": {
+                "mean_ratio": 1.011981725692749,
+                "std_ratio": 0.5336812734603882,
+                "min_ratio": 2.2366486440716926e-09,
+                "max_ratio": 32.57938766479492,
+                "clip_fraction": 0.15429997444152832,
+                "affected_token_fraction": 0.15429997444152832,
+                "mean_clipped_surrogate": null
+              },
+              "0.2": {
+                "mean_ratio": 1.011981725692749,
+                "std_ratio": 0.5336812734603882,
+                "min_ratio": 2.2366486440716926e-09,
+                "max_ratio": 32.57938766479492,
+                "clip_fraction": 0.04129793494939804,
+                "affected_token_fraction": 0.04129793494939804,
+                "mean_clipped_surrogate": null
+              },
+              "0.5": {
+                "mean_ratio": 1.011981725692749,
+                "std_ratio": 0.5336812734603882,
+                "min_ratio": 2.2366486440716926e-09,
+                "max_ratio": 32.57938766479492,
+                "clip_fraction": 0.021102791652083397,
+                "affected_token_fraction": 0.021102791652083397,
+                "mean_clipped_surrogate": null
+              }
+            }
+          }
+        },
+        "source_indices_in_eval_pool": 32
+      },
+      "salvage": {
+        "num_rollouts": 32,
+        "length_histogram": {
+          "(163, 163)": 1,
+          "(768, 768)": 4,
+          "(19, 19)": 1,
+          "(196, 196)": 1,
+          "(147, 147)": 1,
+          "(39, 39)": 1,
+          "(34, 34)": 1,
+          "(217, 217)": 1,
+          "(72, 72)": 1,
+          "(182, 182)": 1,
+          "(63, 63)": 1,
+          "(483, 483)": 1,
+          "(412, 412)": 1,
+          "(79, 79)": 1,
+          "(114, 114)": 1,
+          "(20, 20)": 1,
+          "(48, 48)": 1,
+          "(277, 277)": 1,
+          "(313, 313)": 1,
+          "(97, 97)": 1,
+          "(67, 67)": 1,
+          "(68, 68)": 1,
+          "(2, 2)": 2,
+          "(32, 32)": 1,
+          "(319, 319)": 1,
+          "(70, 70)": 1,
+          "(169, 169)": 1,
+          "(753, 753)": 1
+        },
+        "adapter_analyses": {
+          "midpoint": {
+            "adapter": "checkpoints/ppo_midpoint_policy",
+            "mean_abs_logp_diff_vs_stored_old": 0.01997707884402189,
+            "epsilon_table": {
+              "0.05": {
+                "mean_ratio": 1.0010193586349487,
+                "std_ratio": 0.035343948751688004,
+                "min_ratio": 0.6879416108131409,
+                "max_ratio": 1.5550920963287354,
+                "clip_fraction": 0.1102404072880745,
+                "affected_token_fraction": 0.1102404072880745,
+                "mean_clipped_surrogate": 2.599690780392848
+              },
+              "0.2": {
+                "mean_ratio": 1.0010193586349487,
+                "std_ratio": 0.035343948751688004,
+                "min_ratio": 0.6879416108131409,
+                "max_ratio": 1.5550920963287354,
+                "clip_fraction": 0.0029220348224043846,
+                "affected_token_fraction": 0.0029220348224043846,
+                "mean_clipped_surrogate": 2.6075650703860447
+              },
+              "0.5": {
+                "mean_ratio": 1.0010193586349487,
+                "std_ratio": 0.035343948751688004,
+                "min_ratio": 0.6879416108131409,
+                "max_ratio": 1.5550920963287354,
+                "clip_fraction": 0.0001328197686234489,
+                "affected_token_fraction": 0.0001328197686234489,
+                "mean_clipped_surrogate": 2.6078605009242892
+              }
+            }
+          }
+        },
+        "source_indices_in_eval_pool": 32
+      }
+    }
+  },
+  "forks": [
+    {
+      "tag": "clip_eps_0p05",
+      "clip_epsilon": 0.05,
+      "stability": {
+        "clip_fraction_std": 0.0,
+        "grad_norm_policy_std": 1.9103601221112594,
+        "ratio_deviation_final": 0.00016963481903076172
+      },
+      "heldout_reward": 1.572330551147461,
+      "heldout_kl": 1.517780455476948e-06,
+      "heldout_length": 303.81,
+      "train_summary": {
+        "run_name": "clip_eps_0p05",
+        "updates": 8,
+        "clip_epsilon": 0.05,
+        "kl_beta": 0.1,
+        "prompts_per_update": 1,
+        "ppo_epochs": 2,
+        "gamma": 1.0,
+        "gae_lambda": 0.95,
+        "value_coef": 0.5,
+        "missing_eos_penalty": 1.0,
+        "max_response_length": 512,
+        "seed": 6304,
+        "output": "/kaggle/working/repo/outputs/task2_ppo/clip_eps_0p05",
+        "wall_clock_seconds": 136.4,
+        "peak_vram_gib": 8.17,
+        "mean_reward_last5": 0.66083984375,
+        "total_nonfinite_skips": 0
+      }
+    },
+    {
+      "tag": "clip_eps_0p2",
+      "clip_epsilon": 0.2,
+      "stability": {
+        "clip_fraction_std": 0.0,
+        "grad_norm_policy_std": 1.9103601221112594,
+        "ratio_deviation_final": 0.00016963481903076172
+      },
+      "heldout_reward": 1.572330551147461,
+      "heldout_kl": 1.517780455476948e-06,
+      "heldout_length": 303.81,
+      "train_summary": {
+        "run_name": "clip_eps_0p2",
+        "updates": 8,
+        "clip_epsilon": 0.2,
+        "kl_beta": 0.1,
+        "prompts_per_update": 1,
+        "ppo_epochs": 2,
+        "gamma": 1.0,
+        "gae_lambda": 0.95,
+        "value_coef": 0.5,
+        "missing_eos_penalty": 1.0,
+        "max_response_length": 512,
+        "seed": 6304,
+        "output": "/kaggle/working/repo/outputs/task2_ppo/clip_eps_0p2",
+        "wall_clock_seconds": 140.9,
+        "peak_vram_gib": 8.74,
+        "mean_reward_last5": 0.66083984375,
+        "total_nonfinite_skips": 0
+      }
+    },
+    {
+      "tag": "clip_eps_0p5",
+      "clip_epsilon": 0.5,
+      "stability": {
+        "clip_fraction_std": 0.0,
+        "grad_norm_policy_std": 1.9103601221112594,
+        "ratio_deviation_final": 0.00016963481903076172
+      },
+      "heldout_reward": 1.572330551147461,
+      "heldout_kl": 1.517780455476948e-06,
+      "heldout_length": 303.81,
+      "train_summary": {
+        "run_name": "clip_eps_0p5",
+        "updates": 8,
+        "clip_epsilon": 0.5,
+        "kl_beta": 0.1,
+        "prompts_per_update": 1,
+        "ppo_epochs": 2,
+        "gamma": 1.0,
+        "gae_lambda": 0.95,
+        "value_coef": 0.5,
+        "missing_eos_penalty": 1.0,
+        "max_response_length": 512,
+        "seed": 6304,
+        "output": "/kaggle/working/repo/outputs/task2_ppo/clip_eps_0p5",
+        "wall_clock_seconds": 140.8,
+        "peak_vram_gib": 8.74,
+        "mean_reward_last5": 0.66083984375,
+        "total_nonfinite_skips": 0
+      }
+    }
+  ]
+}

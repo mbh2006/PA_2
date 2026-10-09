@@ -1,0 +1,19 @@
+{
+  "name": "midpoint_baseline",
+  "adapter": "/kaggle/working/repo/checkpoints/ppo_midpoint_policy",
+  "num_prompts": 100,
+  "reward_model_score_mean": 1.5660479736328126,
+  "reward_model_score_std": 1.4230962242026037,
+  "kl_sampled_response_estimator": -4.238244851030178e-05,
+  "kl_per_sequence_mean": 0.0004583348114738328,
+  "response_length_mean": 308.89,
+  "response_length_std": 264.72188783702796,
+  "truncated_fraction": 0.08,
+  "eos_fraction": 0.92,
+  "max_new_tokens": 768,
+  "decoding": {
+    "temperature": 0.7,
+    "top_p": 0.9,
+    "do_sample": true
+  }
+}

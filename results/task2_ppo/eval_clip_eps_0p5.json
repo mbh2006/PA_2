@@ -1,0 +1,19 @@
+{
+  "name": "clip_eps_0p5",
+  "adapter": "/kaggle/working/repo/outputs/task2_ppo/clip_eps_0p5",
+  "num_prompts": 100,
+  "reward_model_score_mean": 1.572330551147461,
+  "reward_model_score_std": 1.5329708786962932,
+  "kl_sampled_response_estimator": 1.517780455476948e-06,
+  "kl_per_sequence_mean": -6.7056817683806e-05,
+  "response_length_mean": 303.81,
+  "response_length_std": 259.7176041395731,
+  "truncated_fraction": 0.09,
+  "eos_fraction": 0.91,
+  "max_new_tokens": 768,
+  "decoding": {
+    "temperature": 0.7,
+    "top_p": 0.9,
+    "do_sample": true
+  }
+}
