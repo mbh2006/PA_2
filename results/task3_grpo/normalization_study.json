@@ -1,0 +1,61 @@
+{
+  "budget": 8,
+  "results": {
+    "grpo": {
+      "tag": "norm_grpo",
+      "train_summary": {
+        "run_name": "norm_grpo",
+        "loss_type": "grpo",
+        "updates": 8,
+        "num_generations": 4,
+        "clip_epsilon": 0.2,
+        "kl_beta": 0.1,
+        "mask_truncated_completions": true,
+        "max_completion_length": 512,
+        "seed": 6304,
+        "output": "/kaggle/working/repo/outputs/task3_grpo/norm_grpo",
+        "wall_clock_seconds": 156.5,
+        "peak_vram_gib": 8.4,
+        "mean_reward_last5": 0.7395751953125,
+        "uninformative_group_rate": 0.0
+      },
+      "length_conditioned": {
+        "corr_length_vs_grad_norm": -0.9364367285100836,
+        "mean_grad_norm": 0.3385770795866847,
+        "mean_length": 279.78125
+      },
+      "heldout_reward": 1.4235275268554688,
+      "heldout_kl": 0.00010273900142250391,
+      "heldout_length": 252.79,
+      "heldout_length_std": 191.65981816750218
+    },
+    "dr_grpo": {
+      "tag": "norm_dr_grpo",
+      "train_summary": {
+        "run_name": "norm_dr_grpo",
+        "loss_type": "dr_grpo",
+        "updates": 8,
+        "num_generations": 4,
+        "clip_epsilon": 0.2,
+        "kl_beta": 0.1,
+        "mask_truncated_completions": true,
+        "max_completion_length": 512,
+        "seed": 6304,
+        "output": "/kaggle/working/repo/outputs/task3_grpo/norm_dr_grpo",
+        "wall_clock_seconds": 193.5,
+        "peak_vram_gib": 8.99,
+        "mean_reward_last5": 1.1564170837402343,
+        "uninformative_group_rate": 0.0
+      },
+      "length_conditioned": {
+        "corr_length_vs_grad_norm": -0.411673432594247,
+        "mean_grad_norm": 0.08058979827910662,
+        "mean_length": 315.90625
+      },
+      "heldout_reward": 1.4442225646972657,
+      "heldout_kl": 0.00017546158109793617,
+      "heldout_length": 273.8,
+      "heldout_length_std": 203.55746117497142
+    }
+  }
+}

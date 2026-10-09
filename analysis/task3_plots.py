@@ -120,7 +120,7 @@ def fig_normalization(study: dict, outbase: Path):
         ("held-out reward", [results[t]["heldout_reward"] for t in tags]),
         ("held-out KL", [results[t]["heldout_kl"] for t in tags]),
         ("held-out length", [results[t]["heldout_length"] for t in tags]),
-        ("grad-norm σ over fork", [results[t]["train_summary"].get("grad_norm_policy_std", None) for t in tags]),
+        ("corr(length, grad norm)", [results[t]["length_conditioned"]["corr_length_vs_grad_norm"] for t in tags]),
     ]
     fig, axes = plt.subplots(1, 4, figsize=(16, 3.6))
     for ax, (title, ys) in zip(axes, metrics):

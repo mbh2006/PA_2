@@ -1,0 +1,19 @@
+{
+  "name": "midpoint_baseline",
+  "adapter": "/kaggle/working/repo/checkpoints/grpo_midpoint_policy",
+  "num_prompts": 100,
+  "reward_model_score_mean": 1.202919330596924,
+  "reward_model_score_std": 1.3749494558836137,
+  "kl_sampled_response_estimator": 2.0421886616771016e-06,
+  "kl_per_sequence_mean": -0.00022514222986501407,
+  "response_length_mean": 265.44,
+  "response_length_std": 198.87671155768842,
+  "truncated_fraction": 0.29,
+  "eos_fraction": 0.71,
+  "max_new_tokens": 512,
+  "decoding": {
+    "temperature": 0.7,
+    "top_p": 0.9,
+    "do_sample": true
+  }
+}

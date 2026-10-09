@@ -1,0 +1,19 @@
+{
+  "name": "norm_dr_grpo",
+  "adapter": "/kaggle/working/repo/outputs/task3_grpo/norm_dr_grpo",
+  "num_prompts": 100,
+  "reward_model_score_mean": 1.4442225646972657,
+  "reward_model_score_std": 1.3321029251499652,
+  "kl_sampled_response_estimator": 0.00017546158109793617,
+  "kl_per_sequence_mean": -2.084111620206386e-05,
+  "response_length_mean": 273.8,
+  "response_length_std": 203.55746117497142,
+  "truncated_fraction": 0.31,
+  "eos_fraction": 0.69,
+  "max_new_tokens": 512,
+  "decoding": {
+    "temperature": 0.7,
+    "top_p": 0.9,
+    "do_sample": true
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "session": "s3b-grpo-norm",
+  "stage_seconds": {
+    "normalization_forks": 1741.0,
+    "grpo_midpoint_baseline": 666.2
+  }
+}

@@ -49,3 +49,10 @@
 | easy | 1.000 (0.248) | 1.000 (0.410) | 1.000 (0.495) |
 | medium | 0.969 (0.412) | 1.000 (0.552) | 1.000 (0.599) |
 | hard | 0.844 (0.493) | 0.875 (0.661) | 0.875 (0.763) |
+
+## 4. Canonical vs Dr. GRPO (matched short forks)
+
+| condition | held-out reward | held-out KL | held-out length | corr(length, grad norm) |
+|---|---|---|---|---|
+| grpo | 1.424 | 0.00010 | 252.8 | -0.936 |
+| dr_grpo | 1.444 | 0.00018 | 273.8 | -0.412 |
