@@ -36,15 +36,48 @@ def make_collate(tokenizer, max_length):
     return collate
 
 
+def filter_overlong_prompts(rows: list[dict], tokenizer, max_sequence_length: int):
+    """Drop rows whose chat-templated prompt alone does not fit the sequence budget.
+
+    `encode_prompt_response` keeps the prompt intact and refuses prompts that cannot
+    fit; such rows are unusable for DPO at the released `max_sequence_length` (768).
+    Filtering is deterministic and every dropped row is logged in the run summary.
+    """
+    kept, dropped = [], []
+    for row in rows:
+        messages = prompt_messages_from_preference(row)
+        n_tokens = len(tokenizer.apply_chat_template(messages, tokenize=True, add_generation_prompt=True))
+        if n_tokens >= int(max_sequence_length):
+            dropped.append(
+                {
+                    "source_index": row.get("source_index"),
+                    "prompt_id": row.get("prompt_id"),
+                    "prompt_tokens": n_tokens,
+                }
+            )
+        else:
+            kept.append(row)
+    return kept, dropped
+
+
 def prepare_dpo_run(config_path: str, dataset_path: str | None = None, beta: float | None = None, max_examples: int | None = None):
     cfg = load_yaml(config_path)
     set_seed(int(cfg["seed"]))
     path = dataset_path or cfg["paths"]["dpo_standard_train"]
     rows = read_jsonl(path)
+
+    tokenizer = load_tokenizer(cfg["base_model"])
+    rows, dropped_overlong = filter_overlong_prompts(rows, tokenizer, int(cfg["max_sequence_length"]))
+    if dropped_overlong:
+        print(
+            f"[prepare_dpo_run] filtered {len(dropped_overlong)} overlong-prompt rows "
+            f"(prompt >= {cfg['max_sequence_length']} tokens); kept {len(rows)}. "
+            f"first dropped: {dropped_overlong[:5]}",
+            flush=True,
+        )
     if max_examples is not None:
         rows = rows[: int(max_examples)]
 
-    tokenizer = load_tokenizer(cfg["base_model"])
     model = load_policy(cfg, trainable=True, fresh_lora=True)
     loader = DataLoader(
         rows,
@@ -60,6 +93,7 @@ def prepare_dpo_run(config_path: str, dataset_path: str | None = None, beta: flo
     return {
         "cfg": cfg,
         "rows": rows,
+        "dropped_overlong": dropped_overlong,
         "tokenizer": tokenizer,
         "model": model,
         "loader": loader,
@@ -165,6 +199,8 @@ def run_training(config_path: str, run_name: str, dataset_path: str | None = Non
         "beta": beta_value,
         "epochs": epochs,
         "num_examples": len(bundle["rows"]),
+        "num_dropped_overlong_prompts": len(bundle.get("dropped_overlong", [])),
+        "dropped_overlong_prompts": bundle.get("dropped_overlong", [])[:200],
         "batch_size": int(cfg.get("batch_size", 2)),
         "grad_accum_steps": grad_accum,
         "optimizer_steps": step,
