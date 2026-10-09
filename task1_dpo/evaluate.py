@@ -196,6 +196,13 @@ def run_evaluation(
     results_dir = repo_path(cfg["results_dir"])
     results_dir.mkdir(parents=True, exist_ok=True)
 
+    # The condition's beta must come from the trained adapter's own metadata
+    # (the config default is not the condition beta for ablation forks).
+    condition_beta = float(cfg.get("beta", 0.0))
+    meta_path = repo_path(adapter) / "run_meta.json"
+    if meta_path.exists():
+        condition_beta = float(json.loads(meta_path.read_text(encoding="utf-8")).get("beta", condition_beta))
+
     pair_metrics, per_pair = heldout_pair_metrics(bundle, batch_size=pair_batch_size)
     if max_eval_prompts is None:
         max_eval_prompts = cfg.get("eval_generation_prompts")
@@ -204,7 +211,7 @@ def run_evaluation(
     result = {
         "name": name,
         "adapter": str(repo_path(adapter)),
-        "beta": float(cfg.get("beta", 0.0)),
+        "beta": condition_beta,
         "seed": int(cfg["seed"]),
         "max_generation_tokens": int(cfg.get("max_generation_tokens", 0)),
         "decoding": cfg.get("generation"),

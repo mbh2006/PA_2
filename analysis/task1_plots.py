@@ -22,6 +22,12 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt  # noqa: E402
 
+import pathlib
+import sys
+
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
+sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+
 from common.data import load_yaml, repo_path  # noqa: E402
 
 
@@ -49,10 +55,10 @@ def collect_conditions(results_dir: Path):
     return out
 
 
-def condition_row(name, payload):
+def condition_row(name, payload, beta_override=None):
     pairs = payload.get("heldout_pairs", {})
     gen = payload.get("generation", {})
-    beta = payload.get("beta")
+    beta = beta_override if beta_override is not None else payload.get("beta")
     margins = [p["margin"] for p in payload.get("per_pair", []) if "margin" in p]
     return {
         "name": name,
@@ -80,6 +86,8 @@ def fmt(x, nd=3):
 
 def tables_markdown(conditions: dict, length_payloads: dict, train_summaries: dict):
     lines = ["# Task 1 — auto-generated result tables", ""]
+    # Correct per-condition beta comes from the training metadata, never the config default.
+    beta_map = {name: t.get("beta") for name, t in train_summaries.items()}
 
     lines.append("## 1. Standard + short-run β conditions (budgets differ: standard = 1 epoch, forks = 600 examples)")
     lines.append("")
@@ -89,7 +97,7 @@ def tables_markdown(conditions: dict, length_payloads: dict, train_summaries: di
     for name in order:
         if name not in conditions:
             continue
-        r = condition_row(name, conditions[name])
+        r = condition_row(name, conditions[name], beta_override=beta_map.get(name))
         budget = "1 epoch (1500 ex)" if name == "standard" else "600 ex (short)"
         ln = "—" if r["len_mean"] is None else f"{fmt(r['len_mean'],1)} ± {fmt(r['len_std'],1)}"
         lines.append(
@@ -142,12 +150,13 @@ def tables_markdown(conditions: dict, length_payloads: dict, train_summaries: di
     return "\n".join(lines)
 
 
-def fig_beta_sweep(conditions, outbase):
+def fig_beta_sweep(conditions, outbase, beta_map=None):
+    beta_map = beta_map or {}
     betas, accs, kls, rms, lens = [], [], [], [], []
     for name in ["beta_0p03", "beta_0p1", "beta_0p3"]:
         if name not in conditions:
             continue
-        r = condition_row(name, conditions[name])
+        r = condition_row(name, conditions[name], beta_override=beta_map.get(name))
         betas.append(r["beta"])
         accs.append(r["pref_acc"])
         kls.append(r["kl"])
@@ -271,12 +280,14 @@ def main():
         if payload:
             train_summaries[path.stem[len("train_"):]] = payload
 
+    beta_map = {name: t.get("beta") for name, t in train_summaries.items()}
+
     md = tables_markdown(conditions, length_payloads, train_summaries)
     (results_dir / "summary_tables.md").write_text(md, encoding="utf-8")
     print(md)
 
     made = []
-    if fig_beta_sweep(conditions, fig_dir / "beta_sweep"):
+    if fig_beta_sweep(conditions, fig_dir / "beta_sweep", beta_map=beta_map):
         made.append("beta_sweep")
     if fig_length_strata(length_payloads, fig_dir / "length_strata"):
         made.append("length_strata")

@@ -1,0 +1,22 @@
+{
+  "session": "s1-task1",
+  "stage_seconds": {
+    "standard_train": 1323.5,
+    "standard_eval": 501.2,
+    "beta_forks": 3103.5,
+    "length_study": 1205.2,
+    "total": 6207.5
+  },
+  "files": {
+    "results/task1_dpo/train_standard.json": true,
+    "results/task1_dpo/eval_standard.json": true,
+    "results/task1_dpo/length_analysis_standard.json": true,
+    "results/task1_dpo/length_analysis_length_balanced.json": true,
+    "results/task1_dpo/train_beta_0p03.json": true,
+    "results/task1_dpo/eval_beta_0p03.json": true,
+    "results/task1_dpo/train_beta_0p1.json": true,
+    "results/task1_dpo/eval_beta_0p1.json": true,
+    "results/task1_dpo/train_beta_0p3.json": true,
+    "results/task1_dpo/eval_beta_0p3.json": true
+  }
+}
