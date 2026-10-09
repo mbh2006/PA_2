@@ -26,11 +26,12 @@ from common.models import load_policy, load_reward_model, load_tokenizer, refere
 
 def load_evaluation_bundle(config_path: str, adapter: str):
     cfg = load_yaml(config_path)
+    adapter_path = None if str(adapter).lower() in {"none", "base", ""} else adapter
     return {
         "cfg": cfg,
         "rows": read_jsonl(cfg["paths"]["dpo_standard_eval"]),
         "tokenizer": load_tokenizer(cfg["base_model"]),
-        "policy": load_policy(cfg, adapter_path=adapter, trainable=False),
+        "policy": load_policy(cfg, adapter_path=adapter_path, trainable=False),
         "reward": load_reward_model(cfg),
     }
 
@@ -199,9 +200,10 @@ def run_evaluation(
     # The condition's beta must come from the trained adapter's own metadata
     # (the config default is not the condition beta for ablation forks).
     condition_beta = float(cfg.get("beta", 0.0))
-    meta_path = repo_path(adapter) / "run_meta.json"
-    if meta_path.exists():
-        condition_beta = float(json.loads(meta_path.read_text(encoding="utf-8")).get("beta", condition_beta))
+    if str(adapter).lower() not in {"none", "base", ""}:
+        meta_path = repo_path(adapter) / "run_meta.json"
+        if meta_path.exists():
+            condition_beta = float(json.loads(meta_path.read_text(encoding="utf-8")).get("beta", condition_beta))
 
     pair_metrics, per_pair = heldout_pair_metrics(bundle, batch_size=pair_batch_size)
     if max_eval_prompts is None:
@@ -210,7 +212,7 @@ def run_evaluation(
 
     result = {
         "name": name,
-        "adapter": str(repo_path(adapter)),
+        "adapter": "base (no adapter)" if str(adapter).lower() in {"none", "base", ""} else str(repo_path(adapter)),
         "beta": condition_beta,
         "seed": int(cfg["seed"]),
         "max_generation_tokens": int(cfg.get("max_generation_tokens", 0)),
