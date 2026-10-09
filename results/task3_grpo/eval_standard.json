@@ -1,0 +1,19 @@
+{
+  "name": "standard",
+  "adapter": "/kaggle/working/repo/outputs/task3_grpo/standard",
+  "num_prompts": 100,
+  "reward_model_score_mean": 1.4189718627929688,
+  "reward_model_score_std": 1.3219336183653099,
+  "kl_sampled_response_estimator": 0.0001936381349498467,
+  "kl_per_sequence_mean": 0.0002041010280726141,
+  "response_length_mean": 259.9,
+  "response_length_std": 196.88156338265907,
+  "truncated_fraction": 0.24,
+  "eos_fraction": 0.76,
+  "max_new_tokens": 512,
+  "decoding": {
+    "temperature": 0.7,
+    "top_p": 0.9,
+    "do_sample": true
+  }
+}

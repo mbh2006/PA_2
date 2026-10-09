@@ -1,0 +1,7 @@
+{
+  "session": "s3a-grpo",
+  "stage_seconds": {
+    "grpo_standard_train": 463.6,
+    "grpo_standard_eval": 684.3
+  }
+}
