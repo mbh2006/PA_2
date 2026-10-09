@@ -40,6 +40,9 @@ def prepare_ppo_continuation(config_path: str):
         cfg["paths"]["ppo_midpoint_value"],
         train_mode=cfg.get("value_train_mode", "head_only"),
     )
+    # Run the critic in float32: fp16 value-path arithmetic was numerically unstable
+    # (S2a v2 produced non-finite value losses/gradients). The 0.5B critic is cheap in fp32.
+    value_model = value_model.float()
     reward_model, reward_tokenizer = load_reward_model(cfg)
     prompts = read_jsonl(cfg["paths"]["rl_prompt_train"])
 
