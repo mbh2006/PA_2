@@ -1,0 +1,100 @@
+{
+  "cache_prompts": 24,
+  "partition_rule": "each prompt's 8 cached completions split into disjoint consecutive groups of size K; total completions fixed",
+  "binning_rule": "terciles of per-prompt mean reward over the fixed K=8 cache (easy = top tercile)",
+  "bin_thresholds": {
+    "t1": 1.3125813802083333,
+    "t2": 2.4212239583333335
+  },
+  "bin_prompt_counts": {
+    "easy": 8,
+    "medium": 8,
+    "hard": 8
+  },
+  "results": {
+    "K=2": {
+      "overall": {
+        "num_groups": 96,
+        "informative_group_rate": 0.9375,
+        "mean_within_group_reward_std": 0.3845672607421875,
+        "variance_of_group_relative_signal": 0.9375
+      },
+      "per_difficulty": {
+        "easy": {
+          "num_groups": 32,
+          "informative_group_rate": 1.0,
+          "mean_within_group_reward_std": 0.2479248046875,
+          "variance_of_group_relative_signal": 1.0
+        },
+        "medium": {
+          "num_groups": 32,
+          "informative_group_rate": 0.96875,
+          "mean_within_group_reward_std": 0.41237640380859375,
+          "variance_of_group_relative_signal": 0.96875
+        },
+        "hard": {
+          "num_groups": 32,
+          "informative_group_rate": 0.84375,
+          "mean_within_group_reward_std": 0.49340057373046875,
+          "variance_of_group_relative_signal": 0.84375
+        }
+      }
+    },
+    "K=4": {
+      "overall": {
+        "num_groups": 48,
+        "informative_group_rate": 0.9583333333333334,
+        "mean_within_group_reward_std": 0.5410043647319412,
+        "variance_of_group_relative_signal": 0.9583333333333334
+      },
+      "per_difficulty": {
+        "easy": {
+          "num_groups": 16,
+          "informative_group_rate": 1.0,
+          "mean_within_group_reward_std": 0.4098312154534056,
+          "variance_of_group_relative_signal": 1.0
+        },
+        "medium": {
+          "num_groups": 16,
+          "informative_group_rate": 1.0,
+          "mean_within_group_reward_std": 0.5516941225351226,
+          "variance_of_group_relative_signal": 1.0
+        },
+        "hard": {
+          "num_groups": 16,
+          "informative_group_rate": 0.875,
+          "mean_within_group_reward_std": 0.6614877562072954,
+          "variance_of_group_relative_signal": 0.875
+        }
+      }
+    },
+    "K=8": {
+      "overall": {
+        "num_groups": 24,
+        "informative_group_rate": 0.9583333333333334,
+        "mean_within_group_reward_std": 0.6190544134665206,
+        "variance_of_group_relative_signal": 0.9583333333333334
+      },
+      "per_difficulty": {
+        "easy": {
+          "num_groups": 8,
+          "informative_group_rate": 1.0,
+          "mean_within_group_reward_std": 0.49477231789421244,
+          "variance_of_group_relative_signal": 1.0
+        },
+        "medium": {
+          "num_groups": 8,
+          "informative_group_rate": 1.0,
+          "mean_within_group_reward_std": 0.5990220788024174,
+          "variance_of_group_relative_signal": 1.0
+        },
+        "hard": {
+          "num_groups": 8,
+          "informative_group_rate": 0.875,
+          "mean_within_group_reward_std": 0.7633688437029319,
+          "variance_of_group_relative_signal": 0.875
+        }
+      }
+    }
+  }
+}

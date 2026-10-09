@@ -22,6 +22,8 @@ value_coef: 0.50
 missing_eos_penalty: 1.0
 
 max_prompt_length: 256
+# Fixed evaluation settings (identical across all PPO conditions):
+eval_generation_prompts: 100
 # Instructor midpoint training used this operational budget. The supplied midpoint has a
 # documented long-tail termination limitation; use the larger cap for frozen evaluation.
 max_response_length: 512
