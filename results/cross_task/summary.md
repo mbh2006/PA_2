@@ -17,6 +17,14 @@
 | T3 | T3 GRPO standard (20 upd, K=4) | group-relative reward, no critic (GRPO) | 1.419 | 0.00019 | 259.9 |  | 399 s, 20 upd, peak 8.59 GiB |
 | T3 | T3 GRPO canonical fork (8 upd) | group-relative reward, no critic (GRPO) | 1.424 | 0.00010 | 252.8 |  |  |
 | T3 | T3 GRPO Dr.GRPO fork (8 upd) | group-relative reward, no critic (GRPO) | 1.444 | 0.00018 | 273.8 | corr(len,grad) −0.41 vs −0.94 |  |
+| T4 | T4 SFT (frozen) | categorical AI judge on XSTest | — | — | 108.1 | safe-answer 0.712, over-refusal 0.000, unsafe-compliance 0.000, justified-refusal 0.805, ambiguous 0.013 |  |
+| T4 | T4 DPO (frozen) | categorical AI judge on XSTest | — | — | 108.8 | safe-answer 0.676, over-refusal 0.000, unsafe-compliance 0.000, justified-refusal 0.800, ambiguous 0.002 |  |
+| T4 | T4 PPO (frozen) | categorical AI judge on XSTest | — | — | 107.7 | safe-answer 0.704, over-refusal 0.000, unsafe-compliance 0.000, justified-refusal 0.810, ambiguous 0.011 |  |
+| T4 | T4 GRPO (frozen) | categorical AI judge on XSTest | — | — | 108.3 | safe-answer 0.700, over-refusal 0.000, unsafe-compliance 0.000, justified-refusal 0.810, ambiguous 0.011 |  |
+| T5 | T5 SFT (GSM8K) | — | — | — | 274.2 | exact-acc 0.273, format 0.350 |  |
+| T5 | T5 RLVR (GSM8K) | exact verifier | — | — | 273.7 | exact-acc 0.297, format 0.373 |  |
+| T5 | T5 RLAIF (GSM8K) | AI pairwise | — | — | 274.5 | exact-acc 0.297, format 0.377 |  |
+| T5 | T5 diagnostics (100 responses) | verifier vs pairwise AI judge | — | — | — | S_reason: verifier 0.000 / judge 0.100; S_outcome: verifier 1.000 / judge 0.150 |  |
 
 Notes:
 - Reward-scale caveat: T1/T2/T3 all use the same course reward model on 100 generated prompts — comparable within tasks; cross-task comparisons of RM means are indicative only (different prompt pools: DPO eval pairs vs RL prompt pool).
