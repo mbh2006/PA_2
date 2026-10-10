@@ -50,8 +50,13 @@ def load_judge(cfg):
     if tok.pad_token is None:
         tok.pad_token = tok.eos_token
 
+    # Judge quantization is configurable separately from the reward model:
+    # 4-bit quantization was found to collapse the judge's behavior (always-TIE /
+    # inverted labels) — see TRACKING/00_MASTER_LOG.md Error #32. Default keeps the
+    # old behavior; set `quantize_judge: false` to run the judge in fp16.
+    use_quant = bool(cfg.get("quantize_judge", cfg.get("quantize_frozen_models", True)))
     kwargs = {"low_cpu_mem_usage": True}
-    if torch.cuda.is_available() and bool(cfg.get("quantize_frozen_models", True)):
+    if torch.cuda.is_available() and use_quant:
         kwargs["quantization_config"] = BitsAndBytesConfig(
             load_in_4bit=True,
             bnb_4bit_quant_type="nf4",
@@ -62,6 +67,8 @@ def load_judge(cfg):
         kwargs["dtype"] = resolve_dtype(cfg.get("dtype", "float16"))
 
     model = AutoModelForCausalLM.from_pretrained(cfg["ai_judge_model"], **kwargs)
+    if torch.cuda.is_available() and not use_quant:
+        model = model.cuda()
     model.eval()
     return tok, model
 

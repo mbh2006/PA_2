@@ -50,8 +50,13 @@ class PairwiseAIJudge:
         if self.tokenizer.pad_token is None:
             self.tokenizer.pad_token = self.tokenizer.eos_token
 
+        # Judge quantization is configurable separately from the reward model: 4-bit
+        # quantization was found to collapse this judge's behavior (always-TIE) — see
+        # TRACKING/00_MASTER_LOG.md Error #32. Default keeps old behavior; set
+        # `quantize_judge: false` to run the judge in fp16.
+        use_quant = bool(cfg.get("quantize_judge", cfg.get("quantize_frozen_models", True)))
         kwargs = {"low_cpu_mem_usage": True}
-        if torch.cuda.is_available() and bool(cfg.get("quantize_frozen_models", True)):
+        if torch.cuda.is_available() and use_quant:
             kwargs["quantization_config"] = BitsAndBytesConfig(
                 load_in_4bit=True,
                 bnb_4bit_quant_type="nf4",
@@ -62,6 +67,8 @@ class PairwiseAIJudge:
             kwargs["dtype"] = resolve_dtype(cfg.get("dtype", "float16"))
 
         self.model = AutoModelForCausalLM.from_pretrained(cfg["ai_judge_model"], **kwargs)
+        if torch.cuda.is_available() and not use_quant:
+            self.model = self.model.cuda()
         self.model.eval()
 
     def _key(self, problem, a, b):

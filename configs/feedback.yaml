@@ -1,5 +1,8 @@
 base_config: configs/base.yaml
 results_dir: results
+# Judge runs unquantized: 4-bit quantization collapsed the judge behavior
+# (always-TIE pairwise; inverted categorical labels) — see master log Error #32.
+quantize_judge: false
 safety_max_new_tokens: 256
 math_max_new_tokens: 512
 judge_max_new_tokens: 64
