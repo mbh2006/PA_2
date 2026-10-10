@@ -33,20 +33,20 @@
   },
   "pairwise_vs_sft": {
     "rlvr": {
-      "policy_win_rate_vs_sft": 0.5066666666666667,
-      "wins": 8,
-      "ties": 288,
-      "losses": 4,
-      "verifier_judge_agreement": 1.0,
-      "num_pairs_with_verifier_disagreement": 4
+      "policy_win_rate_vs_sft": 0.5133333333333333,
+      "wins": 117,
+      "ties": 74,
+      "losses": 109,
+      "verifier_judge_agreement": 0.45454545454545453,
+      "num_pairs_with_verifier_disagreement": 11
     },
     "rlaif": {
-      "policy_win_rate_vs_sft": 0.5016666666666667,
-      "wins": 7,
-      "ties": 287,
-      "losses": 6,
-      "verifier_judge_agreement": 1.0,
-      "num_pairs_with_verifier_disagreement": 2
+      "policy_win_rate_vs_sft": 0.5366666666666666,
+      "wins": 125,
+      "ties": 72,
+      "losses": 103,
+      "verifier_judge_agreement": 0.6,
+      "num_pairs_with_verifier_disagreement": 5
     }
   }
 }
