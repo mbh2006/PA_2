@@ -1,0 +1,7 @@
+{
+  "session": "s4a-safety-gen",
+  "stage_seconds": {
+    "generate_responses": 3364.3,
+    "make_audit_sheet": 0.6
+  }
+}

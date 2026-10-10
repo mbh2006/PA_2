@@ -1,0 +1,52 @@
+{
+  "dataset": "transfer",
+  "num_examples": 100,
+  "decoding": {
+    "do_sample": false,
+    "max_new_tokens": 512
+  },
+  "policies": {
+    "sft": {
+      "policy": "sft",
+      "num_examples": 100,
+      "exact_accuracy": 0.45,
+      "format_compliance": 0.58,
+      "response_length_mean": 164.55,
+      "response_length_std": 72.00463526746039
+    },
+    "rlvr": {
+      "policy": "rlvr",
+      "num_examples": 100,
+      "exact_accuracy": 0.45,
+      "format_compliance": 0.57,
+      "response_length_mean": 164.01,
+      "response_length_std": 72.05352107981955
+    },
+    "rlaif": {
+      "policy": "rlaif",
+      "num_examples": 100,
+      "exact_accuracy": 0.45,
+      "format_compliance": 0.58,
+      "response_length_mean": 164.5,
+      "response_length_std": 72.28340058408985
+    }
+  },
+  "pairwise_vs_sft": {
+    "rlvr": {
+      "policy_win_rate_vs_sft": 0.485,
+      "wins": 9,
+      "ties": 79,
+      "losses": 12,
+      "verifier_judge_agreement": null,
+      "num_pairs_with_verifier_disagreement": 0
+    },
+    "rlaif": {
+      "policy_win_rate_vs_sft": 0.485,
+      "wins": 9,
+      "ties": 79,
+      "losses": 12,
+      "verifier_judge_agreement": 1.0,
+      "num_pairs_with_verifier_disagreement": 1
+    }
+  }
+}

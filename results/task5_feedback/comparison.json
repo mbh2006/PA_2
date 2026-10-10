@@ -1,0 +1,113 @@
+{
+  "in_domain": {
+    "sft": {
+      "exact_accuracy": 0.2733333333333333,
+      "format_compliance": 0.35,
+      "response_length_mean": 274.23,
+      "transfer_accuracy": 0.45,
+      "transfer_length_mean": 164.55,
+      "accuracy_drop": -0.1766666666666667
+    },
+    "rlvr": {
+      "exact_accuracy": 0.2966666666666667,
+      "format_compliance": 0.37333333333333335,
+      "response_length_mean": 273.7,
+      "pairwise_win_rate_vs_sft": 0.5066666666666667,
+      "verifier_judge_agreement": 1.0,
+      "transfer_accuracy": 0.45,
+      "transfer_length_mean": 164.01,
+      "accuracy_drop": -0.15333333333333332,
+      "transfer_pairwise_win_rate_vs_sft": 0.485
+    },
+    "rlaif": {
+      "exact_accuracy": 0.2966666666666667,
+      "format_compliance": 0.37666666666666665,
+      "response_length_mean": 274.49333333333334,
+      "pairwise_win_rate_vs_sft": 0.5016666666666667,
+      "verifier_judge_agreement": 1.0,
+      "transfer_accuracy": 0.45,
+      "transfer_length_mean": 164.5,
+      "accuracy_drop": -0.15333333333333332,
+      "transfer_pairwise_win_rate_vs_sft": 0.485
+    }
+  },
+  "transfer": {},
+  "diagnostics": {
+    "verifier": {
+      "reasoning_only": {
+        "n": 20,
+        "better_rate": 0.0,
+        "tie_rate": 1.0,
+        "wrong_rate": 0.0
+      },
+      "outcome_only": {
+        "n": 20,
+        "better_rate": 1.0,
+        "tie_rate": 0.0,
+        "wrong_rate": 0.0
+      },
+      "persuasive_filler": {
+        "n": 20,
+        "better_rate": 0.0,
+        "tie_rate": 1.0,
+        "wrong_rate": 0.0
+      },
+      "gold_distractor": {
+        "n": 20,
+        "better_rate": 1.0,
+        "tie_rate": 0.0,
+        "wrong_rate": 0.0
+      }
+    },
+    "judge": {
+      "reasoning_only": {
+        "n": 20,
+        "better_rate": 0.0,
+        "tie_rate": 1.0,
+        "wrong_rate": 0.0
+      },
+      "outcome_only": {
+        "n": 20,
+        "better_rate": 0.0,
+        "tie_rate": 1.0,
+        "wrong_rate": 0.0
+      },
+      "persuasive_filler": {
+        "n": 20,
+        "better_rate": 0.0,
+        "tie_rate": 0.75,
+        "wrong_rate": 0.25
+      },
+      "gold_distractor": {
+        "n": 20,
+        "better_rate": 0.25,
+        "tie_rate": 0.7,
+        "wrong_rate": 0.05
+      }
+    }
+  },
+  "sensitivities": {
+    "S_reason": {
+      "verifier": 0.0,
+      "judge": 0.0
+    },
+    "S_outcome": {
+      "verifier": 1.0,
+      "judge": 0.0
+    }
+  },
+  "feedback_source_notes": {
+    "verifier": {
+      "coverage": "exact final-answer correctness only; binary, ignores reasoning quality and style",
+      "noise": "deterministic (reproducible), but only as correct as the parser specification",
+      "exploitability": "rewards lucky final answers and ignores corrupted reasoning (S_reason is definitionally tied for same-reward responses)",
+      "cost": "negligible"
+    },
+    "ai_judge": {
+      "coverage": "pairwise quality incl. reasoning, consistency, relevance",
+      "noise": "stochastic judge preferences; inherits style/verbosity/persuasion biases",
+      "exploitability": "can be gamed by persuasive filler or confidence; cache makes repeated use deterministic",
+      "cost": "one 3B judge forward per comparison (cached)"
+    }
+  }
+}
