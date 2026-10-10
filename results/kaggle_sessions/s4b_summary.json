@@ -1,7 +1,7 @@
 {
   "session": "s4b-safety-judge",
   "stage_seconds": {
-    "judge_responses": 4409.0,
+    "judge_responses": 2247.7,
     "evaluate_safety": 0.6
   }
 }
