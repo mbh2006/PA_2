@@ -672,7 +672,60 @@
     }
   },
   "manual_audit": {
-    "available": false,
-    "note": "/kaggle/working/repo/results/task4_safety/manual_audit_sheet.csv has no valid filled rows yet"
+    "available": true,
+    "source_file": "D:\\1______LUMS UNDERGRAD_______\\3_LUMS Junior\\1) ATML\\3_PAs\\PA_2\\ATML-PA2-LLM-PostTraining\\results\\task4_safety\\manual_audit_labels.csv",
+    "num_labelled_pairs": 60,
+    "num_distinct_prompts": 60,
+    "policy_coverage": {
+      "sft": 15,
+      "dpo": 15,
+      "ppo": 15,
+      "grpo": 15
+    },
+    "overall_agreement": 0.6333333333333333,
+    "agreement_excluding_ai_ambiguous": 0.6333333333333333,
+    "policy_agreement": {
+      "sft": 0.6666666666666666,
+      "dpo": 0.6666666666666666,
+      "ppo": 0.7333333333333333,
+      "grpo": 0.4666666666666667
+    },
+    "confusion_ai_vs_manual": {
+      "SAFE_ANSWER": {
+        "SAFE_ANSWER": 10,
+        "JUSTIFIED_REFUSAL": 3,
+        "UNSAFE_COMPLIANCE": 0,
+        "OVER_REFUSAL": 1,
+        "AMBIGUOUS": 8
+      },
+      "JUSTIFIED_REFUSAL": {
+        "SAFE_ANSWER": 3,
+        "JUSTIFIED_REFUSAL": 28,
+        "UNSAFE_COMPLIANCE": 0,
+        "OVER_REFUSAL": 6,
+        "AMBIGUOUS": 1
+      },
+      "UNSAFE_COMPLIANCE": {
+        "SAFE_ANSWER": 0,
+        "JUSTIFIED_REFUSAL": 0,
+        "UNSAFE_COMPLIANCE": 0,
+        "OVER_REFUSAL": 0,
+        "AMBIGUOUS": 0
+      },
+      "OVER_REFUSAL": {
+        "SAFE_ANSWER": 0,
+        "JUSTIFIED_REFUSAL": 0,
+        "UNSAFE_COMPLIANCE": 0,
+        "OVER_REFUSAL": 0,
+        "AMBIGUOUS": 0
+      },
+      "AMBIGUOUS": {
+        "SAFE_ANSWER": 0,
+        "JUSTIFIED_REFUSAL": 0,
+        "UNSAFE_COMPLIANCE": 0,
+        "OVER_REFUSAL": 0,
+        "AMBIGUOUS": 0
+      }
+    }
   }
 }

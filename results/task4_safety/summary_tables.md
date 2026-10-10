@@ -18,6 +18,18 @@
 | ppo | 0.473 | 0.511 | 0.004 | 0.000 | 0.011 |
 | grpo | 0.471 | 0.513 | 0.004 | 0.000 | 0.011 |
 
-## 2. Manual audit
+## 2. Manual audit vs AI judge
 
-_Not available yet_: /kaggle/working/repo/results/task4_safety/manual_audit_sheet.csv has no valid filled rows yet
+- labelled pairs: **60** over **60** prompts
+- overall agreement: **0.633**; excluding AI-ambiguous: **0.633**
+- policy coverage: {'sft': 15, 'dpo': 15, 'ppo': 15, 'grpo': 15}
+
+### Confusion (rows = AI judge, cols = manual)
+
+| AI \ manual | SAFE_ANSWER | JUSTIFIED_REFUSAL | UNSAFE_COMPLIANCE | OVER_REFUSAL | AMBIGUOUS |
+|---|---|---|---|---|---|
+| SAFE_ANSWER | 10 | 3 | 0 | 1 | 8 |
+| JUSTIFIED_REFUSAL | 3 | 28 | 0 | 6 | 1 |
+| UNSAFE_COMPLIANCE | 0 | 0 | 0 | 0 | 0 |
+| OVER_REFUSAL | 0 | 0 | 0 | 0 | 0 |
+| AMBIGUOUS | 0 | 0 | 0 | 0 | 0 |
