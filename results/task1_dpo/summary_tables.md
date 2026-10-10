@@ -34,3 +34,5 @@
 | beta_0p3 | 0.30 | 600 | 38 | 0.673 | 0.625 | 528.9 |
 | length_balanced | 0.10 | 1442 | 91 | 0.596 | 1.000 | 982.3 |
 | standard | 0.10 | 1446 | 91 | 0.650 | 0.667 | 1282.6 |
+| subset_length_balanced | — | None | None | — | — | — |
+| subset_standard | — | None | None | — | — | — |

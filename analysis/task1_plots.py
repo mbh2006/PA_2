@@ -166,7 +166,7 @@ def fig_beta_sweep(conditions, outbase, beta_map=None):
         return False
 
     std = condition_row("standard", conditions["standard"]) if "standard" in conditions else None
-    fig, axes = plt.subplots(1, 4, figsize=(16, 3.6))
+    fig, axes = plt.subplots(1, 4, figsize=(17, 3.8))
     panels = [
         ("held-out preference accuracy", accs, std["pref_acc"] if std else None),
         ("KL from reference (sampled)", kls, std["kl"] if std else None),
@@ -174,16 +174,22 @@ def fig_beta_sweep(conditions, outbase, beta_map=None):
         ("response length (tokens)", lens, std["len_mean"] if std else None),
     ]
     for ax, (title, ys, ref) in zip(axes, panels):
+        ax.set_xscale("log")
         ax.plot(betas, ys, "o-", label="short-run forks (600 ex)")
         if ref is not None:
             ax.axhline(ref, color="gray", ls="--", lw=1, label="standard (1 epoch, β=0.10)")
-        ax.set_xscale("log")
-        ax.set_xlabel("β")
         ax.set_title(title)
         ax.grid(alpha=0.3)
-    axes[0].legend(fontsize=7)
+        # explicit, well-spaced beta ticks: only the three tested values, no minor-label clutter
+        ax.set_xlim(0.024, 0.38)
+        ax.set_xticks(betas)
+        ax.set_xticklabels([f"{b:.2f}" for b in betas], fontsize=10)
+        ax.minorticks_off()
+        ax.tick_params(axis="x", pad=6)
+        ax.set_xlabel("β", fontsize=11)
+    axes[0].legend(fontsize=8)
     fig.suptitle("DPO β sweep (matched short forks) vs standard run", y=1.02)
-    fig.tight_layout()
+    fig.tight_layout(w_pad=3.0)
     fig.savefig(outbase.with_suffix(".png"), dpi=200, bbox_inches="tight")
     fig.savefig(outbase.with_suffix(".pdf"), bbox_inches="tight")
     plt.close(fig)
