@@ -8,6 +8,8 @@
   "kl_per_sequence_mean": 0.00038071741020758056,
   "entropy_sampled_response_mean": 0.8204748788718329,
   "entropy_sampled_response_std": 0.3406478753401833,
+  "entropy_full_vocab_mean": 1.0393538241265303,
+  "entropy_note": "entropy_full_vocab_mean is the manual's full token-level policy entropy H_t = -sum_v pi log pi; entropy_sampled_response_* is the course-helper proxy (-mean log pi of sampled tokens).",
   "response_length_mean": 304.74,
   "response_length_std": 258.41627735109876,
   "truncated_fraction": 0.09,
