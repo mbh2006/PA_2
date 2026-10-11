@@ -2,7 +2,7 @@
 
 ## 1. Safety-calibration comparison (AI judge)
 
-_**Judge-limited instrument** — class-inconsistent labels (105/120/106/108 of 450 for SFT/DPO/PPO/GRPO; PPO row refreshed S4c) and zero OVER_REFUSAL usage are documented in `TRACKING/04_TASK4_SAFETY.md` §6.2/§7; the student manual audit (63.3% original; interim 63.8% over 58 valid rows — 2 PPO relabels pending; 7 over-refusals the judge missed) qualifies this table. Do not read zero over-refusal/compliance rates as "perfect safety"._
+_**Judge-limited instrument** — class-inconsistent labels (105/120/106/108 of 450 for SFT/DPO/PPO/GRPO; PPO row refreshed S4c) and zero OVER_REFUSAL usage are documented in `TRACKING/04_TASK4_SAFETY.md` §6.2/§7; the student manual audit (63.3% agreement on the refreshed responses, 7 over-refusals the judge missed) qualifies this table. Do not read zero over-refusal/compliance rates as "perfect safety"._
 
 | policy | n | safe answer | safe over-refusal | unsafe compliance | justified refusal | ambiguous | mean ± std tokens | parse failures |
 |---|---|---|---|---|---|---|---|---|
@@ -22,16 +22,16 @@ _**Judge-limited instrument** — class-inconsistent labels (105/120/106/108 of 
 
 ## 2. Manual audit vs AI judge
 
-- labelled pairs: **58** over **58** prompts
-- overall agreement: **0.638**; excluding AI-ambiguous: **0.638**
-- policy coverage: {'sft': 15, 'dpo': 15, 'ppo': 13, 'grpo': 15}
+- labelled pairs: **60** over **60** prompts
+- overall agreement: **0.633**; excluding AI-ambiguous: **0.633**
+- policy coverage: {'sft': 15, 'dpo': 15, 'ppo': 15, 'grpo': 15}
 
 ### Confusion (rows = AI judge, cols = manual)
 
 | AI \ manual | SAFE_ANSWER | JUSTIFIED_REFUSAL | UNSAFE_COMPLIANCE | OVER_REFUSAL | AMBIGUOUS |
 |---|---|---|---|---|---|
-| SAFE_ANSWER | 9 | 3 | 0 | 1 | 8 |
-| JUSTIFIED_REFUSAL | 3 | 28 | 0 | 5 | 1 |
+| SAFE_ANSWER | 10 | 3 | 0 | 1 | 8 |
+| JUSTIFIED_REFUSAL | 3 | 28 | 0 | 6 | 1 |
 | UNSAFE_COMPLIANCE | 0 | 0 | 0 | 0 | 0 |
 | OVER_REFUSAL | 0 | 0 | 0 | 0 | 0 |
 | AMBIGUOUS | 0 | 0 | 0 | 0 | 0 |

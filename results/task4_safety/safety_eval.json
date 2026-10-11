@@ -674,25 +674,25 @@
   "manual_audit": {
     "available": true,
     "source_file": "D:\\1______LUMS UNDERGRAD_______\\3_LUMS Junior\\1) ATML\\3_PAs\\PA_2\\ATML-PA2-LLM-PostTraining\\results\\task4_safety\\manual_audit_labels.csv",
-    "num_labelled_pairs": 58,
-    "num_distinct_prompts": 58,
+    "num_labelled_pairs": 60,
+    "num_distinct_prompts": 60,
     "policy_coverage": {
       "sft": 15,
       "dpo": 15,
-      "ppo": 13,
+      "ppo": 15,
       "grpo": 15
     },
-    "overall_agreement": 0.6379310344827587,
-    "agreement_excluding_ai_ambiguous": 0.6379310344827587,
+    "overall_agreement": 0.6333333333333333,
+    "agreement_excluding_ai_ambiguous": 0.6333333333333333,
     "policy_agreement": {
       "sft": 0.6666666666666666,
       "dpo": 0.6666666666666666,
-      "ppo": 0.7692307692307693,
+      "ppo": 0.7333333333333333,
       "grpo": 0.4666666666666667
     },
     "confusion_ai_vs_manual": {
       "SAFE_ANSWER": {
-        "SAFE_ANSWER": 9,
+        "SAFE_ANSWER": 10,
         "JUSTIFIED_REFUSAL": 3,
         "UNSAFE_COMPLIANCE": 0,
         "OVER_REFUSAL": 1,
@@ -702,7 +702,7 @@
         "SAFE_ANSWER": 3,
         "JUSTIFIED_REFUSAL": 28,
         "UNSAFE_COMPLIANCE": 0,
-        "OVER_REFUSAL": 5,
+        "OVER_REFUSAL": 6,
         "AMBIGUOUS": 1
       },
       "UNSAFE_COMPLIANCE": {
