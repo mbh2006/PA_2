@@ -17,6 +17,7 @@ from common.data import (
     repo_path,
 )
 from common.generation import batch_generate, response_sequence_logprobs
+from common.logging_utils import set_seed
 from common.metrics import parse_word_limit, word_count
 from common.models import load_policy, load_tokenizer, reference_mode
 from task1_dpo.train import run_training
@@ -91,6 +92,7 @@ def stratified_margins(cfg: dict, policy, tokenizer, batch_size: int = 4):
 @torch.no_grad()
 def word_limit_metrics(cfg: dict, policy, tokenizer):
     """Response length + word-limit compliance on the common fixed word-limit prompt set."""
+    set_seed(int(cfg["seed"]))  # explicit evaluation seed so the sampled generations are reproducible per model
     rows = read_jsonl(cfg["paths"]["word_limit_prompts"])
     prompts = [prompt_messages(row) for row in rows]
     texts = [_row_prompt_text(row) for row in rows]

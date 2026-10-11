@@ -92,6 +92,8 @@ def tables_markdown(conditions: dict, length_payloads: dict, train_summaries: di
 
     lines.append("## 1. Standard + short-run β conditions (budgets differ: standard = 1 epoch, forks = 600 examples)")
     lines.append("")
+    lines.append("_Compliance exception (disclosed): subsets are the supplied fixed files **minus prompts whose chat-templated prompt exceeds the released 768-token budget** (standard: 54 dropped → 1,446 used; length-balanced: 58 dropped → 1,442; retained strata 478/482/482; eval drops 10/300 pairs). The released starter encoder mandates filtering; no feasible max_length covers prompts up to 3,563 tokens. All conditions are filtered by the identical rule._")
+    lines.append("")
     lines.append("| condition | β | budget | held-out DPO loss | pref. acc | KL (sampled) | RM score | len mean ± std |")
     lines.append("|---|---|---|---|---|---|---|---|")
     order = ["standard"] + [f"beta_{b}" for b in ["0p03", "0p1", "0p3"]]

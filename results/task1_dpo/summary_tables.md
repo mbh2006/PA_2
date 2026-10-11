@@ -2,6 +2,8 @@
 
 ## 1. Standard + short-run β conditions (budgets differ: standard = 1 epoch, forks = 600 examples)
 
+_Compliance exception (disclosed): subsets are the supplied fixed files **minus prompts whose chat-templated prompt exceeds the released 768-token budget** (standard: 54 dropped → 1,446 used; length-balanced: 58 dropped → 1,442; retained strata 478/482/482; eval drops 10/300 pairs). The released starter encoder mandates filtering; no feasible max_length covers prompts up to 3,563 tokens. All conditions are filtered by the identical rule._
+
 | condition | β | budget | held-out DPO loss | pref. acc | KL (sampled) | RM score | len mean ± std |
 |---|---|---|---|---|---|---|---|
 | standard | 0.10 | 1 epoch (1446 ex) | 0.673 | 0.638 | -0.00004 | 0.952 | 174.6 ± 100.7 |
