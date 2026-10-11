@@ -6,10 +6,10 @@ _Compliance exception (disclosed): subsets are the supplied fixed files **minus 
 
 | condition | β | budget | held-out DPO loss | pref. acc | KL (sampled) | RM score | len mean ± std |
 |---|---|---|---|---|---|---|---|
-| standard | 0.10 | 1 epoch (1446 ex) | 0.673 | 0.638 | -0.00004 | 0.952 | 174.6 ± 100.7 |
-| beta_0p03 | 0.03 | 600 ex (short) | 0.691 | 0.634 | -0.00007 | 0.932 | 174.8 ± 102.3 |
-| beta_0p1 | 0.10 | 600 ex (short) | 0.686 | 0.641 | -0.00009 | 0.893 | 173.1 ± 98.4 |
-| beta_0p3 | 0.30 | 600 ex (short) | 0.677 | 0.628 | -0.00011 | 0.928 | 173.4 ± 102.0 |
+| standard | 0.10 | 1 epoch (1446 ex) | 0.673 | 0.638 | 0.00017 | 0.981 | 176.6 ± 95.4 |
+| beta_0p03 | 0.03 | 600 ex (short) | 0.691 | 0.634 | -0.00011 | 1.004 | 171.9 ± 100.0 |
+| beta_0p1 | 0.10 | 600 ex (short) | 0.686 | 0.641 | -0.00004 | 0.943 | 171.8 ± 100.1 |
+| beta_0p3 | 0.30 | 600 ex (short) | 0.677 | 0.628 | -0.00008 | 0.924 | 171.8 ± 99.4 |
 
 ## 2. Length-confounding study (standard vs length-balanced, per stratum)
 
@@ -26,8 +26,8 @@ _Training strata after overlong-prompt filtering: preferred_longer 478 / length_
 
 | condition | compliance rate | response tokens (mean ± std) |
 |---|---|---|
-| standard | 1.000 | 45.5 ± 22.8 |
-| length_balanced | 1.000 | 47.0 ± 18.9 |
+| standard | 1.000 | 49.6 ± 22.3 |
+| length_balanced | 1.000 | 48.8 ± 23.0 |
 
 ## 4. Training runs (from train_*.json)
 

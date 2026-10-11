@@ -3,10 +3,10 @@
 | task | condition | reward signal | held-out reward (RM) | KL | length | extra | compute |
 |---|---|---|---|---|---|---|---|
 | T1 | T1 SFT baseline | fixed preference pairs (DPO) | 0.927 | 0.00000 | 169.7 | pref-acc 0.000 |  |
-| T1 | T1 DPO standard | fixed preference pairs (DPO) | 0.952 | -0.00004 | 174.6 | pref-acc 0.638 | 1283 s, 91 steps |
-| T1 | T1 DPO β=0.03 | fixed preference pairs (DPO) | 0.932 | -0.00007 | 174.8 | pref-acc 0.634 | 527 s, 38 steps |
-| T1 | T1 DPO β=0.10 | fixed preference pairs (DPO) | 0.893 | -0.00009 | 173.1 | pref-acc 0.641 | 529 s, 38 steps |
-| T1 | T1 DPO β=0.30 | fixed preference pairs (DPO) | 0.928 | -0.00011 | 173.4 | pref-acc 0.628 | 529 s, 38 steps |
+| T1 | T1 DPO standard | fixed preference pairs (DPO) | 0.981 | 0.00017 | 176.6 | pref-acc 0.638 | 1283 s, 91 steps |
+| T1 | T1 DPO β=0.03 | fixed preference pairs (DPO) | 1.004 | -0.00011 | 171.9 | pref-acc 0.634 | 527 s, 38 steps |
+| T1 | T1 DPO β=0.10 | fixed preference pairs (DPO) | 0.943 | -0.00004 | 171.8 | pref-acc 0.641 | 529 s, 38 steps |
+| T1 | T1 DPO β=0.30 | fixed preference pairs (DPO) | 0.924 | -0.00008 | 171.8 | pref-acc 0.628 | 529 s, 38 steps |
 | T2 | T2 PPO midpoint | learned reward + value critic (PPO) | 1.600 | 0.00002 | 278.2 |  |  |
 | T2 | T2 PPO standard (20 upd) | learned reward + value critic (PPO) | 1.569 | 0.00003 | 305.1 |  | 334 s, 20 upd, peak 8.18 GiB |
 | T2 | T2 PPO ε=0.20 fork (8 upd) | learned reward + value critic (PPO) | 1.558 | 0.00001 | 312.7 | ε sweep: identical to other ε |  |

@@ -18,12 +18,12 @@
   },
   "generation": {
     "num_prompts_generated": 100,
-    "kl_sampled_response_estimator": -9.015812948927374e-05,
-    "kl_per_sequence_mean": 0.0004485250008292496,
-    "reward_model_score_mean": 0.89283935546875,
-    "response_length_mean": 173.05,
-    "response_length_std": 98.40816785206398,
-    "truncated_fraction": 0.5
+    "kl_sampled_response_estimator": -4.431556984001599e-05,
+    "kl_per_sequence_mean": 0.0003355531314809923,
+    "reward_model_score_mean": 0.9425045776367188,
+    "response_length_mean": 171.8,
+    "response_length_std": 100.11373532138334,
+    "truncated_fraction": 0.49
   },
   "per_pair": [
     {
@@ -2056,6 +2056,5 @@
       "policy_margin": 57.4017333984375,
       "ref_margin": 57.962799072265625
     }
-  ],
-  "beta_note": "corrected from adapter run_meta.json (original evaluate wrote config default)"
+  ]
 }
