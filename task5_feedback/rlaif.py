@@ -44,6 +44,17 @@ class PairwiseAIJudge:
         else:
             self.cache = {}
 
+        # Sidecar with raw judge outputs so genuine ties can be distinguished from
+        # unparseable (TIE fallback) and multi-token (menu-echo) outputs. Scoring is
+        # unchanged: unparseable output still scores as TIE per the released convention.
+        self.raw_path = self.cache_path.parent / "judge_cache_raw.json"
+        if self.raw_path.exists():
+            self.raw = json.loads(self.raw_path.read_text(encoding="utf-8"))
+        else:
+            self.raw = {}
+        self.parse_failures = 0
+        self.multi_token_outputs = 0
+
         self.tokenizer = AutoTokenizer.from_pretrained(
             cfg["ai_judge_model"], padding_side="left", use_fast=True
         )
@@ -110,14 +121,27 @@ class PairwiseAIJudge:
             eos_token_id=self.tokenizer.eos_token_id,
         )
         decoded = self.tokenizer.decode(out[0, ids.shape[1]:], skip_special_tokens=True).strip().upper()
-        m = re.search(r"\b(A|B|TIE)\b", decoded)
-        result = m.group(1) if m else "TIE"
+        matches = re.findall(r"\b(A|B|TIE)\b", decoded)
+        parse_failure = len(matches) == 0
+        multi_token = len(set(matches)) > 1
+        result = matches[0] if matches else "TIE"
         if swap:
             result = {"A": "B", "B": "A", "TIE": "TIE"}[result]
 
         self.cache[key] = result
+        self.raw[key] = {
+            "raw": decoded,
+            "result": result,
+            "parse_failure": bool(parse_failure),
+            "multi_token_output": bool(multi_token),
+        }
+        if parse_failure:
+            self.parse_failures += 1
+        if multi_token:
+            self.multi_token_outputs += 1
         self.cache_path.parent.mkdir(parents=True, exist_ok=True)
         self.cache_path.write_text(json.dumps(self.cache, indent=2), encoding="utf-8")
+        self.raw_path.write_text(json.dumps(self.raw, indent=2), encoding="utf-8")
         return result
 
     def group_rewards(self, problem: str, responses: list[str]):

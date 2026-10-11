@@ -69,7 +69,7 @@ def generate_policy_responses(cfg, tokenizer, name, adapter, rows, batch_size=4)
     return records
 
 
-def run_math_eval(config_path: str, dataset: str, max_prompts: int | None = None, batch_size: int = 4):
+def run_math_eval(config_path: str, dataset: str, max_prompts: int | None = None, batch_size: int = 4, judge_only: bool = False):
     cfg = load_yaml(config_path)
     rows = read_jsonl(dataset_path(cfg, dataset))
     if max_prompts is not None:
@@ -80,8 +80,16 @@ def run_math_eval(config_path: str, dataset: str, max_prompts: int | None = None
 
     per_policy = {}
     for name, adapter in policy_specs(cfg).items():
-        print(f"=== generating {name} ({len(rows)} prompts) ===", flush=True)
-        records = generate_policy_responses(cfg, tokenizer, name, adapter, rows, batch_size=batch_size)
+        if judge_only:
+            # evaluation-only path: reuse saved generations (identical deterministic outputs)
+            gen_path = results_dir / f"generations_{dataset}_{name}.jsonl"
+            records = read_jsonl(gen_path)
+            print(f"=== judge-only: reusing {len(records)} saved {name} generations from {gen_path.name} ===", flush=True)
+        else:
+            print(f"=== generating {name} ({len(rows)} prompts) ===", flush=True)
+            records = generate_policy_responses(cfg, tokenizer, name, adapter, rows, batch_size=batch_size)
+        if len(records) != len(rows):
+            raise SystemExit(f"generation records ({len(records)}) do not match rows ({len(rows)}) for {name}")
         acc = statistics.fmean(r["exact_reward"] for r in records)
         fmt = statistics.fmean(1.0 if r["format_compliant"] else 0.0 for r in records)
         lengths = [r["response_tokens"] for r in records]
@@ -96,9 +104,10 @@ def run_math_eval(config_path: str, dataset: str, max_prompts: int | None = None
                 "response_length_std": statistics.pstdev(lengths) if len(lengths) > 1 else 0.0,
             },
         }
-        with (results_dir / f"generations_{dataset}_{name}.jsonl").open("w", encoding="utf-8") as f:
-            for r in records:
-                f.write(json.dumps(r, ensure_ascii=False) + "\n")
+        if not judge_only:
+            with (results_dir / f"generations_{dataset}_{name}.jsonl").open("w", encoding="utf-8") as f:
+                for r in records:
+                    f.write(json.dumps(r, ensure_ascii=False) + "\n")
 
     judge = PairwiseAIJudge(cfg, results_dir / "judge_cache.json")
     pairwise = {}
@@ -135,6 +144,9 @@ def run_math_eval(config_path: str, dataset: str, max_prompts: int | None = None
     result = {
         "dataset": dataset,
         "num_examples": len(rows),
+        "judge_only_rerun": bool(judge_only),
+        "judge_parse_failures": int(getattr(judge, "parse_failures", 0)),
+        "judge_multi_token_outputs": int(getattr(judge, "multi_token_outputs", 0)),
         "decoding": {"do_sample": False, "max_new_tokens": int(cfg["math_max_new_tokens"])},
         "policies": {k: v["summary"] for k, v in per_policy.items()},
         "pairwise_vs_sft": pairwise,
@@ -150,8 +162,9 @@ def main():
     ap.add_argument("--dataset", choices=["gsm", "transfer"], default="gsm")
     ap.add_argument("--max-prompts", type=int, default=None)
     ap.add_argument("--batch-size", type=int, default=4)
+    ap.add_argument("--judge-only", action="store_true", help="reuse saved generations; re-run only the pairwise judge")
     args = ap.parse_args()
-    run_math_eval(args.config, args.dataset, args.max_prompts, args.batch_size)
+    run_math_eval(args.config, args.dataset, args.max_prompts, args.batch_size, judge_only=args.judge_only)
 
 
 if __name__ == "__main__":
