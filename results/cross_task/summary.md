@@ -28,6 +28,7 @@
 
 Notes:
 - Reward-scale caveat: T1/T2/T3 all use the same course reward model on 100 generated prompts — comparable within tasks; cross-task comparisons of RM means are indicative only (different prompt pools: DPO eval pairs vs RL prompt pool).
+- **Response-length caps differ by task (T1/T4: 256 tokens; T2: 768; T3/T5: 512) and lengths are censored at those caps** — never compare lengths across tasks without citing this; within-task comparisons use one fixed cap.
 - T2 ε evidence is the cached-batch geometry (clip fractions 11.0%/0.29%/0.01% at ε=0.05/0.2/0.5, salvage batch); on-policy ε forks are identical (clip never activates).
 - Paired statistics (vs task baselines, n=100) live in the per-task tracking docs (§7) and generation files.
 - T5 diagnostic columns are mechanism-level rates, not RM scores.
