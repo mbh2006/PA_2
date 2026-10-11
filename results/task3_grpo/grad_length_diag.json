@@ -1,0 +1,762 @@
+{
+  "norm_grpo": {
+    "stats": {
+      "tag": "norm_grpo",
+      "n": 32,
+      "n_nontruncated": 26,
+      "tokens_mean_all": 278.96875,
+      "grad_norm_mean_all": 105.43028056594643,
+      "pearson_logT_logG": 0.48625556567968875,
+      "loglog_slope_alpha": 0.12023983528942982,
+      "loglog_intercept": 3.99574138449407,
+      "pearson_T_canonical_contrib": -0.86086364206331,
+      "pearson_T_dr_contrib": 0.4445446838051302,
+      "pearson_T_adv_canonical_contrib": -0.7437062820273481,
+      "pearson_T_adv_dr_contrib": 0.16594119381063221,
+      "quartile_bins": [
+        {
+          "bin": 1,
+          "n": 6,
+          "tokens_mean": 36.0,
+          "grad_norm_mean": 81.57015501587217,
+          "canonical_contrib_mean": 2.271692274237314,
+          "dr_contrib_mean": 81.57015501587217,
+          "adv_weighted_canonical_mean": 1.8096516330149355,
+          "adv_weighted_dr_mean": 67.80057545322248
+        },
+        {
+          "bin": 2,
+          "n": 7,
+          "tokens_mean": 109.42857142857143,
+          "grad_norm_mean": 99.3114936985914,
+          "canonical_contrib_mean": 1.2344801368659817,
+          "dr_contrib_mean": 99.3114936985914,
+          "adv_weighted_canonical_mean": 1.1118284400689866,
+          "adv_weighted_dr_mean": 100.29826066028637
+        },
+        {
+          "bin": 3,
+          "n": 7,
+          "tokens_mean": 302.7142857142857,
+          "grad_norm_mean": 106.56409941831953,
+          "canonical_contrib_mean": 0.3561593631566455,
+          "dr_contrib_mean": 106.56409941831953,
+          "adv_weighted_canonical_mean": 0.24271219479862866,
+          "adv_weighted_dr_mean": 74.66386781007542
+        },
+        {
+          "bin": 4,
+          "n": 6,
+          "tokens_mean": 459.0,
+          "grad_norm_mean": 122.12338926173656,
+          "canonical_contrib_mean": 0.26763538802658005,
+          "dr_contrib_mean": 122.12338926173656,
+          "adv_weighted_canonical_mean": 0.21852871445192254,
+          "adv_weighted_dr_mean": 100.84018466682632
+        }
+      ]
+    },
+    "completions": [
+      {
+        "update": 1,
+        "k": 0,
+        "tokens": 450,
+        "truncated": false,
+        "reward": 1.7431640625,
+        "advantage": -0.17700470863720993,
+        "grad_norm": 124.00315211148275,
+        "adv_weighted_grad": 21.949141809588628
+      },
+      {
+        "update": 1,
+        "k": 1,
+        "tokens": 512,
+        "truncated": true,
+        "reward": 1.1357421875,
+        "advantage": -1.460933907148517,
+        "grad_norm": 118.92893146563226,
+        "adv_weighted_grad": 173.74730851908436
+      },
+      {
+        "update": 1,
+        "k": 2,
+        "tokens": 392,
+        "truncated": false,
+        "reward": 2.44921875,
+        "advantage": 1.315408170018216,
+        "grad_norm": 134.3580947812986,
+        "adv_weighted_grad": 176.73573558340203
+      },
+      {
+        "update": 1,
+        "k": 3,
+        "tokens": 512,
+        "truncated": true,
+        "reward": 1.9794921875,
+        "advantage": 0.32253044576751083,
+        "grad_norm": 123.53998630912089,
+        "adv_weighted_grad": 39.84540685439295
+      },
+      {
+        "update": 2,
+        "k": 0,
+        "tokens": 458,
+        "truncated": false,
+        "reward": 2.9296875,
+        "advantage": 0.7131307836239317,
+        "grad_norm": 144.84149638950913,
+        "adv_weighted_grad": 103.29092982151352
+      },
+      {
+        "update": 2,
+        "k": 1,
+        "tokens": 204,
+        "truncated": false,
+        "reward": 2.33203125,
+        "advantage": -1.4800151439029336,
+        "grad_norm": 74.67242611403717,
+        "adv_weighted_grad": 110.51632148074789
+      },
+      {
+        "update": 2,
+        "k": 2,
+        "tokens": 266,
+        "truncated": false,
+        "reward": 2.646484375,
+        "advantage": -0.32610503170742605,
+        "grad_norm": 91.15606152665652,
+        "adv_weighted_grad": 29.726450334474404
+      },
+      {
+        "update": 2,
+        "k": 3,
+        "tokens": 433,
+        "truncated": false,
+        "reward": 3.033203125,
+        "advantage": 1.092989391986428,
+        "grad_norm": 163.90964211937856,
+        "adv_weighted_grad": 179.15150008077256
+      },
+      {
+        "update": 3,
+        "k": 0,
+        "tokens": 36,
+        "truncated": false,
+        "reward": -2.337890625,
+        "advantage": -1.0466788320981644,
+        "grad_norm": 73.58467408616447,
+        "adv_weighted_grad": 77.01952073283069
+      },
+      {
+        "update": 3,
+        "k": 1,
+        "tokens": 38,
+        "truncated": false,
+        "reward": -1.8759765625,
+        "advantage": -0.8054783387721722,
+        "grad_norm": 71.88932948232612,
+        "adv_weighted_grad": 57.90529768686939
+      },
+      {
+        "update": 3,
+        "k": 2,
+        "tokens": 56,
+        "truncated": false,
+        "reward": 0.444580078125,
+        "advantage": 0.40626092606057373,
+        "grad_norm": 68.56144803615597,
+        "adv_weighted_grad": 27.853837371222628
+      },
+      {
+        "update": 3,
+        "k": 3,
+        "tokens": 218,
+        "truncated": false,
+        "reward": 2.435546875,
+        "advantage": 1.445896244809763,
+        "grad_norm": 76.38849958336496,
+        "adv_weighted_grad": 110.44984469423954
+      },
+      {
+        "update": 4,
+        "k": 0,
+        "tokens": 72,
+        "truncated": false,
+        "reward": 2.564453125,
+        "advantage": 1.698700123748962,
+        "grad_norm": 94.25528856624774,
+        "adv_weighted_grad": 160.11147035147917
+      },
+      {
+        "update": 4,
+        "k": 1,
+        "tokens": 32,
+        "truncated": false,
+        "reward": 1.3037109375,
+        "advantage": -0.8828441490702374,
+        "grad_norm": 82.73405299087148,
+        "adv_weighted_grad": 73.04127461185786
+      },
+      {
+        "update": 4,
+        "k": 2,
+        "tokens": 30,
+        "truncated": false,
+        "reward": 1.51953125,
+        "advantage": -0.44092216278592833,
+        "grad_norm": 69.64560157715634,
+        "adv_weighted_grad": 30.708289275926834
+      },
+      {
+        "update": 4,
+        "k": 3,
+        "tokens": 34,
+        "truncated": false,
+        "reward": 1.5517578125,
+        "advantage": -0.37493381189279623,
+        "grad_norm": 81.17750932172811,
+        "adv_weighted_grad": 30.43619300995852
+      },
+      {
+        "update": 5,
+        "k": 0,
+        "tokens": 498,
+        "truncated": false,
+        "reward": 2.8125,
+        "advantage": 1.3204791293166152,
+        "grad_norm": 111.35661290395569,
+        "adv_weighted_grad": 147.04408325106277
+      },
+      {
+        "update": 5,
+        "k": 1,
+        "tokens": 512,
+        "truncated": true,
+        "reward": -0.607421875,
+        "advantage": -1.0376636095241734,
+        "grad_norm": 117.93686166033619,
+        "adv_weighted_grad": 122.37878956641755
+      },
+      {
+        "update": 5,
+        "k": 2,
+        "tokens": 512,
+        "truncated": true,
+        "reward": -0.40234375,
+        "advantage": -0.8962558496279525,
+        "grad_norm": 112.05553191847434,
+        "adv_weighted_grad": 100.43042596510436
+      },
+      {
+        "update": 5,
+        "k": 3,
+        "tokens": 512,
+        "truncated": true,
+        "reward": 1.787109375,
+        "advantage": 0.6134403298355107,
+        "grad_norm": 128.63287090093777,
+        "adv_weighted_grad": 78.90859075315993
+      },
+      {
+        "update": 6,
+        "k": 0,
+        "tokens": 271,
+        "truncated": false,
+        "reward": 2.634765625,
+        "advantage": 0.00827744130312987,
+        "grad_norm": 112.36733926787254,
+        "adv_weighted_grad": 0.930114055178695
+      },
+      {
+        "update": 6,
+        "k": 1,
+        "tokens": 242,
+        "truncated": false,
+        "reward": 2.353515625,
+        "advantage": -1.1836741063475713,
+        "grad_norm": 86.42094574181809,
+        "adv_weighted_grad": 102.29423572065848
+      },
+      {
+        "update": 6,
+        "k": 2,
+        "tokens": 307,
+        "truncated": false,
+        "reward": 3.001953125,
+        "advantage": 1.5644364062915452,
+        "grad_norm": 108.03499383432559,
+        "adv_weighted_grad": 169.01387750790158
+      },
+      {
+        "update": 6,
+        "k": 3,
+        "tokens": 273,
+        "truncated": false,
+        "reward": 2.541015625,
+        "advantage": -0.3890397412471039,
+        "grad_norm": 109.50730971092898,
+        "adv_weighted_grad": 42.602695434606275
+      },
+      {
+        "update": 7,
+        "k": 0,
+        "tokens": 46,
+        "truncated": false,
+        "reward": -2.2890625,
+        "advantage": -1.2473337573402579,
+        "grad_norm": 110.38976263698652,
+        "adv_weighted_grad": 137.6928774018916
+      },
+      {
+        "update": 7,
+        "k": 1,
+        "tokens": 63,
+        "truncated": false,
+        "reward": -1.8056640625,
+        "advantage": 0.5462180505999822,
+        "grad_norm": 119.75731680817745,
+        "adv_weighted_grad": 65.41360813204717
+      },
+      {
+        "update": 7,
+        "k": 2,
+        "tokens": 72,
+        "truncated": false,
+        "reward": -2.12109375,
+        "advantage": -0.6241197957933461,
+        "grad_norm": 169.53921816868112,
+        "adv_weighted_grad": 105.81278222240081
+      },
+      {
+        "update": 7,
+        "k": 3,
+        "tokens": 81,
+        "truncated": false,
+        "reward": -1.595703125,
+        "advantage": 1.3252355025336218,
+        "grad_norm": 92.00625861347535,
+        "adv_weighted_grad": 121.92996036986737
+      },
+      {
+        "update": 8,
+        "k": 0,
+        "tokens": 368,
+        "truncated": false,
+        "reward": 0.373046875,
+        "advantage": -0.012909846557725013,
+        "grad_norm": 104.10395106533645,
+        "adv_weighted_grad": 1.3439660343064068
+      },
+      {
+        "update": 8,
+        "k": 1,
+        "tokens": 478,
+        "truncated": false,
+        "reward": 1.548828125,
+        "advantage": 1.1943488140637053,
+        "grad_norm": 100.85730851633858,
+        "adv_weighted_grad": 120.45880681614622
+      },
+      {
+        "update": 8,
+        "k": 2,
+        "tokens": 437,
+        "truncated": false,
+        "reward": 0.75341796875,
+        "advantage": 0.37764434639248023,
+        "grad_norm": 87.77212352975458,
+        "adv_weighted_grad": 33.14664622187421
+      },
+      {
+        "update": 8,
+        "k": 3,
+        "tokens": 512,
+        "truncated": true,
+        "reward": -1.1328125,
+        "advantage": -1.5590833138984606,
+        "grad_norm": 109.38437837175576,
+        "adv_weighted_grad": 170.53935912056005
+      }
+    ]
+  },
+  "norm_dr_grpo": {
+    "stats": {
+      "tag": "norm_dr_grpo",
+      "n": 32,
+      "n_nontruncated": 25,
+      "tokens_mean_all": 315.125,
+      "grad_norm_mean_all": 116.26283290541969,
+      "pearson_logT_logG": 0.2736089949019276,
+      "loglog_slope_alpha": 0.08786169514580101,
+      "loglog_intercept": 4.277841339273118,
+      "pearson_T_canonical_contrib": -0.8482726117652227,
+      "pearson_T_dr_contrib": 0.20442038306960042,
+      "pearson_T_adv_canonical_contrib": -0.6328326780956237,
+      "pearson_T_adv_dr_contrib": -0.04484381795546467,
+      "quartile_bins": [
+        {
+          "bin": 1,
+          "n": 6,
+          "tokens_mean": 43.166666666666664,
+          "grad_norm_mean": 102.91178043443769,
+          "canonical_contrib_mean": 2.38695312426014,
+          "dr_contrib_mean": 102.91178043443769,
+          "adv_weighted_canonical_mean": 2.0628425762388845,
+          "adv_weighted_dr_mean": 87.64446809945616
+        },
+        {
+          "bin": 2,
+          "n": 6,
+          "tokens_mean": 158.66666666666666,
+          "grad_norm_mean": 124.28541502793195,
+          "canonical_contrib_mean": 0.9478283830120605,
+          "dr_contrib_mean": 124.28541502793195,
+          "adv_weighted_canonical_mean": 0.8600900626087461,
+          "adv_weighted_dr_mean": 132.25679779708472
+        },
+        {
+          "bin": 3,
+          "n": 7,
+          "tokens_mean": 361.42857142857144,
+          "grad_norm_mean": 111.10401630977266,
+          "canonical_contrib_mean": 0.3239284718158167,
+          "dr_contrib_mean": 111.10401630977266,
+          "adv_weighted_canonical_mean": 0.30038375800982686,
+          "adv_weighted_dr_mean": 99.01000606103572
+        },
+        {
+          "bin": 4,
+          "n": 6,
+          "tokens_mean": 459.8333333333333,
+          "grad_norm_mean": 141.01149602330977,
+          "canonical_contrib_mean": 0.3081652716192553,
+          "dr_contrib_mean": 141.01149602330977,
+          "adv_weighted_canonical_mean": 0.19265512180213565,
+          "adv_weighted_dr_mean": 90.90865680228502
+        }
+      ]
+    },
+    "completions": [
+      {
+        "update": 1,
+        "k": 0,
+        "tokens": 450,
+        "truncated": false,
+        "reward": 1.7431640625,
+        "advantage": -0.17700470863720993,
+        "grad_norm": 124.4821503723437,
+        "adv_weighted_grad": 22.03392675719005
+      },
+      {
+        "update": 1,
+        "k": 1,
+        "tokens": 512,
+        "truncated": true,
+        "reward": 1.1357421875,
+        "advantage": -1.460933907148517,
+        "grad_norm": 118.95445104944248,
+        "adv_weighted_grad": 173.78459094436903
+      },
+      {
+        "update": 1,
+        "k": 2,
+        "tokens": 392,
+        "truncated": false,
+        "reward": 2.44921875,
+        "advantage": 1.315408170018216,
+        "grad_norm": 136.3399467879935,
+        "adv_weighted_grad": 179.3426799047755
+      },
+      {
+        "update": 1,
+        "k": 3,
+        "tokens": 512,
+        "truncated": true,
+        "reward": 1.9794921875,
+        "advantage": 0.32253044576751083,
+        "grad_norm": 123.39430581239864,
+        "adv_weighted_grad": 39.798420458845484
+      },
+      {
+        "update": 2,
+        "k": 0,
+        "tokens": 492,
+        "truncated": false,
+        "reward": 3.236328125,
+        "advantage": 1.4045389212993937,
+        "grad_norm": 146.56222252204884,
+        "adv_weighted_grad": 205.85234592436018
+      },
+      {
+        "update": 2,
+        "k": 1,
+        "tokens": 204,
+        "truncated": false,
+        "reward": 2.42578125,
+        "advantage": -1.1051861695046898,
+        "grad_norm": 75.63668684508774,
+        "adv_weighted_grad": 83.59262020834828
+      },
+      {
+        "update": 2,
+        "k": 2,
+        "tokens": 266,
+        "truncated": false,
+        "reward": 2.53515625,
+        "advantage": -0.7665244705046207,
+        "grad_norm": 91.36550993698559,
+        "adv_weighted_grad": 70.03389912683254
+      },
+      {
+        "update": 2,
+        "k": 3,
+        "tokens": 451,
+        "truncated": false,
+        "reward": 2.93359375,
+        "advantage": 0.4671717187099168,
+        "grad_norm": 212.9609171026106,
+        "adv_weighted_grad": 99.48931766086672
+      },
+      {
+        "update": 3,
+        "k": 0,
+        "tokens": 420,
+        "truncated": false,
+        "reward": 2.736328125,
+        "advantage": 0.5447891194291743,
+        "grad_norm": 124.97728989812914,
+        "adv_weighted_grad": 68.08626771224641
+      },
+      {
+        "update": 3,
+        "k": 1,
+        "tokens": 466,
+        "truncated": false,
+        "reward": 3.232421875,
+        "advantage": 0.7672592743086121,
+        "grad_norm": 135.68655359068907,
+        "adv_weighted_grad": 104.1067666414287
+      },
+      {
+        "update": 3,
+        "k": 2,
+        "tokens": 406,
+        "truncated": false,
+        "reward": 2.42578125,
+        "advantage": 0.4055263059416523,
+        "grad_norm": 129.91008084114193,
+        "adv_weighted_grad": 52.6819551880897
+      },
+      {
+        "update": 3,
+        "k": 3,
+        "tokens": 38,
+        "truncated": false,
+        "reward": -2.30859375,
+        "advantage": -1.7175746996794388,
+        "grad_norm": 53.92824755729519,
+        "adv_weighted_grad": 92.62579360245971
+      },
+      {
+        "update": 4,
+        "k": 0,
+        "tokens": 179,
+        "truncated": false,
+        "reward": 2.142578125,
+        "advantage": 1.0560358337037812,
+        "grad_norm": 134.57720303090412,
+        "adv_weighted_grad": 142.11834880026385
+      },
+      {
+        "update": 4,
+        "k": 1,
+        "tokens": 39,
+        "truncated": false,
+        "reward": 1.7041015625,
+        "advantage": 0.21811210614381166,
+        "grad_norm": 111.99137356623123,
+        "adv_weighted_grad": 24.42667435846909
+      },
+      {
+        "update": 4,
+        "k": 2,
+        "tokens": 35,
+        "truncated": false,
+        "reward": 0.72998046875,
+        "advantage": -1.6434222329231585,
+        "grad_norm": 94.7413280315777,
+        "adv_weighted_grad": 155.70000486376085
+      },
+      {
+        "update": 4,
+        "k": 3,
+        "tokens": 35,
+        "truncated": false,
+        "reward": 1.783203125,
+        "advantage": 0.36927429307556564,
+        "grad_norm": 89.9774004417813,
+        "adv_weighted_grad": 33.226340940915875
+      },
+      {
+        "update": 5,
+        "k": 0,
+        "tokens": 512,
+        "truncated": true,
+        "reward": 1.7109375,
+        "advantage": 0.46167095173473605,
+        "grad_norm": 117.10387075768759,
+        "adv_weighted_grad": 54.06345546452315
+      },
+      {
+        "update": 5,
+        "k": 1,
+        "tokens": 512,
+        "truncated": true,
+        "reward": 1.048828125,
+        "advantage": -0.25233360818520073,
+        "grad_norm": 88.57569620277204,
+        "adv_weighted_grad": 22.35062502036165
+      },
+      {
+        "update": 5,
+        "k": 2,
+        "tokens": 512,
+        "truncated": true,
+        "reward": 2.447265625,
+        "advantage": 1.255711421026229,
+        "grad_norm": 99.70167756594108,
+        "adv_weighted_grad": 125.19653521502677
+      },
+      {
+        "update": 5,
+        "k": 3,
+        "tokens": 512,
+        "truncated": true,
+        "reward": -0.07574462890625,
+        "advantage": -1.4650487645757644,
+        "grad_norm": 98.1168105467078,
+        "adv_weighted_grad": 143.74591207556858
+      },
+      {
+        "update": 6,
+        "k": 0,
+        "tokens": 235,
+        "truncated": false,
+        "reward": 2.26953125,
+        "advantage": -1.2702103668341285,
+        "grad_norm": 129.08885148479794,
+        "adv_weighted_grad": 163.96999739870154
+      },
+      {
+        "update": 6,
+        "k": 1,
+        "tokens": 420,
+        "truncated": false,
+        "reward": 2.708984375,
+        "advantage": 0.18053751406779492,
+        "grad_norm": 132.66922816214893,
+        "adv_weighted_grad": 23.951772645687456
+      },
+      {
+        "update": 6,
+        "k": 2,
+        "tokens": 181,
+        "truncated": false,
+        "reward": 2.53515625,
+        "advantage": -0.3933138699334104,
+        "grad_norm": 85.03787162264244,
+        "adv_weighted_grad": 33.44657437880204
+      },
+      {
+        "update": 6,
+        "k": 3,
+        "tokens": 196,
+        "truncated": false,
+        "reward": 3.103515625,
+        "advantage": 1.482986722699744,
+        "grad_norm": 110.09012026485028,
+        "adv_weighted_grad": 163.26218665319098
+      },
+      {
+        "update": 7,
+        "k": 0,
+        "tokens": 54,
+        "truncated": false,
+        "reward": -1.4765625,
+        "advantage": -0.8127367915298672,
+        "grad_norm": 119.59951736543603,
+        "adv_weighted_grad": 97.20292801210512
+      },
+      {
+        "update": 7,
+        "k": 1,
+        "tokens": 58,
+        "truncated": false,
+        "reward": -1.4892578125,
+        "advantage": -0.8332725709424553,
+        "grad_norm": 147.2328156443047,
+        "adv_weighted_grad": 122.68506681902635
+      },
+      {
+        "update": 7,
+        "k": 2,
+        "tokens": 127,
+        "truncated": false,
+        "reward": 0.0312347412109375,
+        "advantage": 1.6262572501226547,
+        "grad_norm": 226.82655017793851,
+        "adv_weighted_grad": 368.8783217471826
+      },
+      {
+        "update": 7,
+        "k": 3,
+        "tokens": 65,
+        "truncated": false,
+        "reward": -0.9619140625,
+        "advantage": 0.01975211234966787,
+        "grad_norm": 113.5440582261686,
+        "adv_weighted_grad": 2.2427349947205126
+      },
+      {
+        "update": 8,
+        "k": 0,
+        "tokens": 400,
+        "truncated": false,
+        "reward": 2.15234375,
+        "advantage": 1.0327191291249018,
+        "grad_norm": 80.00636706591621,
+        "adv_weighted_grad": 82.62410572076021
+      },
+      {
+        "update": 8,
+        "k": 1,
+        "tokens": 411,
+        "truncated": false,
+        "reward": 0.43603515625,
+        "advantage": -0.8871580301367826,
+        "grad_norm": 86.04006815344431,
+        "adv_weighted_grad": 76.33113737584418
+      },
+      {
+        "update": 8,
+        "k": 2,
+        "tokens": 512,
+        "truncated": true,
+        "reward": 0.240234375,
+        "advantage": -1.1061824229856976,
+        "grad_norm": 87.58357795599542,
+        "adv_weighted_grad": 96.88341447711974
+      },
+      {
+        "update": 8,
+        "k": 3,
+        "tokens": 480,
+        "truncated": false,
+        "reward": 2.087890625,
+        "advantage": 0.9606213239975783,
+        "grad_norm": 93.70790439001745,
+        "adv_weighted_grad": 90.01781118417703
+      }
+    ]
+  }
+}
