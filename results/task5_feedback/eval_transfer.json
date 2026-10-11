@@ -1,6 +1,9 @@
 {
   "dataset": "transfer",
   "num_examples": 100,
+  "judge_only_rerun": true,
+  "judge_parse_failures": 0,
+  "judge_multi_token_outputs": 97,
   "decoding": {
     "do_sample": false,
     "max_new_tokens": 512
@@ -33,20 +36,20 @@
   },
   "pairwise_vs_sft": {
     "rlvr": {
-      "policy_win_rate_vs_sft": 0.465,
-      "wins": 40,
-      "ties": 13,
-      "losses": 47,
-      "verifier_judge_agreement": 0.5,
-      "num_pairs_with_verifier_disagreement": 2
-    },
-    "rlaif": {
-      "policy_win_rate_vs_sft": 0.435,
-      "wins": 37,
-      "ties": 13,
-      "losses": 50,
+      "policy_win_rate_vs_sft": 0.49,
+      "wins": 43,
+      "ties": 12,
+      "losses": 45,
       "verifier_judge_agreement": 1.0,
       "num_pairs_with_verifier_disagreement": 3
+    },
+    "rlaif": {
+      "policy_win_rate_vs_sft": 0.51,
+      "wins": 45,
+      "ties": 12,
+      "losses": 43,
+      "verifier_judge_agreement": 0.75,
+      "num_pairs_with_verifier_disagreement": 4
     }
   }
 }

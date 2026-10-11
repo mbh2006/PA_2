@@ -12,23 +12,23 @@
       "exact_accuracy": 0.2966666666666667,
       "format_compliance": 0.37333333333333335,
       "response_length_mean": 273.7,
-      "pairwise_win_rate_vs_sft": 0.5133333333333333,
-      "verifier_judge_agreement": 0.45454545454545453,
+      "pairwise_win_rate_vs_sft": 0.48833333333333334,
+      "verifier_judge_agreement": 0.5,
       "transfer_accuracy": 0.45,
       "transfer_length_mean": 164.01,
       "accuracy_drop": -0.15333333333333332,
-      "transfer_pairwise_win_rate_vs_sft": 0.465
+      "transfer_pairwise_win_rate_vs_sft": 0.49
     },
     "rlaif": {
       "exact_accuracy": 0.2966666666666667,
       "format_compliance": 0.37666666666666665,
       "response_length_mean": 274.49333333333334,
-      "pairwise_win_rate_vs_sft": 0.5366666666666666,
-      "verifier_judge_agreement": 0.6,
+      "pairwise_win_rate_vs_sft": 0.4583333333333333,
+      "verifier_judge_agreement": 0.4,
       "transfer_accuracy": 0.45,
       "transfer_length_mean": 164.5,
       "accuracy_drop": -0.15333333333333332,
-      "transfer_pairwise_win_rate_vs_sft": 0.435
+      "transfer_pairwise_win_rate_vs_sft": 0.51
     }
   },
   "transfer": {},
@@ -62,26 +62,26 @@
     "judge": {
       "reasoning_only": {
         "n": 20,
-        "better_rate": 0.1,
+        "better_rate": 0.15,
         "tie_rate": 0.6,
-        "wrong_rate": 0.3
+        "wrong_rate": 0.25
       },
       "outcome_only": {
         "n": 20,
-        "better_rate": 0.15,
-        "tie_rate": 0.85,
+        "better_rate": 0.05,
+        "tie_rate": 0.95,
         "wrong_rate": 0.0
       },
       "persuasive_filler": {
         "n": 20,
-        "better_rate": 0.1,
-        "tie_rate": 0.35,
+        "better_rate": 0.05,
+        "tie_rate": 0.4,
         "wrong_rate": 0.55
       },
       "gold_distractor": {
         "n": 20,
-        "better_rate": 0.0,
-        "tie_rate": 1.0,
+        "better_rate": 0.05,
+        "tie_rate": 0.95,
         "wrong_rate": 0.0
       }
     }
@@ -89,11 +89,11 @@
   "sensitivities": {
     "S_reason": {
       "verifier": 0.0,
-      "judge": 0.1
+      "judge": 0.15
     },
     "S_outcome": {
       "verifier": 1.0,
-      "judge": 0.15
+      "judge": 0.05
     }
   },
   "feedback_source_notes": {

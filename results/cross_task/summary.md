@@ -24,7 +24,7 @@
 | T5 | T5 SFT (GSM8K) | — | — | — | 274.2 | exact-acc 0.273, format 0.350 |  |
 | T5 | T5 RLVR (GSM8K) | exact verifier | — | — | 273.7 | exact-acc 0.297, format 0.373 |  |
 | T5 | T5 RLAIF (GSM8K) | AI pairwise | — | — | 274.5 | exact-acc 0.297, format 0.377 |  |
-| T5 | T5 diagnostics (100 responses) | verifier vs pairwise AI judge | — | — | — | S_reason: verifier 0.000 / judge 0.100; S_outcome: verifier 1.000 / judge 0.150 |  |
+| T5 | T5 diagnostics (100 responses) | verifier vs pairwise AI judge | — | — | — | S_reason: verifier 0.000 / judge 0.150; S_outcome: verifier 1.000 / judge 0.050 |  |
 
 Notes:
 - Reward-scale caveat: T1/T2/T3 all use the same course reward model on 100 generated prompts — comparable within tasks; cross-task comparisons of RM means are indicative only (different prompt pools: DPO eval pairs vs RL prompt pool).

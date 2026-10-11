@@ -36,37 +36,37 @@
     "judge": {
       "reasoning_only": {
         "n": 20,
-        "better_rate": 0.1,
+        "better_rate": 0.15,
         "tie_rate": 0.6,
-        "wrong_rate": 0.3
+        "wrong_rate": 0.25
       },
       "outcome_only": {
         "n": 20,
-        "better_rate": 0.15,
-        "tie_rate": 0.85,
+        "better_rate": 0.05,
+        "tie_rate": 0.95,
         "wrong_rate": 0.0
       },
       "persuasive_filler": {
         "n": 20,
-        "better_rate": 0.1,
-        "tie_rate": 0.35,
+        "better_rate": 0.05,
+        "tie_rate": 0.4,
         "wrong_rate": 0.55
       },
       "gold_distractor": {
         "n": 20,
-        "better_rate": 0.0,
-        "tie_rate": 1.0,
+        "better_rate": 0.05,
+        "tie_rate": 0.95,
         "wrong_rate": 0.0
       }
     }
   },
   "S_reason": {
     "verifier": 0.0,
-    "judge": 0.1
+    "judge": 0.15
   },
   "S_outcome": {
     "verifier": 1.0,
-    "judge": 0.15
+    "judge": 0.05
   },
   "per_problem": {
     "23": {
@@ -90,11 +90,11 @@
     "103": {
       "reasoning_only": {
         "verifier": "tie",
-        "judge": "better"
+        "judge": "wrong"
       },
       "outcome_only": {
         "verifier": "better",
-        "judge": "tie"
+        "judge": "better"
       },
       "persuasive_filler": {
         "verifier": "tie",
@@ -108,7 +108,7 @@
     "113": {
       "reasoning_only": {
         "verifier": "tie",
-        "judge": "wrong"
+        "judge": "better"
       },
       "outcome_only": {
         "verifier": "better",
@@ -126,7 +126,7 @@
     "289": {
       "reasoning_only": {
         "verifier": "tie",
-        "judge": "tie"
+        "judge": "wrong"
       },
       "outcome_only": {
         "verifier": "better",
@@ -202,7 +202,7 @@
       },
       "outcome_only": {
         "verifier": "better",
-        "judge": "better"
+        "judge": "tie"
       },
       "persuasive_filler": {
         "verifier": "tie",
@@ -210,7 +210,7 @@
       },
       "gold_distractor": {
         "verifier": "better",
-        "judge": "tie"
+        "judge": "better"
       }
     },
     "558": {
@@ -260,7 +260,7 @@
       },
       "persuasive_filler": {
         "verifier": "tie",
-        "judge": "tie"
+        "judge": "wrong"
       },
       "gold_distractor": {
         "verifier": "better",
@@ -278,7 +278,7 @@
       },
       "persuasive_filler": {
         "verifier": "tie",
-        "judge": "wrong"
+        "judge": "tie"
       },
       "gold_distractor": {
         "verifier": "better",
@@ -324,7 +324,7 @@
     "750": {
       "reasoning_only": {
         "verifier": "tie",
-        "judge": "wrong"
+        "judge": "better"
       },
       "outcome_only": {
         "verifier": "better",
@@ -350,7 +350,7 @@
       },
       "persuasive_filler": {
         "verifier": "tie",
-        "judge": "wrong"
+        "judge": "tie"
       },
       "gold_distractor": {
         "verifier": "better",
@@ -368,7 +368,7 @@
       },
       "persuasive_filler": {
         "verifier": "tie",
-        "judge": "better"
+        "judge": "wrong"
       },
       "gold_distractor": {
         "verifier": "better",
@@ -382,7 +382,7 @@
       },
       "outcome_only": {
         "verifier": "better",
-        "judge": "better"
+        "judge": "tie"
       },
       "persuasive_filler": {
         "verifier": "tie",
@@ -396,7 +396,7 @@
     "1200": {
       "reasoning_only": {
         "verifier": "tie",
-        "judge": "wrong"
+        "judge": "tie"
       },
       "outcome_only": {
         "verifier": "better",
@@ -418,7 +418,7 @@
       },
       "outcome_only": {
         "verifier": "better",
-        "judge": "better"
+        "judge": "tie"
       },
       "persuasive_filler": {
         "verifier": "tie",

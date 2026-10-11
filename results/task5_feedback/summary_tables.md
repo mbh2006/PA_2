@@ -5,20 +5,20 @@
 | policy | GSM acc | GSM format | GSM length (mean ± std) | pairwise vs SFT (GSM) | SVAMP acc | SVAMP pairwise | SVAMP length (mean ± std) | drop |
 |---|---|---|---|---|---|---|---|---|
 | sft | 0.273 | 0.350 | 274.2 ± 86.2 | — | 0.450 | — | 164.6 ± 72.0 | -0.177 |
-| rlvr | 0.297 | 0.373 | 273.7 ± 84.8 | 0.513 | 0.450 | 0.465 | 164.0 ± 72.1 | -0.153 |
-| rlaif | 0.297 | 0.377 | 274.5 ± 85.8 | 0.537 | 0.450 | 0.435 | 164.5 ± 72.3 | -0.153 |
+| rlvr | 0.297 | 0.373 | 273.7 ± 84.8 | 0.488 | 0.450 | 0.490 | 164.0 ± 72.1 | -0.153 |
+| rlaif | 0.297 | 0.377 | 274.5 ± 85.8 | 0.458 | 0.450 | 0.510 | 164.5 ± 72.3 | -0.153 |
 
 ### Verifier–judge agreement (GSM8K)
 
 | challenger | agreement | pairs with verifier disagreement | wins/ties/losses |
 |---|---|---|---|
-| rlvr | 0.455 | 11 | 117/74/109 |
-| rlaif | 0.600 | 5 | 125/72/103 |
+| rlvr | 0.500 | 12 | 108/77/115 |
+| rlaif | 0.400 | 5 | 100/75/125 |
 
 ## 2. Controlled diagnostic study
 
-- S_reason: verifier **0.000**, judge **0.100**
-- S_outcome: verifier **1.000**, judge **0.150**
+- S_reason: verifier **0.000**, judge **0.150**
+- S_outcome: verifier **1.000**, judge **0.050**
 
 | mechanism | pair type | n | better | tie | wrong |
 |---|---|---|---|---|---|
@@ -26,7 +26,7 @@
 | verifier | outcome_only | 20 | 1.000 | 0.000 | 0.000 |
 | verifier | persuasive_filler | 20 | 0.000 | 1.000 | 0.000 |
 | verifier | gold_distractor | 20 | 1.000 | 0.000 | 0.000 |
-| judge | reasoning_only | 20 | 0.100 | 0.600 | 0.300 |
-| judge | outcome_only | 20 | 0.150 | 0.850 | 0.000 |
-| judge | persuasive_filler | 20 | 0.100 | 0.350 | 0.550 |
-| judge | gold_distractor | 20 | 0.000 | 1.000 | 0.000 |
+| judge | reasoning_only | 20 | 0.150 | 0.600 | 0.250 |
+| judge | outcome_only | 20 | 0.050 | 0.950 | 0.000 |
+| judge | persuasive_filler | 20 | 0.050 | 0.400 | 0.550 |
+| judge | gold_distractor | 20 | 0.050 | 0.950 | 0.000 |

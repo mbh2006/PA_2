@@ -1,0 +1,3326 @@
+{
+  "8f6de21002529187d3acf5c92442476aaf50f392a05f7bebfe2c7d5ff3cd5598": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "3c6c8dbcb9d2a9c0abdb7eebbe3abc3b13175137d7bfa57872105df4b73bc5d8": {
+    "raw": "B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "3b59cf85d21fb01cecd86486176d9d8942cc1c1c6cb210402af94baecaf3f2c8": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "86860155754bbdc5614293828e408e08e8cdba50b12d23236a7a9674f9bdb166": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "3dba569a5e08269c7f1a38ceb31e41c3aee33925b4e7706eba39fa653c2e1e8c": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "faa0aa6b25818fb11ecf50e8876db20257e362334a8b8bd9d4a82887f894d7c9": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "04d210688eba8149df3c4a1db3a62753d4ad7733b5c881831fb49ec57e2f3898": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "b0fd3c98401d0ccebd0e2e886b00c58cf22138ce7c415d94c885a3d06f70c13d": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "a5942e4f8d9276158bb5fc4210cd6f7f49478689a5d93459656212aa324934a9": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "89fc2e77088f74150a9b288fa87ae2e12970dd48987acee0e2e5f59c2dec77e6": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "b9b80c12f904963c3b4bf14c25fbc0048db1417956c5725033263acd6d94bed7": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "31ba2a1aabbbb8415dc186928db7b2b634d53c9d8ccb172716e1fe5d4c6ddafe": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "9255f4f7ef51cf5e4e26f1733991cfe901bf6dbedd04c62100dc62c97d6f5222": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "5b24dcaedf54349e0a21c73161e53c27786f003b2dea86843c3393519619a1bf": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "66cec8baa0fb6a1f473cde68b89780726073a7f62912bd8302b071ee1beead3e": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "aed11c27cc830d9c6dc201d17014c1c3a6e7009fa7c3e4cde4e047905980af3e": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "80df603ab76a6c68f57973bb032ca4cfc131f9ecc5b77a3a65ad54d075b19c3a": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "69714c103db994011a35a240696ea9dae53c3b4590eb38905cec48570a94f5e0": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "1c11dbf8a1774ac657c700abadeed585abc97456bad1ad725f2141b33820dfc5": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "c80e3b562d50aa33e0d8e646a111989a8838530e642af8a3775bc08d17e3c8f0": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "6393f8173986b589b8d047c4986ebd7f1fe8c4f431c9245f854074d716b2ace6": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "e3b984318bc225e662b491e58d5195fb5f3da5c05a594244d80895eee722ecfd": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "571f0b98d331671ab1cce71247b7a333bf0783e680e8eaf66e60210f38900366": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "0cc6da2cfaf2d319d641effc2cca81a1542871f2ab85111e22d1c91d759f4fab": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "cf2b63d7965207c39b3e2d3bfbfc1f9c625a4358943949fcbd9960c829ed3454": {
+    "raw": "A",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "cbc06665911f46e07ff734aadc83f17094cada7e1d9475c98765a4f3011357ef": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "987756e370f03017da4e36a7ba077556cfb48f0f4238f7b9b216b28515667a70": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "eed5dbed142da4e4958992a304f9e3c959083f1cc0774299feee7856ecf057b3": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "409eb0e174483666f77591fb55cf543a01f0e1aca6aa920392b7eb6155284ae9": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "5d763df64fb4d926b0b96c72a4fd012feb3cb2427fa65a4707c49fdd8c2e938a": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "1bddd69f51db3b8171dcaf326d9d46c15421184fb5f0026da862fa603e549ad9": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "ee4c58f73a299fa6342623c80214fd802f58ee47e235a6c413a5dc799a57b775": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "3e3092dc7f9dd54d81a60baac7b6389b8d07341929dbe9fc2177ac2ab0d2aba1": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "600d7d0fb16e202ae664ea138079f7f08ea10b3010cd9722a0a1a84f67bfccae": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "500decc6e85ea5f12caec7c591ab697630317fc9edb2cdd76d6d7005e9626658": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "348cf4c981f0c5852d28bd83bd28882786f5d368b3586f927a07cd2b492d749b": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "3ca80b6ae0227598b200141c017ececdad47bf0ebafd428e205a94dfd02344fc": {
+    "raw": "A",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "9fb459716f4ecac4b7519515ee36e2225a722db23afb45680ebfae52ca5a2029": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "81614fe02bf498d12c9211e0b7ef1294dba565446cc60510eb231ff1399e9cf8": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "b09dd27af6c57736669688f74f71d1f17103f3717d0282b52414c4e429153878": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "5b3e35ab68c253511a7f1871411816809976cbc6a0bed3ad57f14aa6c5d2b521": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "b2b746941cf8abc66cee8658cf6a90e2dae15f19e0aabfd6c59d1555803f6d4a": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "c60976671b9a7cc88ff6969ba75a227ecb8b0ccfb1a14e3d7f951a13f67eb26d": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "cdc3313701b7b52f07555a1bf51378dd3fdca3d948d63c219ae11edf250e1cb1": {
+    "raw": "A",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "39e0a5cad46973f510bddfc812bb1c5992085f662d73080190a6727729bce9a6": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "040ab698d32f8ed9937d79eff8ac747c29efeb1afb100527ff4013c2db0c0ef1": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "9cb9362289ec0a3b79325d28d199a1f08b76d803e719e2069dd3c3f67d64e98e": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "78c968116b36670ec53680534435967a1dbfee9b60498b23fd72da09ac9e40ab": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "f7d695a931f03a5ccaee11c977d2294e83bc032b9537ac2daceb2e13d0b13d0f": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "008a249763aa2cbdd72af16133d0e34164a92ad0a94cde8c9c8309eae8dee982": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "73dcae8eb5602b389e53f775d5b268306596a11cf73167416ea2b9c0778bfc9a": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "93eb56090cf781fd9e210df477a7c4af3da10d173b36b1a7c8d969842182bac8": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "56f18d7ad52647f2ac4288250e0795be57653d8704ee2ff102f9aae5a3cf93a2": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "3a1538b4357e75f50bf72297ac5b0e570b32c2fa728f4e2fbc54c8a57a356767": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "0de3bb7db6aa795a6890d989b6762a0b4e5a9161c71a9cd9deae04de8f28161e": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "a13a386ab314bfc14bf4eaa181b5f59dcf904e7603c284aaa739d6b53aeffa58": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "c19d0b6ec7b05d31301ab21bbcae12dc77b73c7499d690c61a6437cd4cbde35a": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "cae833e9fe61b8f4c0b20ad855be7c2ae9c7fd5c9b0c15dcb2f8765cf2a30842": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "2b54a1f79f4b6965e3ddcfdf7e67ac668b43c4c2b8e7d1404855122abccd529f": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "4db79cf0750cd9334740db9fd7888d3d54d06b7c6f7f415bc879ce8fa00f583e": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "0e6cc446d2c6c241f3497706dbe9f1798fff5c2aa433489b1f32fedfe4402176": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "709dbbf814b525871213cb02518812c81bd031105ba54451d26cf38a17ed1655": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "735a0842783668629e0705b0ff7b4c2a259c91752c476a44e13b0b3d63cab5fa": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "e377e538cbea95318dcf3933d927e6776a1010e487c0710f9d4e3987d4447078": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "d4bdb558ac8ea34bf03651e8902f267b3454f3d44ff34c8007bff84e3767305f": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "2fa41e0d17ca8cd9483374cc621b98fe404592c9519afc73b12de6af72988fd4": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "d54bed570e3b4fd18858cab8f8de554e079a402cdc8ad7b5b4fd4fa3a1775b5d": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "43ef1aa003a9d3fea2367b2e47f70590403d08ea11ff0c7ce83a4cb76ae7e3e1": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "4d1d46d1a6e239b2913ba4947dc92800109886c5ec26063b04218676a8143109": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "ee38572d2ac38a0f9f5616cef317aa82c602d9753bf5f7f441424c3b40fc37c3": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "5e66de4c544bbfb3f1da6bcc8df06c9647b0830a05e6a9bc970a5889e8417d13": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "ccab6c3b4aeacd5f9d7b4a821d4f7c352ba3208c4e13962e2134df5dbf0923f3": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "b17c97d4fb27d79a95953cb7d413e57b8e8661fddd66934536fdc756c3e80513": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "807d07bcadae5b356b1a3475e025ffbdc791986cd475c363e07a95eadac622c4": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "26042ba850951db3b706418714989e80647d119e3a4feac0471f8716f9989e88": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "07ea49080b217ae71014491e1fd96520243fd586323f94bc9a263ed9bad3a32d": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "a24a11bcd9805cad52aaec91ef169c21f0099ff81dfc9cb4118798a6a1ce3069": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "fc8266ecf9aaf6112bc42d4bf7613c9395ee2462bed0e7f8eb0bd285bcc72c77": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "a3071af764cafcd3a59a98eb595b2b83c9222caebd743708990f62f1b50dd5c0": {
+    "raw": "A, B,",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "e64ff9d0e5e82b28ce8ca86ab33ec6c4dee712f1cd71ba5c07a4d09d6c4907da": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "54b414008d42f7f3b1e85aec38567721872aef0c88e00e877ca7003f4099cc9c": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "30333b4b8461bc00ad0fe336fb92a48fcf957dcbef7a3dde161d08a0b428c8c7": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "a35feb75a922f03c0648c40d436000042a8a2a7520ea383841fd1ad47dc6717d": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "1cf2b59abf02de5544a158676900b31b101c4cc3676dff54aaccada3c7337670": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "0b421ad7c3abb02f8810721614082c6064f8f62d17ea1f08e9d9415eec70f5dd": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "300373171c4a63e72f6f524955f0086300ac46a3babb5426dd81d87331901f7e": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "f19ce38cd7fa743d976648aba5759f4f0866b7364452f794513bf1bf7ee0ff66": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "b28d5e853e257f4ddc5f4f4a4733761faf72ea31010d417a52710e09023b266a": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "588da911d9a6a7f178f504a52f9c8d811280b87978c8a1dbb4aceacf219929bb": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "60217dab3c4de6f36844382d8c54d41fd15f28b8a89ed77cd9a2a1a8529c566c": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "49b8c1597bb3c10ea795293a1c85e2cbf9f024b5f8801c36ae7e4dc8c31b543a": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "9c7be37094ae57b3c1a6f95aba0329fd9e56791d04a4a8c67300102838fa5a9f": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "f0dde896ec9992783d00f0d547941e939bd2447ceb49b502d0a30b912ca526c9": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "9aeaf9183d75bca75b50c12161b22024994548fa78ea3f34e841407e6b273845": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "a20f869435a1be11655492f1d937a48bf19a06be5a6b90d32f12d2eeffac84cc": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "edd024dac63ba30c2c3a50de2b2f41a51db7fff66c6a38a764b8baf379246a53": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "8614d66d3027214bb17a6234908cea3cba08a6c584cea7f36ef286c221a700a7": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "c71a3dce40fa5af9a6dbc02bc875be4e43e46aa6f8e2abdeb48ea345c912b777": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "ab628acea40c92433f4f6208efed43e41b6d6e0255068568d829bf3d47150227": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "4a3e1ccab7dfab912a612ee23a67a2046753357f4db1fabd3d71308adf79f65d": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "d68315a6f93471634b5bdb6fa317c8e3227ef52e6d4b26eb70ad259c5e075dfd": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "2dc40192bc829fe1c202d4d2733c00172f397684c33a748eefcaa604ee593d1a": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "b28cc633a1552c3b0aee1b9a206a2f83ead5bb29bbf0cf1aa6814f8c76b42bc2": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "e1991b50ae8e69bc6c454fd1c4129910dd4aadec5b018343ec159904a0b98acb": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "9e008a5f3934d02ff99e9686202f95fe55a05c2ede7e9cee158bcf25be8bfeeb": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "e702ff12d123977b0fc2246542a374c13b472e9d92286c282c73d63bef1253f2": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "8294528d8a49e3837ab85e6865f9e6b5b3d4932ab3519436dd2ea901666c0b3c": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "39e70dd952308ab1ddfd7e9cf0baff38d6b78a3743f142ee10d25d81407c55b0": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "993ee6741a8eb208c0f5826bf047fb959375324e55752064f6fdae7fcaf9697e": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "3362b2f6540b443fee41e8d42258af4da300d08109a9e64ec5205e9a0b15c255": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "4da0728a1f74534871ac29cac39b4231eed1f79b89c1860bd46fb90bc3fb846a": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "502d207ceab20bb34a1caa51b11ec334dba2c5ec7036c6707a0d2ec7733b0379": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "f13cc34333ea13aa5db1779e4aaaf4bb42359941a12a64ed9335082cc7a18c86": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "8be2cd9b87807299545cacb7f202fc578bf31e43198c505f165da13aa91e8905": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "d9b10c9ccd880244dde1013509431be6fbc5903dab92c6fd27f723265f337cb3": {
+    "raw": "A",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "87901d21fcfb1cdbe88071332fd7d0d083623f9c042a97e4e4b9e2c8ab69999f": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "dec6815a889c3cf91418052a5353b22e43d90fef9ae3876acbf1f8f0196f6f5f": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "beb2d23e4fe7125470058a0735e756592dc2d702a639ca0bc5b76df1e39d1cf4": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "8372487c2283f85fe4d8841137cb964ebcf8499f92395217af926c07c3546c1b": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "84c115534730b91e65cd2a9920156af88aa9ce8f45cdcc3773ba6507f3ef39f4": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "7acaffb87f2d6c04258790e36d6fe87ec93e9a98df7cab3e51aa0499c5b032a0": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "e02a8c401031fd954156beffad1094aa46e0eac040a3be9fa55ad79477898197": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "e855cc879012b875711af69fae3101273be7f82143158c5c2c0d67319908f0dd": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "3615998fe3507577289a4507135c81b2ed9ed24a9d484f8c28045e4838674102": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "cfb4a586faa92f2ef8ada198af44ecfa3f43f3cb25ba0fdccf01ab6f1055ef47": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "4132c8887002c7295e22dd642884ee461d242d6ee2fc0421fa2d82430bf6b20f": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "85b1134a5656d01528b8c8b5e042c25995f21c3b08c0dc59ff3adb47e0df6b1e": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "66a538a5046c46b1d0cd73a42b5e30c4355a696ad309abf013f0e3dd36e8ecdb": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "18ba0fb0ebe7b3d91da6c5db5c950dd9d2defb3ae8caae56512a63eb3686ec19": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "9678bd8cd6119b02f6be1ee33943433b84de0bdc534c3204f27c6b8b4f2910e8": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "73abb9f7382b855b21ef92b233c3782e8810781a937b44f9787a0f2a11779d2d": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "70a8cecc4df4cc250d5b8e6cffaf58c7f01f3237d17e676c17cd66a06b9a1398": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "ac2952788247bc5b5bdd708717b3951b0c764ad186ae2ecd210aa8d28b751366": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "d2d5265c0196459257c5abdf08533793921150c8e6206833beeaaec4610c85d6": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "5dd62a97c1d8ec9be55e089412eb9ae32ad3773ba99980ccb93b494ea977ae51": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "6a328bfc4874d7fde5282474caa51c52452e21ea58fcff8c0cb5535aca521164": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "123d76d1f49d3bf5aef06d4af7a02095cc704cf99dee17bd7ea5ec4644055b83": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "62af3d108c1ce8a6ebeb8c9d0e4329564c2afee1a00da930f756fa2a8152ae57": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "be4e06473424488eda1566456e12fc873bd864951da58c15c61b99fbc95ad604": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "33a4ddfd32a6caddadebb8383457a9ea74a68ca6bc51d4e15975884a9400bca8": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "afb5b5eb1387f8d204c0470a211491f3fe8c62c209f6026401aecdcbb8eccdde": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "d8e4c7b35b1db9e010912815f135d74987b8e83588154807c2ed528500ce5b5d": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "760a1625095c54635272d86abd4ae09e669633bddab73406eea15799ea2bcd47": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "d71bc1f68f052e1471a6723aab99acdf0c8ff9663cff3088043c0337e037e2e0": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "fd10c8002ed1209eab93fe433e86071fa27756cfef9559e7b771c92bad8bae0f": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "8cf87a97227ba44dfd13d64089c88c56ad6e8b327e715e737752fed953454d9f": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "256aa130c437d6c1d32616c821f4bdad8e823c220c98e175e1af5f04d97a412c": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "7fe1d261d803682ce0c568c56d8ed5e2f0478f0b6ccc9c759ba76e8679cb1d8f": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "04b1c4e893535d30a3538fdd44471542c9301a52285f59834285c4168bfa5022": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "1107211665d4e8497220aa42db401980bc12fef09c0e73e368026ef0de849f7e": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "38a248901e86324ba8519f0cd9508f62de8467ef4a24dbb535efb30f19c62232": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "341b6f6f141be609f8114c98f543cb1bba4ab438567718f3868903ddd68b4aaf": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "bd00c7f5343078c2d8ee5cf803b1b47132940aa4f33549c45918149349053340": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "b04589c0164ccecba842ede89ec380597302e148c1a877c8dd4b692d0acce35f": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "323f831070bc8001fff0939e96d8f96a9463269ac7ca63c21b4840c3b7eec112": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "31cd591644bb3a98878951da51ccfdcfd3abd35b665939fee883b4d25c904d23": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "bdda7383cf464a7ef734882aeb2ee3f696578b76ed69a282318893f835a67619": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "cf43cfe9314ed0d235bc93aff50a9142975bf082fb37d9419ff74c7db4f8944d": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "33653155f37773afa0cf00089848e7d80dbc2b6e7bd57260426b490054323bcf": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "d380945230d66c51f59c7771d127ba21e7c2e68904eff5973d1361bddc883ed1": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "4c7887e031b440752ed0c23f6216010657e857f5be032058201a2d95fd5ca454": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "1183f417afbdc892b0b44c5f5bd6fcf412e2fec38ee4ce008c8ce3a39137463a": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "32ce58768550c15e7bce1dd0d27640a00e266a0410270abe8b13c730cf418b71": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "5066d427231ae88808a40dee8d694f3f3e34637115da7fc6ae3a27db8e437948": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "09bcca6c490df2f2b5331023c556f31d974eb4c759b36d5dc2133acafcb67b7f": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "399d8cba8828264a2e5ccd7699034f2b63c7a55ace014ac456d1bc1dc0e57c69": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "c67aa6901a68f03efd74d425c2606477c8ca310e9f59cb5748f8daf760404189": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "268a6c867908a2ee310d4a5b45ba5ab643f881ed7e54791dcc4508d6d95ae7c1": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "da142d7063d92f4f9568a32f8d7f57889e710fa62f8911927ffe934409f5cafe": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "d1b8e95b0fc63465995d21721e09c392d823be011bf27ce425564d40a399b84d": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "a87284226475641302d8b420bffef79953b101006ef58689dd82748cae0b167a": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "92f632adc045b0a4464cdfb7c3c6543db3af9f6746960a1eaffc0e1a5fe68c5f": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "c19ecd50fffdb08e9dc6e366eb098ac2c3331ce91fc133725c7da190309c476f": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "230a3a5f346b79e17373672b8b99352d55bd1c73c871ef3f657b82042ce44acf": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "7aff67d07e4d3a527e05d8995df4709e8cc7f6b1015468995a0634dbc7eb3808": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "53bd9b781ae02dc266c087bbc9c3f54f10aeb806fdfa31a0514278e1a47b0ad8": {
+    "raw": "A",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "c9a54e050a4974128936e6b8731eda62c3bea4340b9701b1e1cecdf2cd013caa": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "a50668199f4f7d028c4bf15f9b3054be9000c541c1be3dcdd4f83481ae0ceec6": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "fab47562c58b2ef23db7410cda4ca2ade4f829ce7746314091adf9566a12837e": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "54632d362fb7cbe2d51ce77a2cc21329cfcbbaef9a4f8497c6f87933bcc749cb": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "83987f4017481992a6d2ef7c6508b1a6ca1789052dccb262a737f753ac2951f9": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "45e2cc218f9840147e0e3e7b32112877cee9ce1a38279b670de1280ff37f4215": {
+    "raw": "A",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "9ab1dde7136b0898ffc382c67fbe860105457f34605ed2c7cbac0588727998c7": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "2e1c62c6e8800412e4ae3dabac8dbf3bbd3fc82e571157a8eb2c73c546e63033": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "0527fed42b50a182b612c09b5231fe145cc81b419443c7b7b6564ebebcbedff4": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "cb8c4f9cb742f7a9e8754973f3c517f23d7ab571cefb5edc312d1aa93425a806": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "52d8f34ba3a02ce485635ad5f963e17da751563c404f729999a1287ed71dce6d": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "bdafa9d567d836b9a2ea472b9e44b22905ff7633aa76848452adf0ba5542b96c": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "5e59d1898896727d1d384eb0b2684ebc03f50f1b0c14cb057fe56902de27eeae": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "cb5cc3ce08fa652964510648ffd8121ce59b2428445a306fa117dd455fe07b59": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "b2260cfd8c5735e1c466337f226428acdfac574a35e36a4ed8b7ae1a74c00cdd": {
+    "raw": "A",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "ea87472d871ee20d9641227bfcf4f2952e50b29787163b362d394eaea6ac5d1e": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "9e94a2b67100f8f9036bec20176faac6020dd8c223698ea52efd633d4d76ea53": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "766617941768799843325f666fa811007e3a9cc27354b387b89cd70314a39021": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "fd1bb2c8154361a0b1bc631352169310dd1cce346e00c0f25fa3a329e771dcdd": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "353ddbfb2efab5a9098c5e237819a29e5f676703ade2b84cc4797f737bab27ee": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "0e4f146d1eb712c0be72016bbed52b9cf90953496341c4cb7797e324b974ac56": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "76d8dfb46519cdcc16709ca4655c755ef8e2598aabcb1bee1afbfeb15dc17484": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "492dd7949fc2ed327bf77e79042bc39e3123f22d3f44e2e5ad64dacc4e333c44": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "3e6c59a7cad7c549e5ba73cf96b779c127ecab0fa1447a2958f24729b4be104d": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "47edd408dabd1450ae66160a892ed42022c7be8f9085f691d6d8a15a77304bf6": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "82ce2a6fae2808d4522c91e0048d3b3647db0cc5c629efdc328f4d4ddb4e6aff": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "a48c3f2f592fe3a9c8c69d34c3a4e1b144ebefcaa63351360b98d794df81e029": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "c2f63eccef293a1a279e4c1c80a91ebe29af2925d4772107193d910e41939766": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "a5f5846b62c8b7468667159d7d741d55a785046b23f538e0326bc13348dba6f0": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "4ea86e9ba9c792448e0d008cf0cb811dc3359646740dd35f60278e07277ae658": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "f3cec2dd6b840998fd12b82e1cac4f29bed2c7b8e036ae4fa50ba74b5b6b381d": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "6a49205bbeaa372c6ff206b9119bcc0b28c0620b45e9c1592076238dec2cbf6e": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "0d2bb429e6ba99edba1ef5ddd3aaf6e957d237df7feeb9bdf185269ed65b31f2": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "21f3a95c8fc9c9057484225b37e5915b4abfc0cf8851ae5aabeee301efef701f": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "7debc8e8d2fedd3d27f30084ecb3fee02d157a17c4bfc3dbad442e3efa8dd469": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "128ac2781cb456a70af05c92bfa7213cfbd53587bebb201311676bafda665739": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "40a613eeae721cda0309fafd31abb10a4fb1e76e41ccd9d29bb30591c3b9228d": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "ebe627f203422b9b81fadf17243220b57b37d29fd240711f9d2130b79b1fb35f": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "40fc3a951bad09d9183cff3e7b25704c0624a961399959e7ff2707d1ef68d34b": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "64160f19515ccf6e9a89db8833d1442c60d3b8e8607e8d9fb106d5bda6aaa345": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "1b60a9f8f00ce9884355b92cebc3d5f3253574fd60bbe9eebad1408998367c30": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "2275da8ce412bf5a2a5cf43911d9371e11e10b29c54aec6b0852b8bd687385e8": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "b999f8256e8e9faadb77f193013bca6590590a8375f50b3c909bf13b01f92757": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "78b152a00a2c2d863cdf79833308d1e44994274b2351e6917040dcd48cdab315": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "14ced1bd1ec37147abe38d8db71248d15558f7bf4ebcc1b801fafbe438edcb78": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "90a19c63a6c00fed0cbfbad302ab94036871d6240581d463192b5aef33dc2d21": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "aa2ab21470abe02cfdb8f6b02e38c42c761cbff8c5726d747ced4c42282c45c4": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "b469c6a7ea347898df153326179d0784785a99a4a3fd8b7a294b4ae52a303bb5": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "00d2c5b1e4cd2f6fa99910c41f9807a215f1228c9dd7ba8cc79c02d8bb03fd38": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "36229cb724af9cfc993d06a461c28ee64f35dbf65c187f4e5c50d37c2f372ba5": {
+    "raw": "A",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "1afbc9ff397aaea58d7dff76851d771d365f65509a8bf47d5326c40e260543da": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "e90b8fa9976156196fa8995e806fc515871eb1fcf4da8b5f7bd66dd807698c6e": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "a8fbab8e251d3625be88371f7db89e56845897355ccba189382a6a4557b80969": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "5348129c29e41c7d1573cbf2344ce515aef95ddeac0c45edce41e1fe3cd85154": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "0789036fb5606f9e98822be620a654524aad62a7bf517254ffe0ad14a3d9b671": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "df93f812c1f9465fbed8a5228be03c757ed29e9073d27d04403c6b9154278eb2": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "409e361fbc68da7dd98838775808f4aec39d44e72526759576668a16ad5c9e48": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "c99b5f8f4a42bb67d536ef1ad1957d43a5ac130a1dfe7ed3be52bd02d3212dbd": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "36de6b668195454afa0283ac53de805f284f42f91076110e5fe7d807a46f5ebe": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "a3c09a8ded2ceac2bb4bc3480a92f0b3ca5d352f5386903512db0bf1bc153516": {
+    "raw": "A",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "25c4e5351820b447274f0c8f0f57450cbc2a2b9989c6433011b59960bda2788b": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "114dacefa072b6131d7d41ad01f4a8472a3e39c1f6aab7c026f594cfd42f1903": {
+    "raw": "A",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "f28fff39fd95086c864ec058af7f0baaeab5ebaf6356309c8b04f07f5da14d18": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "203fa6fd5604d7a32d3e82620dcfccec363e48cb6c2f9e2efa56084535ae9de3": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "69a28f50e67068b05be310eb86fc724ea7adc5999d95975727f994f3f369b64f": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "085db376fc42c984729e6933f2e4a7a51ed7142304e96a5486b4a288fbee0679": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "158643f817c4b063df5e53440d49ee4985df12a3be06b9f0f1ad8e09fce584fd": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "0921d01138ba920345a2e83731a8bdb6885ec47b53f0782c7b526a5ebaffa4d5": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "16e283e66a76607b176eb5a940c4f6e8a7a71d4d4eb50a01bfdafa43ddc4b043": {
+    "raw": "A, B,",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "1f9084802cf373b03994815615ccd00e4131e0141f6c7c60bd275090ddaa0cf2": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "5f26c9db31d915be3cc9a1bfd90d56e30a9396ff347e77ec2647187ab1528ac5": {
+    "raw": "A",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "7ff5cd1cec2ad64beefbb879a49595db392d77588a62dec9e0ac2b78d32c1822": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "2b9953a66d1d14e7909964d792637b5e007d3321bf8fcf741574ac6818103e9b": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "a91d4fc8365e80f250c8f274f29b415516e1148bc832a542680896c2ccacdcc9": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "4421502c9da8aabaaf7be47875db1e6c0d3434a99fe563ea00348b03491dffce": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "1d876b303fa2030cafdac5e88412c323667f6d11b5a03bfd80effce65a090094": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "9fd4386302c0bfb6804fda1b494e76f117483d9bb77faecb781f93bc52852044": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "a9ac93ae86d684eee68ddc57711382cc1ce16231c47539a601fda5978f89946b": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "f9d6586f06c3f420b8c9e2d103766d9cf97bd73c003e8c62bb5cc1c065d14a8b": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "8f03079f3562b3df5103d0b3ba7e3569fbdc4337ab32975ff14e4f55ab876c65": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "6f801de20ffb0d20e7cde1e3c8ef88bf11cb8415cfa3475bfed65d80b4fdc808": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "6baab044bbfc261464502fe0c18ba3fc58108ef8e2cac12a088fe467e78447d3": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "04cffeecf020d64e03c859450c5b8001df0352a367c16dbe5401748955dff2c5": {
+    "raw": "A, B,",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "841ad6b8085b20785272caf9711279956223aa8146517d816f1e90f55e5783cd": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "3ff46e844df75535b976c0a5a75f705f103fe24016a4e7dda42d95eb1ea0ad4b": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "6c6f6d256b4e7f83df361ed3f994a4aba577dd7ef12d4dbd7d66e7eaf1b84004": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "40aba7d5e38aec68eb94ffbbcdb8339fabd8871c813929bfaa157f3abeecdc33": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "eaaa885f3ed5618102b42b1e1171055cdb06f980aabb9b88c3cd9039f58c4691": {
+    "raw": "A, B,",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "2b2531aafdde1e77fa3c5395707e2b6edf57ab5f7c2d472b31419b40f379854d": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "2dee2852bafb3144e6c0f238bc5e58400a91cc06e5c9d3f0596c383791d3e1ea": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "3baf810364c942ca0f48f448efee296630d1e71af537f36ddad69e860e4d4423": {
+    "raw": "A",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "e15a9361766ed1d9f1cf63dab868bf81e423ee8b447fc49242024639887f6f6b": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "e2a4ecd4b457c30ff9d82de269b5b6401e53c21d677b06f0a20b8650c12880ec": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "b0d6dc65475280c203e46cccd0dc08c0ed02df0b606ceaf1f5f2736be823b18a": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "8628a8d035d8258feae7ef9905223395e8635bc8a58dfaa9584d52c3c221c81c": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "901ea03df29d3dbb5cd53e510a8b39bb3db5fa9c036c651552f948d7242bd1f9": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "02ad9f61b62c5265a48a846304520463f32881690725fccc667ccbba012594fb": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "0070ef8be1cec837f65d7876c8c40933d1273685b7c06f2daf67705d1c1e42ed": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "48850751e3c6ad8147aaa652dfc17b63550c957e764dd529e8c6393558dca7c7": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "df10c191344226b4c36740debf258cd9fe7a3295e9c798f43c592dc8b3c47a58": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "270f291ba7f516a10f78253bc4be04e9205d1cc4c1316457c17c43bda899269d": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "da8e0dba273fec7c44223a7db349adadbf76257c5829bf1c163b06d24b378deb": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "2eaf9955bb5c918413011a21e816da2c570c976e6c525d30c548ed205d74026e": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "8e13d26bce73748cac2132f8e03b53ca6d6eacc514b502df67d6d9291226acbd": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "7166c6d588fc7194f4fa6e4a1283426718d1b187e1e89fd33af9353db8b5a9b2": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "fb1d321eba746be10d33db4cded19908ed353e4451a874a154ac7837d4400cd2": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "0db78c29cb18fe0465f8043c7a9e522afdc8fb9af9553e166ab098d2b14b7436": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "db53b5aa08a651b22a09c5201913ee27e6fbe5dd94533979a1b3941749437adc": {
+    "raw": "A, B,",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "136e6279366aa3573a49689ef16a43bb0ecef198c85f5a6ce0b8aac2b9b50a4f": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "102b00857b8c4ffe34c1ffe0cca80bdb919aacb293bdb8e45171823199f8b731": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "fac18bcc4092c6e27ef6f54c325c1ea38176ca0d1d11034098c7ebe0bc8df9ad": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "9e71e0696b1a45450374894db854e0ff1a22b653e31472961019b3636d1066d1": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "941aeef7f2e0b5224b8ff3ed9de5378e797acad43a227916b7d3d63a263bb91e": {
+    "raw": "A, B,",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "28aba867566566be219eb4fb8dcdc7b6aac9148e399a4dfea3620da551884443": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "91af72a18f27a31d6251cdd3c1424fe0ed654e4d2edfefe6d20a5403e6c7fefc": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "11049e7f6696b63ef17be080a0209b9b9c2238e583e82581fb1edb297b4396d6": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "5ef5a622b0709a877b52b64a6596c2ba23317ea6b7c4e3911acda562afd81b6f": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "41731cfa38eb65d89062d23ab8d4ec9bd7845fbcca9a6eee968707a5190274dc": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "3f1049db9085ed0ac1a3cc02804d7c5a1d0732f03ce45cdf6a305e05f72e17c5": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "8db28296c5d5039d57c5d71597c2c2385bf82b8def4510359450e630cbf5e1a4": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "4eb03cb2eac740047b471bedbcc11b515b7de5f6289e557e1794781df271749e": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "9c4453bd1d28680cadcdb72a99cbf3410d082d901889bb39204d7e6a99ccaebc": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "c0773cc378a51b74c3dbcc0d27249b56e6a9db7319616254b5d06004a4c64ae5": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "673af59ce0f7d242e3ef77de81a1846ea509bafc849d6ac3c7de8e2ef4205418": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "d49a3ad283731ae0ca3be3069d67aabdcc4f25765ed3281571099a5d883f9790": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "9d27e7c81f4f4c46320b080d981d202b40388226f42a4f984e112afd02e37232": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "204afc48b47864aa539c358426a66c15f5605dda7cea9a2443573f35a15f4074": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "59815e94ee7b6def3ed1782e4a831675deaadea89f9cd501131685e1261c6076": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "cfbcf6246e7d118f9e9f5322070160f271b6a603ab4cd5f4aa382b46b8a66609": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "c1d9e8441b75cb75ff9540bd2f0ef61a506eb22798d79972859e63c350583f46": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "79af30b670badd5d2d3e20a22204f6faed24857262faae843d094fb8dfd885e8": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "709a04b507391c593c6c3c720e1abcd94a401a78eb4197208154008c6d085dee": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "46fded1d7243f131e5438a1a156b233e5d677e0d83e155af0f9287852ec92eee": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "66e89654040e87584ee5bcfe458232fa181725def2944e32ed91650c001141b4": {
+    "raw": "B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "860d8d24027686236011f97f063fe3ac35b2304af792c9407b66d57e9ef405f7": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "47410406964aa11b8c1af17e7a89579dde45a70485c8b49cd745e5326d4859d1": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "9408f01ae8facddf3a2c89c986646389e2b24325821b00395b2985f65af9993a": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "a4a9d5f152a8dae451bbbd76735eb45e4dd53a488ce504d299fb9dd814fc39b7": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "1d229470787a1e7f20542961dd6ae6c5a065c5c25380f23a7cdc56462ce69fb5": {
+    "raw": "A,B,TIE",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "fddcd707788698a5a6297625dfd15ba0912c22f89b1072f0208e44b77ef3a762": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "ae1681b4587df42ac0a51fa126f5ef5f25ed447b0cd524a296f79698227de2c9": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "ef7ef64f30109458eff8b05f8c3108ba13e6d0d7640ae10c5aaad140804d9e55": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "abdd39a5eae0165603aa33c2c0b5ff3a218f66102efc9c46f66f771e55b86635": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "e919827993db8279b416503bd2464be5bc6f161a03044f6bdc3bfbc539f8fb44": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "ae90781cc242dbb6c84ede085374ba582abd2bbe6e1b55e1b99446cc3555a51d": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "4c93502378460306c3a4fa6db13d7941c6d42c7f2952a7b9d00d3a19e43d8ed5": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "2fd34694b4d2661b7266fbdeb681093fb8a82f2daaae66b9963b2a0a397b0f7e": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "35ced40243f399517e407844ec4d8edaa83dacb738e412faccf7ec7dcab3b39a": {
+    "raw": "A",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "642a514943a8fb60e5031a1cadd1b87b76197a75dabee8139945d9d8ec8400d1": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "487643ce575462b179095f6e4b27aa68a8a25a4051bcb8d3918f4b270042c2ec": {
+    "raw": "A, B,",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "72279f098c876cf8571ae63cc714564a75fe34a98c4875e633c6c5deeb73f507": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "9e3871611563754c84a0f718c186fea436114196eacc0ed9caf124479b7ca73f": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "715cf4058886904aa9159ec915227cea3f25b760288fd01f43d1de708ae63b85": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "6849fcb5655ab8a126bc975d849ea33a45cc42dc2f374e7ee0658706d08dd362": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "3d373e120927d2afc322ae9d3395c6f1e0325558e521b3f143653c4767e49c22": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "3ad28554c70642a988435935f40f133aaa3e6c2bb6dbc6adbec3243294380b73": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "d8b166bae265e69dbc7cce2e883c51d37ca1c3a3810f03270b9b524ddb4ec5b4": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "aa73f3bc07a5b70caef6d8c41f1f171f2dc33b1b52b9046401914722931dd749": {
+    "raw": "A",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "1e00ecf3a63b6cdca2d590a3fa6ca0e8d30a0f9f5fd2e32125d9d0b52bc193f8": {
+    "raw": "B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "a98b6e276b6215231f738f3f5e76f8a473a435c937fa9e265eaf38163ef76ba3": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "fcbf16b69477e2090e9d03e50a5084487cf21ca84505d9021bbc540b5596c9a5": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "75c5249048526553304b7dc00352f62b64d7ea0d5d3dbe4440cd288900fb5864": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "6a0af04451d91a486136f992c8e378731a3eca7781024ba682eaac8c00896252": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "d6608e863fe3284b8b9db328ed4ae107a89b668e6b7fe7af27397ae3843d53d9": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "50beaf2fc637cbd4f0fa46586cd3e2c95d8fad391127e6fa103885c3733a9ef3": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "166ac4d128486c1f20541c9ceb7019a9e1756b0cb679e3e9d2c92d275303ee4e": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "c4f26874ef0ec49ea54fdb4db6c146399b5ea6b7d817087e250e871e15ba01fe": {
+    "raw": "A",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "50f94ecf71c47164ba1d59fd9fc08346e5a9c4ce67fdfacf08f1f8fa23faaeca": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "ab762d0888dedc30987a119cdebce1fed70f30049abefe5e38cfb04c00a4779d": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "b0fc8507563e7f1ad027a560e195664dfe743d9bfb6a77ce3c0f2b6fb4eaf3a8": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "130a0a393c0855d07b65f7ab2b3a34fee5d626e0841ccb08a06b6da3ead997bc": {
+    "raw": "A",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "0d0bc82ba2eefc93eb5d5f2b793560830b2796b36ab865e089672872be238e3f": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "bf2326d95b6a11c37f65830e96d07e7f191a5a60e9639a78f3442e6ba456a772": {
+    "raw": "A,B,TIE",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "bdcf112605093470331cd3e0bc5c2878af9c3a6e0baa73b268a330b78c03cba2": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "d7076051cc42edb464bcecf67297d0dc0baf006b1ce96289d6892ba5dc1f282f": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "fdf285c2d0fa5c80d5d6d36f8090f67ca72df0dbbbcdf29daf60ec9c7253e021": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "d0013f2dbfd593601450dfaf1eaf09ac922b7bf4be9012e395dab90d837847ac": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "b00758f800891b560cb9d4dc14d3116764bb52315b0416e4b844bbb808463696": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "806eefe0bb55f55c5fa6dd1df3d5685de1452877766b82ad8622ed69635d5ee9": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "35596f3366c239b29cb08a3e608862208580cd9004da1f04eb88c64bddb51012": {
+    "raw": "B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "1add2376e5b5dc06dd0a1b392381fc1502648409a9fc6551ae9ae8f6387d0947": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "dd789480b8867dc3cff4bc8fb52046cd54b6d6cb5733e6a6d4b91ed4b6ce8312": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "ea2d705afb66013502134230437327349cf903b9bcc472b72e1588c6e770521e": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "d15d7138ab0703b7443851749eb50277e4731b3348a76f006790fee8bb0d9538": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "143ea827054b225531c57e4fe83b5d6f74c05640a6812c67ef66e3027c052896": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "3cd84ca88e159743ff739a087b1951c17e1905c1e1f1b8611c06d1a45a0245c3": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "004a8324b37d0e160df9f029a045fd54acfcddd36803d8799d218395ce5db6ea": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "dda4d1eeffc063c741615e482769ebd23063b11041972c917a28194678428537": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "cdea86815303d639c2c091116f25cbc2c03c3d93d9a4996c071c0562a1de4248": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "878b0cf316d9ceaf7ce5002b61473c2a15d568dff16d9778104a3b1c3ec29fac": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "20f4439cb01bf2250de59c20156b88f30bfd4dda8c771d8a9289f40101a33dc4": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "f8981d70eb73127415eaed8a3689243efba630fcb95bb75ebf6123e3b56d1f57": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "d6af77587308a2bececd42abb916efbcb5994c152e0c87b53930e5d5211d314c": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "4bb2555285ca4fdcdea6dfc4138572bc2fa6c032a6e2af60178f382bd526f14c": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "3e8802252f4ae58ceb19f160a313041d1fee661cd80b9487c9e25f9bf5363b51": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "732c1b138cedb0177b5f762ea157b6bc318f0a93d37c126ffb3596249ba280ff": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "264b9935a7b045ceb837ad56564a9a7db22150fba71edfafa7d53ef3a91e1308": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "c954d5432cae37a2f35003380ca7a5c470f18144a84719fc02290b0309ebac51": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "dd0cdfdff94a66c3b2f30bad88d538c05653b3d689806e9ee6ab8b97a0b0a3eb": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "5e7ec49f141e997a5ac63b44b4d866864c5b99b0b8485764e7db0a3cec0f5886": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "53570b8079c42d98d1e2791ac27184c604057c2af828cb830f9b101a949b63c0": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "4567793a720be2fa1587550294bc0e7cd186b7edde03b2e36762d8ba707395d9": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "76ae65ee7028e1453edb11c9d6a146a8ffbffd4eb39d3cc8953721e737f51426": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "c5e69f2955eb8842498cbe692012e116fef33d02d34c6da996ab2e4e4051b116": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "d507293a3bc7d610b76048fbb34ac8c1e3be191602df197efa9e9fa03b3feea4": {
+    "raw": "A, B,",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "15a9318feeb3939b7cb8d168e67379475efe02b5e796b9b465b940d7ec176fda": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "002758961a462289c8340d7ff30914bda49e37f0a235707a7796901fe545f268": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "fe42fb8a4ee7e59bbe6385ace4cae38cda5e8520784da39e1a375df51a961b5d": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "026879290feb7e45f91dfbf55a61c69ab6ed1ba4d7d01b7750072206e6e24943": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "a9ff543a6ef25c7d65d63d91a6104f785e136a1a9bea675f401a7b7481400527": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "2310eee232d89cf825639de8910e5a4b261f3a2771fcaa6dcb75ed79e5022a73": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "0885dc38ad4e613d894802ed2428642923b3838c749b01b60399a68aaf576d5d": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "11d079fb88b45ccde926fa6798f4a7f0a9f6386994a5d70316880bf57ac23f0a": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "25a830a4acd0ed5ac1c4f2465b0b5bdff18b3dc74b8adf9a4c15ba0745d0a29f": {
+    "raw": "A",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "d49f0850956457a206f76ba82d9f5dcec82cdf07477373013d8aa07261edb32d": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "b58ca8caba26d88bc833f82d3f56c6dcba36986a2ef32bfe6c0da0be37fb6507": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "42e5edcfd0c28acfe9839f39b3829083d3f2c54ff7e86fa7c495ef2501068d3a": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "4f4999d1356a6c30e7864a9287f1acfe0e6b687c122dc55d27f75a40ae8d8569": {
+    "raw": "A,B,TIE",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "59f091c1f55eb2f056872010c8c09fe92f0154782895239d3cc4bf3b904616df": {
+    "raw": "A",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "2731d2de44bc5a579ce5fa4126259d0ebc77f7d05c5ec0c6add93d31120c0d1f": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "1b7c4329ba023c8870fe3112e55e73a48e9664fd03eae0b29ffc70feff9ba797": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "842b532c4eea2a41f3f754dc1a35cfd3d24ace32bb3c80d3ea8457e12fbe3c8c": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "b5480f63ed3a1758d33515df498a67986b65cb3ee7c1bb5fdc7fd79f74535c6c": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "9d69d09f64e1305c41a9adf59cf2b9555dde89be9c820930781329ae44908707": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "1da4d924e8b9aec81a4914ebfa23f9e4cdd9a0f2d36eb261beac68cc369a2113": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "695f43cbdbac4389ea04cbcdd371e376a04c1b90513e92a07644a87cd35ea89d": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "1e2ca479c46d3f0f68f9a3ed0b3633e4ab309b57e37d38c7d4578c7199883bd8": {
+    "raw": "A, B,",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "c611ceb1b1fea965acea8c4688a0a32791a231965b45c11ba8b3ed1f595ed102": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "5be7cf6d6b84ba7cd97b9f4500023260f77945380edf6b1bf5665cf2c9fc4c18": {
+    "raw": "A,A,TIE",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "0a8e933a26edc297f088667f0386724f0fbfcccd5f6236715608bdc035c6597b": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "12c2df5e20313222c210c6246a3e9c124b9db6efd6db3c712ff51298ed77b7f9": {
+    "raw": "A, B,",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "2ab56a76593abab9a4b63ff86e21a5afb7c3692c20d369d68b6a114de9fa2c23": {
+    "raw": "A, B,",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "b4ca1ee64c663d6626716860f7c10ddc38f6ff8173dc4bbd1994f3532297732a": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "961cc7b8a2dffdb24e762d2caa7a14fe042be0ef64ec758e69fe4e0adbcc6043": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "83ca96682cbaa791748afa3c4ea7f590e704b2407636e53f47edd7efd51e1e42": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "3192eaf60e8756cb3704bf0c6012c035e8171dad8ebc86d87e611415396e6505": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "a5078deb06e203493d8545b15c2dcf67cde41219ce3547d05679083e00e9ad91": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "f1886a4d5e7c02085f3e15cf0b8359174cafe1304c1c8933c69ca17ad9bb6085": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "004f25814cd60352ee18082d589c586c727ac609bb66a4fa312dddb19b7287cf": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "950e5316bbadf35d0b4082936f2da8d77d9c196f1b58b9ba0cfb0bd299d53857": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "14f072c7b5e75c87799ebfe0f87566ac591e8996c95e9c084cf364d459aef69b": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "e55333da7e20e3dce0b4e697be9ae17d53ab10083a411481f21e952947e10399": {
+    "raw": "A, B,",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "a94f7a1559d2d0838a33a21daa1c690b9de6d424965d7bdbc9b04ae69de1c804": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "78aaa5ee355eec3f961adad79e47b62b9d30c8293aa8605ea95164b4a64a9092": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "110e00dd0b5b9d109ecc681cdd01236e9c4007049309c59c742173a3343b0317": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "9e13e3c61971f46bccca58c560533c82071621623661c25e0fab7a97dccd9457": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "390c45f4ff00dad4966f3ac7d975faaa3327c56cae490fa3025f53251c412f65": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "20f31fad2468661821514da2bd8519a0d70fec38637a971c8234df103fda74d2": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "3c4eef5a9dca3979f5bfe478ae8e205322799d61d30c35c7a22c1ba25f42c22a": {
+    "raw": "A,B,TIE",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "410c833371364748414001c4f633bd308dc53c8903ef4d1c3335f3a15c922346": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "b5d24cd6ede759da4192db93807f3fcd563732f987d35ae9a05f9061abe27b06": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "c91d84e3f8e7ce2922793ef7dc480b3094b838719f063c5fade76bc7c2680e31": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "37b761df04f65c39b4444f311a92d4656d5a8d73d1f14650bdbdaa00ede22e40": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "5d7dafbf59416c3a5e0d8f768619bff49940421969f570b9cb76489bd9718bfc": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "1d4ee26457c4b88193b8e3961c7ecc1318c3f4b0b3bcc06cd48ffb65b83d46bd": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "afd4bd554539cb67334733c0b92090f1007e9c817a3aaf3cd38b4034c4d35dfe": {
+    "raw": "A, B,",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "2869cbc1d8114f3d5487ed1352f5df7cb676f0c61d6a73f145412839448cc078": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "1fbf9691a9f5a746f96bf51722f240e7c46ab7be8d6a9be06e86c9142c005e95": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "14d0f69ca832f12eb627348e204e92314c46b771f48811920839cb58a3e26540": {
+    "raw": "A, B,",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "98e6fc61244dad2a5dec17e10d9bba4329c568876ef9037a8a019f8b6074169c": {
+    "raw": "A,B,TIE",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "39f296df0e8c2b144f7c3669dbc3e8056f3025d509672004bc24baf2e09766d7": {
+    "raw": "A, B,",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "6d7df593f12eec7f21e3f408e91cff3a19c0648476bff68217660bba0e8f8b32": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "cd42ad62e27a0c977a8ff39a6cb8cc0485072095fc730142def5cb8765eac97e": {
+    "raw": "A, B,",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "53acba9ff4339cb60d271c84666d5ea5a7801021729414d5eeea497a00535669": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "958aa558f1adf38c11d4e0bbcc944ac16cbabba3d0083e195d3a9a6711061277": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "2ee30a6e53257bb34f3dc8665421b6a1d76a8232aa9ceb38cc51c3396cd3e095": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "d450b4ed471a301093458b63939dfaa8977ec8113580c33b4deb6c9bd4769e64": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "cec54f5ee09de0eb77a2a5f26098602ad3bb94d9956bc75e082e3719480b395c": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "51a8ba5b8e3943d84bb354ae20fe640bcb7dcc5167cc4d6a7c29997028f7ff69": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "ddf810c3c70caf49edcc19449ab0dd79d8dd16ec8b0e7bb65de92f1099434993": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "8b71570e2f71c3b10c2d75afe56641a4aaee693e7d142edd8591f93afddd6859": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "cfe68e95e464b0ca5f529672ee4bb5ff167767c8cad673e0adebe411784722a2": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "0acf332dc7c5a5dbe4b4d872fa7c359e50dcdf7c4ee9af65e9548e3255dfa011": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "e9fca8c8f3ef071436c239a2c00948428a571250e6782d978cab005691dc370e": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "9fb7d2d71c75f493036c5b4ac7ef8ad4451af6d5a9bb4d04b9b4f1cf58a17af6": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "fe2f7a2aa47c939e0acbbe957e25416eab09339ad1c3a7f9d8c55f487c8122f3": {
+    "raw": "A, B,",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "088d36fa1a1744846379373138a76ba57000f01d2b7c85465e756ddb2dce49b5": {
+    "raw": "A, B,",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "4a9b6474b8239cf7144ae8874fece6bb2356694c0a3a11ba4ae1361f3a0908bd": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "d5008eb69a5037839a6e195a3868f3ec488901a581fa6eab5a6d9bcb35ae383d": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "92356e8bae04e5adfede12e5c6799606ea6a5fc6749bf2808241f3853bece3ed": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "6b6f299128da17a2aa80729566ab10ef19a7cb2763196b87e755e4c6fe3ecd69": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "c014e08c67e8ae5ac3ccc8d7ddc624037434521018e961ad91e285a837413c2b": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "f2c889f6341c2f76577d2497fcc2d7c0edb20eba5f5a0d28da98dd3faf00ac93": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "c8f7bb5daa7cab34b8a245788eff39e559c1bc2995a5fad2aea538d71e93ffef": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "a0c480d9ecbf2eded05e9bb01c775e143aeac6d255007f5e4718d5d6a71091e4": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "d4c7da12a97f5e5f7b0ee901203677c08836d751045ff4a5ab648403cd165adc": {
+    "raw": "A",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "085023dd08db73834591282a5a02f19ebeac43dd2b63df8df98b1cba659e2eab": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "199cd7d014536b3ce7ca891351a4c57433585cd9c44d1532f830b8feb0441299": {
+    "raw": "A, B,",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "4eaa024ee64a4c902d121e891b002886b6493703bc7d9497aa0eb8e95ef97c8f": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "4013f32c9fe9f667bd1c4a6cdbb03dc333e539b1b865eb87f93e144f240c7ce8": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "52d2ec4bd63dd2f9a6b0ad7f0421508925e3b3108a54a71d2a3b02ee32c42a23": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "819915a29e6675f9095919916a176996c62ce94490201da93956a2486c939d92": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "e71a1e129b6149dcb5794b17510d9f51b4bf4189049a6802f05553b32c686db7": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "02a8296c918b14c14f767ecc6241cdb0d6ce156643d9fbce6e5147175421d747": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "b2c32be524289d273b3efd943a0897755802b2d5e02e0df8f8aeb0dee161d0f4": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "3aca2f4bdcd4bf5808698a270bb02a48566e5399b5b8a2b986105fe93bbacbb6": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "cc2162247ccf9c3467975738277114fea5d0a60087cf7e7d737109a113eb3a10": {
+    "raw": "A,B,TIE",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "543db933e8b52c2ec6fc4b22ef39fd2e67a9798f3376882b12e3d023878ad88a": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "ace1dd10f583b250ef1d33b078dbdfb6e5bf89a01ebc4af10599269bef35bc8d": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "5ee6ace036e75436bd0c1d91f3d52f43a27e7809610da846bc7e37dca2102ea1": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "5ea9daf5402bf27c475fb0dce9b4bd32fcfd6753fb8fdefe57256e999a6d7578": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "160603ed418bea1bdaa0dac35cab297606aa138e7faaf03929399784f5470af0": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "13bcf41b2979a9d335c77abeb363894ba36624165645196b676fbdca10c52a51": {
+    "raw": "A, B,",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "35872f1a755c60f98616e677b03f57aaa5fcf238aaa6f45b974b713df5d323ed": {
+    "raw": "A, B,",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "8048149febe3546e8fb316027b9cb4d106df6f45742c648a0926bfb3e769938d": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "5c7d80dfd7008f743c1954ff98c8da683889a9d5a0056a11c0e79863d8414245": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "4a8e111430baf86420647ecfef8104f658ccf043211ef7511af60fe62098716a": {
+    "raw": "A",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "34e5b8c59d9f4ee68821d9a104443f26be78a67e9eb5d3cbd5d96bb8e7a0015d": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "77cea913b0bc03b69f38987cd4772b647f7c2356c54872d1fa1539bb21fca6a0": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "73d391a71b64128b0d1862ae54ff237e9b018ef77a1cdf251dde1c9d3dac6e7c": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "15c37905bc357080e604a6d2653537570eee45786d8eeac84ada17d0ff8bca09": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "7fb6d6553311b24aa5720db695a1698e51de9b0abcdb9d3e662d72433d9912cc": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "78e92e6912d1eb8c311d9293eccf8e6ed85d507266dc72cc5c58303fd596bd06": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "451c9662beee9c68abb41e23aabcc287c30c5dc57e16c8d955270ca0d7cabded": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "875805b6e6cbd7c51658493dd2b7f7928f3bc65177611d487c938f4d4151adb1": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "c4e39391261410e199863cdb39f25d58d181b0d55d6a7322c727ee39a8039dfd": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "e9053819e27de1363dc428d04ff4c11c2401cd24047b12ecf14d26cf06f48776": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "6a429dea0c1ef9d5663ebfa54d0f8a8d9e34c9dcdb254dd9f6fcaa007baab528": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "dc69bafbfcb88ed52d9f4ad3a770ae0c51ecf51eb7442d48f02dfcc43a5cdc4b": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "08155748d2f8d18a9e36bfb49af64c853e696c71447f7634440b058ad38a0b52": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "fbe5a7a85af87450ac9387b65f1e77a9c09fb6c04ce6aa73fa565f512e7facc2": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "50ea106fbb27c3e9ec64d058c117da4c677c3a1ec77cfedb5a3e5ca1d18d07ef": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "6c87d7964f8b203529ff7336c63e173322b681959f5bd3ebf040ae647816cdb8": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "fda7946394179f6f17510eadfbd3a275a2edf4c97671e0f9d249c592c39c1b98": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "4601145f6a7b2c0520574bd4c25a0618c57a1910ffe514cbd1f9ec10779c24a5": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "57fddb74aadbc6a87d52bc1d78b4b6ddb6c39616b6806800cadab36c592d9306": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "410f9044d3ecfb97163b21d101feb7632c50d06bc09f185681bfb5df695e8654": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "e8e1858741d0e9e9844bc2a57fc5bb77e2f2a4491598f627d4b46a80b9b71b5b": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "fbbff6670161aa92c6154d6f54eb3d444a92ee7a4b15afd8f165f6ce68f45e27": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "50d009f13cec3b2d44031197bb422961cc304ef92a14434597925f91d19583e5": {
+    "raw": "B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "4af0b5c7782352ffae2c76d8a1c16f4003020a8149b54adc04d4e038fda913b1": {
+    "raw": "A, B,",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "505eab2d5cf8767079e15c7267d053423e33f7445327d23978919b3174741b92": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "e610e130b4a32e140cbf63b900a5825c5db5e2da63aa137ad2e59e0d34e9b610": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "84daeffab1a90968a2d44bcd3a868467229de7a99686a9fbbf5458b66628d03d": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "56c6fbc0491fac1f5f0ae6dc76e8d6e63f73d94694a91eae9abfb90b211527a5": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "230fbbf7c6ff377913426e3da8dea29729203e36bb4d825ce0b8096fdb54554b": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "846e35792659155672e23a8003c1a54a14b0ff10e086309b19629c95c8825cd0": {
+    "raw": "A, B,",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "02f3f4b910834d5306e1ced8c2617299bdb84d00e09e30e126f66b12251173b5": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "978266313d00052aff9c6681234a31d5b08070c978ef74cb49e66869290c08ef": {
+    "raw": "A, B,",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "1aec35a76d40dd2908420b1db0205a799635f4f5fe7a2b73bae213bc15ad79f6": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "d271f679804b531dc5cf041de3393257b37592a632ce80789d8bb9f6d7ffac3f": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "31b4b83af43e494a9cc660d63b587417ac56995768309ef9cc245506a1f77cc9": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "5980f2ac3aa8ea6fb1011dcc3db70f9667c57a5139459ff37996d2d516d357d8": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "7150e645fa52470543afb6546b9df94475b42936307e23b453da0335d9b2edc3": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "ba273be4c56b17e5292c5f2b992e53e4435246d8cc445e7556752c5e4ed0c457": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "c59a1880e81632c515b0b8a31fa0430526a869d7cfc6de1a679a5b60c74560fa": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "6192c5f575a99bbb20d856781796fb3db589be7f81845d050b9f8b3550429c8f": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "a65059574cb0ecf6a6028f4d137e428e46d7fa1c2a49dc340dab72b42f5f1e91": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "4bfbbfe2ff5278159b23b4aaa244a9f19a04ca331b51113d320052b03c3f6a91": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "9f306fc99b738e2f228d2ffd0072148043e8a0059cda89be6727b290ada5c097": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "c4a859fbaa3ff7b6760e3cd941e00b6fc55e7456a4e5eaa45cac4ef1e4dc65c0": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "4f202c4e4e1f59e489ebb1343db6bb3a5e95d0b4c6120fec81e1e0bac84abc98": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "d6baadbaa3f36a67f8734f5af7573adb38f692a267348d34bed993474cd4314d": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "e7f2e573857182df435559e2238f329e6363c122c041b3b5bd428882fabc10d4": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "5a8d742617a91479618a0949783df4e1999043ab84121dd07670079e3227a981": {
+    "raw": "A, B",
+    "result": "A",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "f2e7b77220bf74addc2bbb7b491cb518c589381aa78ce31425e3d8dd5a941028": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "052d6231e90a56a51522a2482121bd82a66776bcc0bc1430172925f391cc5497": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "27c541a478911590ff169f6a68a8c61225c5e495d4dc0c8a2464e0ee957d584a": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "9c119fd179b4f3f0478e9e8ae0a756ff2958d21a7821f981487fc79f57de682b": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "4e52910f65e66b1a1072b06608b8d6f91123bff625d318240f1dfcffc9e8eed1": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "f1192e84090c8cc471e304d1eadbfb9e6fb93b9057dda9eef96eff18678a8ca6": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "e1b0fd12e796c8e84234626f8ee43843dfa0fdc0eaa39193c1e77fcdbedd7697": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "56ca73604732f8580c18bf1fafb04dd0e5699fb60ce30f1746e6a9333652d162": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "7f804aa329592b0d3ee57b3109157fce430697a38dc835a8e0fe189fc110b36d": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "9014ba17015071085eab4accdac6ab3c3f144a9efb8d2edb3acfbb18ee2ca8ec": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "68776844713b4245532fe0e79944f216eab9ffeef212b54b875ef5c18a4bdd09": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "854968692caa19a33acbf815c69e2f9af0aec67e03a04363839c7641a2143044": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "84a06e339272fddf3012cc699921e360d9a42f315798cd35049f77108eaeb034": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "dd593484f29076c88136cc90aa04ba5a717eaaa8d9c3d726125e0a02f8281c1c": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "2c8fb9f0fb810e6ed5527a7569aa125de88e57c72c531819296edf5d3100db27": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "c00cd3ce67493219a7677534dabbd6246777639eb6834b93594fbb80adcae0b6": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "36946cf779a93619ab2ec0379ae4814cd6022ddd9410c43f9e8fd6ac5400d265": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "52df163f95f066ab09c362f8d2933a227583b2894d9e24fffbe1c65f5264fb7b": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "82bdd1e1619d9586ff40ee14f8529b240b7d45c91c4867d2e7df65597a6ba8c5": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "8903e3e325409606cf49a9bd0772f461b1851d36baeb8d69be60bf717501273c": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "065469eb832899fe9e31aeb7f335e37316bdac49a6a01e833d906842dbcc1378": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  },
+  "5ef7d3272e702ae8ac4b8193e4c7fbdaf599e942d51ede62e5172a24066adbd4": {
+    "raw": "A, B",
+    "result": "B",
+    "parse_failure": false,
+    "multi_token_output": true
+  },
+  "d7b5d009bef379d6da01beeddb8b9424b23b3aa0fe79b463a3af97befa7d66bc": {
+    "raw": "TIE",
+    "result": "TIE",
+    "parse_failure": false,
+    "multi_token_output": false
+  }
+}
