@@ -1,9 +1,9 @@
 {
   "session": "s2b-ppo-forks",
   "stage_seconds": {
-    "clip_cache_and_forks": 3163.4,
-    "kl_forks": 2967.3,
-    "ppo_midpoint_baseline": 845.6,
-    "dpo_sft_baseline": 467.5
+    "clip_cache_and_forks": 3312.0,
+    "kl_forks": 3249.0,
+    "ppo_midpoint_baseline": 818.2,
+    "dpo_sft_baseline": 478.3
   }
 }

@@ -2,21 +2,21 @@
 
 | task | condition | reward signal | held-out reward (RM) | KL | length | extra | compute |
 |---|---|---|---|---|---|---|---|
-| T1 | T1 SFT baseline | fixed preference pairs (DPO) | 0.875 | 0.00000 | 176.4 | pref-acc 0.000 |  |
+| T1 | T1 SFT baseline | fixed preference pairs (DPO) | 0.927 | 0.00000 | 169.7 | pref-acc 0.000 |  |
 | T1 | T1 DPO standard | fixed preference pairs (DPO) | 0.952 | -0.00004 | 174.6 | pref-acc 0.638 | 1283 s, 91 steps |
 | T1 | T1 DPO β=0.03 | fixed preference pairs (DPO) | 0.932 | -0.00007 | 174.8 | pref-acc 0.634 | 527 s, 38 steps |
 | T1 | T1 DPO β=0.10 | fixed preference pairs (DPO) | 0.893 | -0.00009 | 173.1 | pref-acc 0.641 | 529 s, 38 steps |
 | T1 | T1 DPO β=0.30 | fixed preference pairs (DPO) | 0.928 | -0.00011 | 173.4 | pref-acc 0.628 | 529 s, 38 steps |
-| T2 | T2 PPO midpoint | learned reward + value critic (PPO) | 1.566 | -0.00004 | 308.9 |  |  |
-| T2 | T2 PPO standard (20 upd) | learned reward + value critic (PPO) | 1.470 | -0.00000 | 300.2 |  | 318 s, 20 upd, peak 8.72 GiB |
-| T2 | T2 PPO ε=0.20 fork (8 upd) | learned reward + value critic (PPO) | 1.572 | 0.00000 | 303.8 | ε sweep: identical to other ε |  |
-| T2 | T2 PPO βKL=0 fork | learned reward + value critic (PPO) | 1.535 | -0.00001 | 316.4 |  |  |
-| T2 | T2 PPO βKL=0.10 fork | learned reward + value critic (PPO) | 1.572 | 0.00000 | 303.8 |  |  |
-| T2 | T2 PPO βKL=0.20 fork | learned reward + value critic (PPO) | 1.702 | -0.00001 | 298.8 |  |  |
-| T3 | T3 GRPO midpoint | group-relative reward, no critic (GRPO) | 1.203 | 0.00000 | 265.4 |  |  |
-| T3 | T3 GRPO standard (20 upd, K=4) | group-relative reward, no critic (GRPO) | 1.419 | 0.00019 | 259.9 |  | 399 s, 20 upd, peak 8.59 GiB |
-| T3 | T3 GRPO canonical fork (8 upd) | group-relative reward, no critic (GRPO) | 1.424 | 0.00010 | 252.8 |  |  |
-| T3 | T3 GRPO Dr.GRPO fork (8 upd) | group-relative reward, no critic (GRPO) | 1.444 | 0.00018 | 273.8 | corr(len,grad) −0.41 vs −0.94 |  |
+| T2 | T2 PPO midpoint | learned reward + value critic (PPO) | 1.600 | 0.00002 | 278.2 |  |  |
+| T2 | T2 PPO standard (20 upd) | learned reward + value critic (PPO) | 1.569 | 0.00003 | 305.1 |  | 334 s, 20 upd, peak 8.18 GiB |
+| T2 | T2 PPO ε=0.20 fork (8 upd) | learned reward + value critic (PPO) | 1.558 | 0.00001 | 312.7 | ε sweep: identical to other ε |  |
+| T2 | T2 PPO βKL=0 fork | learned reward + value critic (PPO) | 1.553 | 0.00001 | 304.7 |  |  |
+| T2 | T2 PPO βKL=0.10 fork | learned reward + value critic (PPO) | 1.558 | 0.00001 | 312.7 |  |  |
+| T2 | T2 PPO βKL=0.20 fork | learned reward + value critic (PPO) | 1.518 | 0.00003 | 312.1 |  |  |
+| T3 | T3 GRPO midpoint | group-relative reward, no critic (GRPO) | 1.179 | 0.00006 | 252.6 |  |  |
+| T3 | T3 GRPO standard (20 upd, K=4) | group-relative reward, no critic (GRPO) | 1.373 | 0.00020 | 256.7 |  | 398 s, 20 upd, peak 8.69 GiB |
+| T3 | T3 GRPO canonical fork (8 upd) | group-relative reward, no critic (GRPO) | 1.443 | 0.00016 | 264.2 |  |  |
+| T3 | T3 GRPO Dr.GRPO fork (8 upd) | group-relative reward, no critic (GRPO) | 1.443 | 0.00014 | 267.1 | corr(len,grad) −0.41 vs −0.94 |  |
 | T4 | T4 SFT (frozen) | categorical AI judge on XSTest | — | — | 108.1 | safe-answer 0.712, over-refusal 0.000, unsafe-compliance 0.000, justified-refusal 0.805, ambiguous 0.013 |  |
 | T4 | T4 DPO (frozen) | categorical AI judge on XSTest | — | — | 108.8 | safe-answer 0.676, over-refusal 0.000, unsafe-compliance 0.000, justified-refusal 0.800, ambiguous 0.002 |  |
 | T4 | T4 PPO (frozen) | categorical AI judge on XSTest | — | — | 107.7 | safe-answer 0.704, over-refusal 0.000, unsafe-compliance 0.000, justified-refusal 0.810, ambiguous 0.011 |  |

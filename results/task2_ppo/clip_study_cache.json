@@ -110,7 +110,7 @@
               "max_ratio": 1.5550920963287354,
               "clip_fraction": 0.1102404072880745,
               "affected_token_fraction": 0.1102404072880745,
-              "mean_clipped_surrogate": 2.599690780392848
+              "mean_clipped_surrogate": 2.8092121653291455
             },
             "0.2": {
               "mean_ratio": 1.0010193586349487,
@@ -119,7 +119,7 @@
               "max_ratio": 1.5550920963287354,
               "clip_fraction": 0.0029220348224043846,
               "affected_token_fraction": 0.0029220348224043846,
-              "mean_clipped_surrogate": 2.6075650703860447
+              "mean_clipped_surrogate": 2.8160030740493953
             },
             "0.5": {
               "mean_ratio": 1.0010193586349487,
@@ -128,7 +128,7 @@
               "max_ratio": 1.5550920963287354,
               "clip_fraction": 0.0001328197686234489,
               "affected_token_fraction": 0.0001328197686234489,
-              "mean_clipped_surrogate": 2.6078605009242892
+              "mean_clipped_surrogate": 2.8161507737416485
             }
           }
         }

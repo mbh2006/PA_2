@@ -14,8 +14,8 @@
         "max_completion_length": 512,
         "seed": 6304,
         "output": "/kaggle/working/repo/outputs/task3_grpo/norm_grpo",
-        "wall_clock_seconds": 156.5,
-        "peak_vram_gib": 8.4,
+        "wall_clock_seconds": 146.1,
+        "peak_vram_gib": 8.39,
         "mean_reward_last5": 0.7395751953125,
         "uninformative_group_rate": 0.0
       },
@@ -24,10 +24,10 @@
         "mean_grad_norm": 0.3385770795866847,
         "mean_length": 279.78125
       },
-      "heldout_reward": 1.4235275268554688,
-      "heldout_kl": 0.00010273900142250391,
-      "heldout_length": 252.79,
-      "heldout_length_std": 191.65981816750218
+      "heldout_reward": 1.442672119140625,
+      "heldout_kl": 0.0001575579439214496,
+      "heldout_length": 264.18,
+      "heldout_length_std": 192.2785157005327
     },
     "dr_grpo": {
       "tag": "norm_dr_grpo",
@@ -42,7 +42,7 @@
         "max_completion_length": 512,
         "seed": 6304,
         "output": "/kaggle/working/repo/outputs/task3_grpo/norm_dr_grpo",
-        "wall_clock_seconds": 193.5,
+        "wall_clock_seconds": 184.3,
         "peak_vram_gib": 8.99,
         "mean_reward_last5": 1.1564170837402343,
         "uninformative_group_rate": 0.0
@@ -52,10 +52,10 @@
         "mean_grad_norm": 0.08058979827910662,
         "mean_length": 315.90625
       },
-      "heldout_reward": 1.4442225646972657,
-      "heldout_kl": 0.00017546158109793617,
-      "heldout_length": 273.8,
-      "heldout_length_std": 203.55746117497142
+      "heldout_reward": 1.4430325317382813,
+      "heldout_kl": 0.00014416260348011818,
+      "heldout_length": 267.05,
+      "heldout_length_std": 193.00038212397405
     }
   }
 }

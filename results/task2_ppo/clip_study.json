@@ -111,7 +111,7 @@
                 "max_ratio": 1.5550920963287354,
                 "clip_fraction": 0.1102404072880745,
                 "affected_token_fraction": 0.1102404072880745,
-                "mean_clipped_surrogate": 2.599690780392848
+                "mean_clipped_surrogate": 2.8092121653291455
               },
               "0.2": {
                 "mean_ratio": 1.0010193586349487,
@@ -120,7 +120,7 @@
                 "max_ratio": 1.5550920963287354,
                 "clip_fraction": 0.0029220348224043846,
                 "affected_token_fraction": 0.0029220348224043846,
-                "mean_clipped_surrogate": 2.6075650703860447
+                "mean_clipped_surrogate": 2.8160030740493953
               },
               "0.5": {
                 "mean_ratio": 1.0010193586349487,
@@ -129,7 +129,7 @@
                 "max_ratio": 1.5550920963287354,
                 "clip_fraction": 0.0001328197686234489,
                 "affected_token_fraction": 0.0001328197686234489,
-                "mean_clipped_surrogate": 2.6078605009242892
+                "mean_clipped_surrogate": 2.8161507737416485
               }
             }
           }
@@ -144,12 +144,12 @@
       "clip_epsilon": 0.05,
       "stability": {
         "clip_fraction_std": 0.0,
-        "grad_norm_policy_std": 1.9103601221112594,
-        "ratio_deviation_final": 0.00016963481903076172
+        "grad_norm_policy_std": 2.2367101145288744,
+        "ratio_deviation_final": 0.00022405385971069336
       },
-      "heldout_reward": 1.572330551147461,
-      "heldout_kl": 1.517780455476948e-06,
-      "heldout_length": 303.81,
+      "heldout_reward": 1.5579547119140624,
+      "heldout_kl": 8.515194303808803e-06,
+      "heldout_length": 312.73,
       "train_summary": {
         "run_name": "clip_eps_0p05",
         "updates": 8,
@@ -164,9 +164,9 @@
         "max_response_length": 512,
         "seed": 6304,
         "output": "/kaggle/working/repo/outputs/task2_ppo/clip_eps_0p05",
-        "wall_clock_seconds": 136.4,
-        "peak_vram_gib": 8.17,
-        "mean_reward_last5": 0.66083984375,
+        "wall_clock_seconds": 122.6,
+        "peak_vram_gib": 8.06,
+        "mean_reward_last5": 0.81728515625,
         "total_nonfinite_skips": 0
       }
     },
@@ -175,12 +175,12 @@
       "clip_epsilon": 0.2,
       "stability": {
         "clip_fraction_std": 0.0,
-        "grad_norm_policy_std": 1.9103601221112594,
-        "ratio_deviation_final": 0.00016963481903076172
+        "grad_norm_policy_std": 2.2367101145288744,
+        "ratio_deviation_final": 0.00022405385971069336
       },
-      "heldout_reward": 1.572330551147461,
-      "heldout_kl": 1.517780455476948e-06,
-      "heldout_length": 303.81,
+      "heldout_reward": 1.5579547119140624,
+      "heldout_kl": 8.515194303808803e-06,
+      "heldout_length": 312.73,
       "train_summary": {
         "run_name": "clip_eps_0p2",
         "updates": 8,
@@ -195,9 +195,9 @@
         "max_response_length": 512,
         "seed": 6304,
         "output": "/kaggle/working/repo/outputs/task2_ppo/clip_eps_0p2",
-        "wall_clock_seconds": 140.9,
-        "peak_vram_gib": 8.74,
-        "mean_reward_last5": 0.66083984375,
+        "wall_clock_seconds": 129.3,
+        "peak_vram_gib": 8.62,
+        "mean_reward_last5": 0.81728515625,
         "total_nonfinite_skips": 0
       }
     },
@@ -206,12 +206,12 @@
       "clip_epsilon": 0.5,
       "stability": {
         "clip_fraction_std": 0.0,
-        "grad_norm_policy_std": 1.9103601221112594,
-        "ratio_deviation_final": 0.00016963481903076172
+        "grad_norm_policy_std": 2.2367101145288744,
+        "ratio_deviation_final": 0.00022405385971069336
       },
-      "heldout_reward": 1.572330551147461,
-      "heldout_kl": 1.517780455476948e-06,
-      "heldout_length": 303.81,
+      "heldout_reward": 1.5579547119140624,
+      "heldout_kl": 8.515194303808803e-06,
+      "heldout_length": 312.73,
       "train_summary": {
         "run_name": "clip_eps_0p5",
         "updates": 8,
@@ -226,9 +226,9 @@
         "max_response_length": 512,
         "seed": 6304,
         "output": "/kaggle/working/repo/outputs/task2_ppo/clip_eps_0p5",
-        "wall_clock_seconds": 140.8,
-        "peak_vram_gib": 8.74,
-        "mean_reward_last5": 0.66083984375,
+        "wall_clock_seconds": 128.2,
+        "peak_vram_gib": 8.63,
+        "mean_reward_last5": 0.81728515625,
         "total_nonfinite_skips": 0
       }
     }
