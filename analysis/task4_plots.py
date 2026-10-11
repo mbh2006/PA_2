@@ -62,6 +62,7 @@ def fig_calibration(evald: dict, outbase: Path):
     policies = [p for p in POLICIES if p in aggs]
     if not policies:
         return False
+    token_stats = evald.get("_token_stats", {})
     fig, axes = plt.subplots(1, 4, figsize=(18, 3.8))
     x = np.arange(len(policies))
 
@@ -87,9 +88,11 @@ def fig_calibration(evald: dict, outbase: Path):
     ax.legend(fontsize=8)
 
     ax = axes[3]
-    ax.bar(x, [aggs[p]["mean_response_tokens"] for p in policies], 0.36, color="tab:gray")
+    means = [aggs[p]["mean_response_tokens"] for p in policies]
+    stds = [token_stats.get(p, (None, None))[1] if token_stats.get(p) else 0.0 for p in policies]
+    ax.bar(x, means, 0.36, color="tab:gray", yerr=[s or 0.0 for s in stds], capsize=4)
     ax.set_xticks(x, policies)
-    ax.set_title("Mean response tokens (own axis)")
+    ax.set_title("Mean response tokens ± std (own axis)")
 
     for ax in axes:
         ax.grid(alpha=0.3, axis="y")
@@ -150,6 +153,7 @@ def fig_confusion(evald: dict, outbase: Path):
 def tables_md(evald: dict):
     lines = ["# Task 4 — auto-generated result tables", ""]
     aggs = evald.get("aggregates", {})
+    token_stats = evald.get("_token_stats", {})
     policies = [p for p in POLICIES if p in aggs]
     if policies:
         lines += [
@@ -157,15 +161,16 @@ def tables_md(evald: dict):
             "",
             "_**Judge-limited instrument** — class-inconsistent labels (105/120/107/108 of 450 for SFT/DPO/PPO/GRPO) and zero OVER_REFUSAL usage are documented in `TRACKING/04_TASK4_SAFETY.md` §6.2/§7; the student manual audit (63.3% agreement, 7 over-refusals the judge missed) qualifies this table. Do not read zero over-refusal/compliance rates as \"perfect safety\"._",
             "",
-            "| policy | n | safe answer | safe over-refusal | unsafe compliance | justified refusal | ambiguous | mean tokens | parse failures |",
+            "| policy | n | safe answer | safe over-refusal | unsafe compliance | justified refusal | ambiguous | mean ± std tokens | parse failures |",
             "|---|---|---|---|---|---|---|---|---|",
         ]
         for p in policies:
             a = aggs[p]
+            mean_t, std_t = token_stats.get(p, (a["mean_response_tokens"], None))
             lines.append(
                 f"| {p} | {a['num_prompts']} | {fmt(a['safe_answer_rate'])} | {fmt(a['safe_over_refusal_rate'])} | "
                 f"{fmt(a['unsafe_compliance_rate'])} | {fmt(a['unsafe_justified_refusal_rate'])} | "
-                f"{fmt(a['ambiguous_rate'])} | {fmt(a['mean_response_tokens'], 1)} | {a.get('parse_failure_count', 0)} |"
+                f"{fmt(a['ambiguous_rate'])} | {fmt(mean_t, 1)} ± {fmt(std_t, 1)} | {a.get('parse_failure_count', 0)} |"
             )
         lines.append("")
         lines.append("### Full judge-label distribution per policy")
@@ -213,6 +218,15 @@ def main():
     if evald is None:
         print("safety_eval.json not found yet; run task4_safety.evaluate_safety first.")
         return
+    token_stats = {}
+    for pol in POLICIES:
+        path = safety_dir / f"judged_{pol}.jsonl"
+        if path.exists():
+            rows = [json.loads(l) for l in path.open(encoding="utf-8") if l.strip()]
+            toks = [r.get("response_tokens", 0) for r in rows]
+            if toks:
+                token_stats[pol] = (float(np.mean(toks)), float(np.std(toks)))
+    evald["_token_stats"] = token_stats
     md = tables_md(evald)
     (safety_dir / "summary_tables.md").write_text(md, encoding="utf-8")
     print(md)

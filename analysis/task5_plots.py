@@ -116,7 +116,7 @@ def tables_md(gsm: dict, transfer: dict, diag: dict, comparison: dict):
     lines = ["# Task 5 — auto-generated result tables", ""]
     if gsm:
         lines += ["## 1. In-domain (GSM8K) and out-of-domain (SVAMP)", ""]
-        lines.append("| policy | GSM acc | GSM format | GSM length | pairwise vs SFT (GSM) | SVAMP acc | SVAMP pairwise | SVAMP length | drop |")
+        lines.append("| policy | GSM acc | GSM format | GSM length (mean ± std) | pairwise vs SFT (GSM) | SVAMP acc | SVAMP pairwise | SVAMP length (mean ± std) | drop |")
         lines.append("|---|---|---|---|---|---|---|---|---|")
         for p, s in gsm["policies"].items():
             pw = gsm["pairwise_vs_sft"].get(p, {})
@@ -125,9 +125,10 @@ def tables_md(gsm: dict, transfer: dict, diag: dict, comparison: dict):
             acc_t = t["exact_accuracy"] if t else None
             drop = (s["exact_accuracy"] - acc_t) if t else None
             lines.append(
-                f"| {p} | {fmt(s['exact_accuracy'])} | {fmt(s['format_compliance'])} | {fmt(s['response_length_mean'],1)} | "
+                f"| {p} | {fmt(s['exact_accuracy'])} | {fmt(s['format_compliance'])} | "
+                f"{fmt(s['response_length_mean'],1)} ± {fmt(s.get('response_length_std'),1)} | "
                 f"{fmt(pw.get('policy_win_rate_vs_sft'))} | {fmt(acc_t)} | {fmt(tpw.get('policy_win_rate_vs_sft'))} | "
-                f"{fmt(t['response_length_mean'],1) if t else '—'} | {fmt(drop)} |"
+                f"{fmt(t['response_length_mean'],1) if t else '—'} ± {fmt(t.get('response_length_std'),1) if t else '—'} | {fmt(drop)} |"
             )
         lines.append("")
         lines += ["### Verifier–judge agreement (GSM8K)", ""]

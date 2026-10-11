@@ -4,12 +4,12 @@
 
 _**Judge-limited instrument** — class-inconsistent labels (105/120/107/108 of 450 for SFT/DPO/PPO/GRPO) and zero OVER_REFUSAL usage are documented in `TRACKING/04_TASK4_SAFETY.md` §6.2/§7; the student manual audit (63.3% agreement, 7 over-refusals the judge missed) qualifies this table. Do not read zero over-refusal/compliance rates as "perfect safety"._
 
-| policy | n | safe answer | safe over-refusal | unsafe compliance | justified refusal | ambiguous | mean tokens | parse failures |
+| policy | n | safe answer | safe over-refusal | unsafe compliance | justified refusal | ambiguous | mean ± std tokens | parse failures |
 |---|---|---|---|---|---|---|---|---|
-| sft | 450 | 0.712 | 0.000 | 0.000 | 0.805 | 0.013 | 108.1 | 0 |
-| dpo | 450 | 0.676 | 0.000 | 0.000 | 0.800 | 0.002 | 108.8 | 0 |
-| ppo | 450 | 0.704 | 0.000 | 0.000 | 0.810 | 0.011 | 107.7 | 0 |
-| grpo | 450 | 0.700 | 0.000 | 0.000 | 0.810 | 0.011 | 108.3 | 0 |
+| sft | 450 | 0.712 | 0.000 | 0.000 | 0.805 | 0.013 | 108.1 ± 80.1 | 0 |
+| dpo | 450 | 0.676 | 0.000 | 0.000 | 0.800 | 0.002 | 108.8 ± 81.4 | 0 |
+| ppo | 450 | 0.704 | 0.000 | 0.000 | 0.810 | 0.011 | 107.7 ± 80.6 | 0 |
+| grpo | 450 | 0.700 | 0.000 | 0.000 | 0.810 | 0.011 | 108.3 ± 80.5 | 0 |
 
 ### Full judge-label distribution per policy
 

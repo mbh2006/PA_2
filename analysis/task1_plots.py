@@ -15,6 +15,7 @@ from __future__ import annotations
 import argparse
 import json
 import math
+import statistics
 from pathlib import Path
 
 import matplotlib
@@ -132,12 +133,17 @@ def tables_markdown(conditions: dict, length_payloads: dict, train_summaries: di
         lines.append("")
         lines.append("## 3. Word-limit compliance on the common prompt set")
         lines.append("")
-        lines.append("| condition | compliance rate | mean response tokens |")
+        lines.append("| condition | compliance rate | response tokens (mean ± std) |")
         lines.append("|---|---|---|")
         for tag, payload in length_payloads.items():
             wl = payload.get("word_limit", {})
+            per_prompt = wl.get("per_prompt", [])
+            std_tokens = None
+            if len(per_prompt) > 1:
+                std_tokens = statistics.pstdev([p.get("response_tokens", 0) for p in per_prompt])
             lines.append(
-                f"| {tag} | {fmt(wl.get('word_limit_compliance_rate'))} | {fmt(wl.get('response_length_mean_tokens'),1)} |"
+                f"| {tag} | {fmt(wl.get('word_limit_compliance_rate'))} | "
+                f"{fmt(wl.get('response_length_mean_tokens'),1)} ± {fmt(std_tokens,1)} |"
             )
         lines.append("")
 

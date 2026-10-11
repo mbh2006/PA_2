@@ -22,10 +22,10 @@ _Training strata after overlong-prompt filtering: preferred_longer 478 / length_
 
 ## 3. Word-limit compliance on the common prompt set
 
-| condition | compliance rate | mean response tokens |
+| condition | compliance rate | response tokens (mean ± std) |
 |---|---|---|
-| standard | 1.000 | 45.5 |
-| length_balanced | 1.000 | 47.0 |
+| standard | 1.000 | 45.5 ± 22.8 |
+| length_balanced | 1.000 | 47.0 ± 18.9 |
 
 ## 4. Training runs (from train_*.json)
 
