@@ -8,12 +8,16 @@
 | rlvr | 0.297 | 0.373 | 273.7 ± 84.8 | 0.488 | 0.450 | 0.490 | 164.0 ± 72.1 | -0.153 |
 | rlaif | 0.297 | 0.377 | 274.5 ± 85.8 | 0.458 | 0.450 | 0.510 | 164.5 ± 72.3 | -0.153 |
 
+_Judge-output validity (per audit): across the S5r judge cache (554 unique calls) **365 (66%) are multi-choice echoes** ('A, B' style) scored by first mention - not reliable preference expressions; the remaining 189 (34%) are single-answer, of which **164 are genuine TIE and only 25 decisive (20x A, 5x B)**. Released scores are retained for compliance, but win-rate interpretation must not rest on them (see `TRACKING/05_TASK5_RLVR_RLAIF.md` SS6.1b/SS7.7-7.8)._
+
 ### Verifier–judge agreement (GSM8K)
 
 | challenger | agreement | pairs with verifier disagreement | wins/ties/losses |
 |---|---|---|---|
 | rlvr | 0.500 | 12 | 108/77/115 |
 | rlaif | 0.400 | 5 | 100/75/125 |
+
+_Agreement denominator (per audit): computed ONLY over pairs where the **verifier rewards differ AND the judge returns a decisive A/B (not a tie)** - i.e., the restricted decisive subset of verifier disagreements (GSM totals: RLVR 13 disagreements -> 12 decisive; RLAIF 7 -> 5; transfer: RLVR 4 -> 3, RLAIF 4 -> 4). The JSON field `verifier_judge_agreement` uses this restricted denominator and is NOT the fraction of all verifier disagreements._
 
 ## 2. Controlled diagnostic study
 

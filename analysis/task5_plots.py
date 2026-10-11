@@ -131,6 +131,8 @@ def tables_md(gsm: dict, transfer: dict, diag: dict, comparison: dict):
                 f"{fmt(t['response_length_mean'],1) if t else '—'} ± {fmt(t.get('response_length_std'),1) if t else '—'} | {fmt(drop)} |"
             )
         lines.append("")
+        lines.append("_Judge-output validity (per audit): across the S5r judge cache (554 unique calls) **365 (66%) are multi-choice echoes** ('A, B' style) scored by first mention - not reliable preference expressions; the remaining 189 (34%) are single-answer, of which **164 are genuine TIE and only 25 decisive (20x A, 5x B)**. Released scores are retained for compliance, but win-rate interpretation must not rest on them (see `TRACKING/05_TASK5_RLVR_RLAIF.md` SS6.1b/SS7.7-7.8)._")
+        lines.append("")
         lines += ["### Verifier–judge agreement (GSM8K)", ""]
         lines.append("| challenger | agreement | pairs with verifier disagreement | wins/ties/losses |")
         lines.append("|---|---|---|---|")
@@ -139,6 +141,8 @@ def tables_md(gsm: dict, transfer: dict, diag: dict, comparison: dict):
                 f"| {p} | {fmt(pw.get('verifier_judge_agreement'))} | {pw.get('num_pairs_with_verifier_disagreement')} | "
                 f"{pw.get('wins')}/{pw.get('ties')}/{pw.get('losses')} |"
             )
+        lines.append("")
+        lines.append("_Agreement denominator (per audit): computed ONLY over pairs where the **verifier rewards differ AND the judge returns a decisive A/B (not a tie)** - i.e., the restricted decisive subset of verifier disagreements (GSM totals: RLVR 13 disagreements -> 12 decisive; RLAIF 7 -> 5; transfer: RLVR 4 -> 3, RLAIF 4 -> 4). The JSON field `verifier_judge_agreement` uses this restricted denominator and is NOT the fraction of all verifier disagreements._")
         lines.append("")
     if diag:
         lines += [
