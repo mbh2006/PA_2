@@ -11,7 +11,7 @@ from torch.optim import AdamW
 from common.data import load_yaml, prompt_messages, read_jsonl, repo_path
 from common.generation import batch_generate, response_token_logprobs, score_reward_pairs
 from common.logging_utils import set_seed
-from common.metrics import masked_mean, sampled_kl, sample_entropy
+from common.metrics import full_vocab_entropy_sums, masked_mean, sampled_kl, sample_entropy
 from common.models import load_policy, load_reward_model, load_tokenizer, reference_mode, trainable_parameters
 from task3_grpo.grpo import group_relative_advantages, grpo_policy_loss, mask_truncated_sequences
 
@@ -120,10 +120,11 @@ def run_grpo(config_path: str, output: str | None = None, updates: int | None = 
 
             pol_loss_v = None
             grad_norm_v = None
+            entropy_full_v = None
             diag = {}
             nonfinite_skips = 0
             for _ in range(policy_epochs):
-                new_logp, _ = response_token_logprobs(policy, seq, attn, pw, rid)
+                new_logp, new_logits = response_token_logprobs(policy, seq, attn, pw, rid)
                 loss, diag = grpo_policy_loss(
                     new_logp,
                     old_logp,
@@ -150,11 +151,17 @@ def run_grpo(config_path: str, output: str | None = None, updates: int | None = 
                 optimizer.step()
                 optimizer.zero_grad(set_to_none=True)
                 pol_loss_v = float(loss.detach())
+                # manual metric: full token-level policy entropy over the entire vocabulary
+                with torch.no_grad():
+                    fsum, fcount = full_vocab_entropy_sums(new_logits.detach(), token_mask)
+                entropy_full_v = (fsum / fcount) if fcount else float("nan")
 
             if pol_loss_v is None:
                 pol_loss_v = float("nan")
             if grad_norm_v is None:
                 grad_norm_v = float("nan")
+            if entropy_full_v is None:
+                entropy_full_v = float("nan")
             kl_value = float(sampled_kl(old_logp, ref_logp, rmask))
             record = {
                 "update": i + 1,
@@ -166,7 +173,8 @@ def run_grpo(config_path: str, output: str | None = None, updates: int | None = 
                 "kl": kl_value,
                 "policy_loss": pol_loss_v,
                 "grad_norm_policy": float(grad_norm_v),
-                "entropy": float(diag.get("sample_entropy", torch.tensor(float("nan")))),
+                "entropy": entropy_full_v,
+                "entropy_proxy": float(diag.get("sample_entropy", torch.tensor(float("nan")))),
                 "clip_fraction": float(diag.get("clip_fraction", float("nan"))),
                 "ratio_mean": float(diag.get("ratio_mean", float("nan"))),
                 "response_tokens_mean": float(rmask.sum(-1).float().mean()),

@@ -21,6 +21,7 @@ import torch
 from common.data import load_yaml, prompt_messages, read_jsonl, repo_path
 from common.generation import batch_generate, response_token_logprobs, score_reward_pairs
 from common.logging_utils import set_seed
+from common.metrics import full_vocab_entropy_sums
 from common.models import (
     clear_gpu,
     load_policy,
@@ -63,6 +64,8 @@ def evaluate_adapter_on_rl_eval(
     kl_token_sum = 0.0
     kl_token_count = 0
     ent_token_sum = 0.0
+    ent_full_sum = 0.0
+    ent_full_count = 0.0
     for start in range(0, len(prompts), batch_size):
         batch = prompts[start : start + batch_size]
         gen = batch_generate(
@@ -75,7 +78,7 @@ def evaluate_adapter_on_rl_eval(
             top_p=float(gen_cfg.get("top_p", 0.9)),
             do_sample=bool(gen_cfg.get("do_sample", True)),
         )
-        pol_logp, _ = response_token_logprobs(
+        pol_logp, pol_logits = response_token_logprobs(
             policy, gen["sequences"], gen["attention_mask"], gen["prompt_width"], gen["response_ids"]
         )
         with reference_mode(policy):
@@ -88,6 +91,10 @@ def evaluate_adapter_on_rl_eval(
         kl_token_count += int(gen["response_mask"].sum())
         per_seq_ent = ((-pol_logp) * gen["response_mask"]).sum(-1) / gen["response_mask"].sum(-1).clamp_min(1.0)
         ent_token_sum += float(((-pol_logp) * gen["response_mask"]).sum())
+        with torch.no_grad():
+            fs, fc = full_vocab_entropy_sums(pol_logits.detach(), gen["response_mask"])
+        ent_full_sum += fs
+        ent_full_count += fc
 
         rewards = score_reward_pairs(
             reward_model, reward_tokenizer, batch, gen["responses"], max_length=reward_max_length
@@ -119,6 +126,8 @@ def evaluate_adapter_on_rl_eval(
         "kl_per_sequence_mean": statistics.fmean([r["kl"] for r in records]) if records else None,
         "entropy_sampled_response_mean": (ent_token_sum / kl_token_count) if kl_token_count else None,
         "entropy_sampled_response_std": statistics.pstdev([r["entropy"] for r in records]) if len(records) > 1 else None,
+        "entropy_full_vocab_mean": (ent_full_sum / ent_full_count) if ent_full_count else None,
+        "entropy_note": "entropy_full_vocab_mean is the manual's full token-level policy entropy H_t = -sum_v pi log pi; entropy_sampled_response_* is the course-helper proxy (-mean log pi of sampled tokens).",
         "response_length_mean": statistics.fmean(lengths) if lengths else None,
         "response_length_std": statistics.pstdev(lengths) if len(lengths) > 1 else None,
         "truncated_fraction": (sum(1 for r in records if r["truncated"]) / len(records)) if records else None,

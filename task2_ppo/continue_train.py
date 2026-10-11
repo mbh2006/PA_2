@@ -11,7 +11,7 @@ from torch.optim import AdamW
 from common.data import load_yaml, prompt_messages, read_jsonl, repo_path
 from common.generation import batch_generate, response_token_logprobs, score_reward_pairs
 from common.logging_utils import set_seed
-from common.metrics import masked_mean, sampled_kl, sample_entropy
+from common.metrics import full_vocab_entropy_sums, masked_mean, sampled_kl, sample_entropy
 from common.models import (
     load_policy,
     load_reward_model,
@@ -161,10 +161,11 @@ def run_ppo(config_path: str, output: str | None = None, updates: int | None = N
             advantages, returns = compute_gae(rewards, values, rmask, gamma=gamma, lam=lam)
 
             pol_loss_v = val_loss_v = clip_frac_v = ratio_v = entropy_v = None
+            entropy_proxy_v = None
             p_grad = v_grad = None
             nonfinite_skips = 0
             for _ in range(ppo_epochs):
-                new_logp, _ = response_token_logprobs(policy, seq, attn, pw, rid)
+                new_logp, new_logits = response_token_logprobs(policy, seq, attn, pw, rid)
                 pol_loss, ratio, clip_frac = ppo_policy_loss(new_logp, old_logp, advantages, rmask, eps=eps)
                 v_pred = token_values(value_model, seq, attn)[:, pw - 1 : -1]
                 val_loss = value_mse_loss(v_pred.float(), returns, rmask)
@@ -199,11 +200,17 @@ def run_ppo(config_path: str, output: str | None = None, updates: int | None = N
                 val_loss_v = float(val_loss.detach())
                 clip_frac_v = float(clip_frac)
                 ratio_v = float(masked_mean(ratio, rmask))
-                entropy_v = float(sample_entropy(new_logp.detach(), rmask))
+                entropy_proxy_v = float(sample_entropy(new_logp.detach(), rmask))
+                # manual metric: full token-level policy entropy over the entire vocabulary
+                with torch.no_grad():
+                    fsum, fcount = full_vocab_entropy_sums(new_logits.detach(), rmask)
+                entropy_v = (fsum / fcount) if fcount else float("nan")
 
             if pol_loss_v is None:
                 # every epoch of this update was skipped (non-finite); keep the record well-formed
                 pol_loss_v = val_loss_v = clip_frac_v = ratio_v = entropy_v = float("nan")
+            if entropy_proxy_v is None:
+                entropy_proxy_v = float("nan")
             if p_grad is None:
                 p_grad = float("nan")
             if v_grad is None:
@@ -219,6 +226,7 @@ def run_ppo(config_path: str, output: str | None = None, updates: int | None = N
                 "policy_loss": pol_loss_v,
                 "value_loss": val_loss_v,
                 "entropy": entropy_v,
+                "entropy_proxy": entropy_proxy_v,
                 "clip_fraction": clip_frac_v,
                 "ratio_mean": ratio_v,
                 "grad_norm_policy": float(p_grad),

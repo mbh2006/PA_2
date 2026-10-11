@@ -122,6 +122,28 @@ def test_value_action_alignment_convention():
     print("PASS  test_value_action_alignment_convention")
 
 
+def test_full_vocab_entropy():
+    import math as _math
+
+    from common.metrics import full_vocab_entropy_sums
+
+    # uniform distribution over 2 vocab entries -> entropy ln(2) at every token
+    logits = torch.zeros(1, 3, 2)
+    mask = torch.ones(1, 3)
+    total, n = full_vocab_entropy_sums(logits, mask)
+    assert n == 3.0 and abs(total / n - _math.log(2)) < 1e-6, (total, n)
+
+    # extremely peaked distribution -> entropy ~ 0
+    peaked = torch.tensor([[[50.0, 0.0], [50.0, 0.0], [50.0, 0.0]]])
+    total2, n2 = full_vocab_entropy_sums(peaked, mask)
+    assert abs(total2 / n2) < 1e-4
+
+    # masked positions are excluded from the average
+    total3, n3 = full_vocab_entropy_sums(logits, torch.tensor([[1.0, 0.0, 0.0]]))
+    assert n3 == 1.0 and abs(total3 / n3 - _math.log(2)) < 1e-6
+    print("PASS  test_full_vocab_entropy")
+
+
 if __name__ == "__main__":
     test_gae_hand_computed()
     test_shaped_rewards_hand_computed()
@@ -129,4 +151,5 @@ if __name__ == "__main__":
     test_grpo_loss_denominators_and_clipping()
     test_grpo_truncation_masking()
     test_value_action_alignment_convention()
+    test_full_vocab_entropy()
     print("\nAll RL helper tests passed.")

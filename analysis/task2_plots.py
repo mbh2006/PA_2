@@ -221,13 +221,13 @@ def tables_md(ppo: dict, cache: dict, study: dict, kl_study: dict, eval_std: dic
         lines.append("")
     if kl_study and kl_study.get("conditions"):
         lines += ["## 5. KL-pressure study (8-update forks)", ""]
-        lines.append("_`final *` columns are training-side (mean of last three updates); `held-out *` columns are from the fixed 100-prompt evaluation protocol (manual requirement: held-out reward, KL, **entropy**, length)._")
+        lines.append("_`final *` columns are training-side (mean of last three updates); `held-out *` columns are from the fixed 100-prompt evaluation protocol (manual requirement: held-out reward, KL, **entropy**, length). Entropy values reported are the **full token-level policy entropy** H_t = −Σ_v π log π over the whole vocabulary (the course-helper sampled-token negative log-probability proxy is retained alongside as `entropy_sampled_response_mean`)._")
         lines.append("")
         lines.append("| β_KL | final reward | final KL | final entropy (train) | final length | held-out reward | held-out KL | **held-out entropy** | held-out length |")
         lines.append("|---|---|---|---|---|---|---|---|---|")
         for c in kl_study["conditions"]:
             ev = kl_evals.get(c.get("tag", ""), {})
-            ho_ent = ev.get("entropy_sampled_response_mean")
+            ho_ent = ev.get("entropy_full_vocab_mean", ev.get("entropy_sampled_response_mean"))
             lines.append(
                 f"| {fmt(c['kl_beta'], 2)} | {fmt(c['final_mean_reward'])} | {fmt(c['final_kl'], 5)} | "
                 f"{fmt(c['final_entropy'], 3)} | {fmt(c['final_length'], 1)} | {fmt(c['heldout_reward'])} | "
