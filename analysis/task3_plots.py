@@ -183,7 +183,10 @@ def tables_md(grpo: dict, study: dict, norm: dict, eval_std: dict):
             cells = []
             for k in ks:
                 b = rows[f"K={k}"]["per_difficulty"][name]
-                cells.append(f"{fmt(b['informative_group_rate'])} ({fmt(b['mean_within_group_reward_std'])})")
+                cells.append(
+                    f"{fmt(b['informative_group_rate'])} ({fmt(b['mean_within_group_reward_std'])}; "
+                    f"var {fmt(b['variance_of_group_relative_signal'])})"
+                )
             lines.append(f"| {name} | " + " | ".join(cells) + " |")
         lines.append("")
     if (norm or {}).get("results"):

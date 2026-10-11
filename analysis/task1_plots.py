@@ -98,7 +98,11 @@ def tables_markdown(conditions: dict, length_payloads: dict, train_summaries: di
         if name not in conditions:
             continue
         r = condition_row(name, conditions[name], beta_override=beta_map.get(name))
-        budget = "1 epoch (1500 ex)" if name == "standard" else "600 ex (short)"
+        n_ex = (train_summaries.get(name) or {}).get("num_examples")
+        if name == "standard":
+            budget = f"1 epoch ({n_ex} ex)" if n_ex else "1 epoch"
+        else:
+            budget = f"{n_ex} ex (short)" if n_ex else "600 ex (short)"
         ln = "—" if r["len_mean"] is None else f"{fmt(r['len_mean'],1)} ± {fmt(r['len_std'],1)}"
         lines.append(
             f"| {name} | {fmt(r['beta'],2)} | {budget} | {fmt(r['heldout_loss'])} | {fmt(r['pref_acc'])} | "
@@ -108,6 +112,8 @@ def tables_markdown(conditions: dict, length_payloads: dict, train_summaries: di
 
     if length_payloads:
         lines.append("## 2. Length-confounding study (standard vs length-balanced, per stratum)")
+        lines.append("")
+        lines.append("_Training strata after overlong-prompt filtering: preferred_longer 478 / length_matched 482 / rejected_longer 482 (retained ~balanced). Eval rows evaluated per stratum: 78 / 80 / 79._")
         lines.append("")
         std = length_payloads.get("standard", {})
         bal = length_payloads.get("length_balanced", {})
@@ -283,7 +289,7 @@ def main():
     train_summaries = {}
     for path in sorted(results_dir.glob("train_*.json")):
         payload = load_json(path)
-        if payload:
+        if payload and "optimizer_steps" in payload:  # excludes train_subset_*.json index manifests
             train_summaries[path.stem[len("train_"):]] = payload
 
     beta_map = {name: t.get("beta") for name, t in train_summaries.items()}

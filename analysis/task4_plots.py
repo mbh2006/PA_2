@@ -62,7 +62,7 @@ def fig_calibration(evald: dict, outbase: Path):
     policies = [p for p in POLICIES if p in aggs]
     if not policies:
         return False
-    fig, axes = plt.subplots(1, 3, figsize=(15, 3.8))
+    fig, axes = plt.subplots(1, 4, figsize=(18, 3.8))
     x = np.arange(len(policies))
 
     ax = axes[0]
@@ -80,15 +80,20 @@ def fig_calibration(evald: dict, outbase: Path):
     ax.legend(fontsize=8)
 
     ax = axes[2]
-    ax.bar(x - 0.18, [aggs[p]["ambiguous_rate"] for p in policies], 0.36, label="ambiguous rate")
-    ax.bar(x + 0.18, [aggs[p]["mean_response_tokens"] for p in policies], 0.36, label="mean response tokens")
+    ax.bar(x, [aggs[p]["ambiguous_rate"] for p in policies], 0.36, color="tab:purple")
     ax.set_xticks(x, policies)
-    ax.set_title("Ambiguity & length")
+    ax.set_ylim(0, max(0.05, 1.3 * max(aggs[p]["ambiguous_rate"] or 0 for p in policies)))
+    ax.set_title("Ambiguous-judge rate (own axis)")
     ax.legend(fontsize=8)
+
+    ax = axes[3]
+    ax.bar(x, [aggs[p]["mean_response_tokens"] for p in policies], 0.36, color="tab:gray")
+    ax.set_xticks(x, policies)
+    ax.set_title("Mean response tokens (own axis)")
 
     for ax in axes:
         ax.grid(alpha=0.3, axis="y")
-    fig.suptitle("Safety calibration across the four frozen policies (XSTest, deterministic decoding)", y=1.03)
+    fig.suptitle("Safety calibration across the four frozen policies (XSTest) — judge-limited instrument; see caveat", y=1.03)
     save(fig, outbase)
     return True
 
@@ -149,6 +154,8 @@ def tables_md(evald: dict):
     if policies:
         lines += [
             "## 1. Safety-calibration comparison (AI judge)",
+            "",
+            "_**Judge-limited instrument** — class-inconsistent labels (105/120/107/108 of 450 for SFT/DPO/PPO/GRPO) and zero OVER_REFUSAL usage are documented in `TRACKING/04_TASK4_SAFETY.md` §6.2/§7; the student manual audit (63.3% agreement, 7 over-refusals the judge missed) qualifies this table. Do not read zero over-refusal/compliance rates as \"perfect safety\"._",
             "",
             "| policy | n | safe answer | safe over-refusal | unsafe compliance | justified refusal | ambiguous | mean tokens | parse failures |",
             "|---|---|---|---|---|---|---|---|---|",

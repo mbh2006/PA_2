@@ -127,16 +127,19 @@ def fig_clip_study(cache: dict, study: dict, outbase: Path):
     return True
 
 
-def fig_kl_study(study: dict, outbase: Path):
+def fig_kl_study(study: dict, outbase: Path, kl_evals: dict | None = None):
+    kl_evals = kl_evals or {}
     conds = (study or {}).get("conditions", [])
     if not conds:
         return False
     betas = [c["kl_beta"] for c in conds]
+    ho_ent = [kl_evals.get(c.get("tag", ""), {}).get("entropy_sampled_response_mean") for c in conds]
+    use_ho = all(v is not None for v in ho_ent)
     fig, axes = plt.subplots(1, 4, figsize=(16, 3.6))
     panels = [
         ("held-out reward", [c["heldout_reward"] for c in conds]),
         ("held-out KL", [c["heldout_kl"] for c in conds]),
-        ("final entropy", [c["final_entropy"] for c in conds]),
+        ("held-out entropy" if use_ho else "training entropy", ho_ent if use_ho else [c["final_entropy"] for c in conds]),
         ("held-out length", [c["heldout_length"] for c in conds]),
     ]
     for ax, (title, ys) in zip(axes, panels):
@@ -149,7 +152,8 @@ def fig_kl_study(study: dict, outbase: Path):
     return True
 
 
-def tables_md(ppo: dict, cache: dict, study: dict, kl_study: dict, eval_std: dict):
+def tables_md(ppo: dict, cache: dict, study: dict, kl_study: dict, eval_std: dict, kl_evals: dict | None = None):
+    kl_evals = kl_evals or {}
     lines = ["# Task 2 — auto-generated result tables", ""]
 
     if ppo:
@@ -217,13 +221,17 @@ def tables_md(ppo: dict, cache: dict, study: dict, kl_study: dict, eval_std: dic
         lines.append("")
     if kl_study and kl_study.get("conditions"):
         lines += ["## 5. KL-pressure study (8-update forks)", ""]
-        lines.append("| β_KL | final reward | final KL | final entropy | final length | held-out reward | held-out KL | held-out length |")
-        lines.append("|---|---|---|---|---|---|---|---|")
+        lines.append("_`final *` columns are training-side (mean of last three updates); `held-out *` columns are from the fixed 100-prompt evaluation protocol (manual requirement: held-out reward, KL, **entropy**, length)._")
+        lines.append("")
+        lines.append("| β_KL | final reward | final KL | final entropy (train) | final length | held-out reward | held-out KL | **held-out entropy** | held-out length |")
+        lines.append("|---|---|---|---|---|---|---|---|---|")
         for c in kl_study["conditions"]:
+            ev = kl_evals.get(c.get("tag", ""), {})
+            ho_ent = ev.get("entropy_sampled_response_mean")
             lines.append(
                 f"| {fmt(c['kl_beta'], 2)} | {fmt(c['final_mean_reward'])} | {fmt(c['final_kl'], 5)} | "
                 f"{fmt(c['final_entropy'], 3)} | {fmt(c['final_length'], 1)} | {fmt(c['heldout_reward'])} | "
-                f"{fmt(c['heldout_kl'], 5)} | {fmt(c['heldout_length'], 1)} |"
+                f"{fmt(c['heldout_kl'], 5)} | {fmt(ho_ent, 3)} | {fmt(c['heldout_length'], 1)} |"
             )
         lines.append("")
     return "\n".join(lines)
@@ -243,8 +251,13 @@ def main():
     study = load_json(results_dir / "clip_study.json")
     kl_study = load_json(results_dir / "kl_study.json")
     eval_std = load_json(results_dir / "eval_standard.json")
+    kl_evals = {}
+    for path in sorted(results_dir.glob("eval_kl_*.json")):
+        payload = load_json(path)
+        if payload:
+            kl_evals[path.stem[len("eval_"):]] = payload  # keys: kl_0, kl_0p1, kl_0p2
 
-    md = tables_md(ppo, cache, study, kl_study, eval_std)
+    md = tables_md(ppo, cache, study, kl_study, eval_std, kl_evals)
     (results_dir / "summary_tables.md").write_text(md, encoding="utf-8")
     print(md)
 
@@ -253,7 +266,7 @@ def main():
         made.append("ppo_trajectories")
     if fig_clip_study(cache, study, fig_dir / "ppo_clip_study"):
         made.append("ppo_clip_study")
-    if fig_kl_study(kl_study, fig_dir / "ppo_kl_study"):
+    if fig_kl_study(kl_study, fig_dir / "ppo_kl_study", kl_evals):
         made.append("ppo_kl_study")
     print("figures written:", made)
 

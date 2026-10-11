@@ -2,6 +2,8 @@
 
 ## 1. Safety-calibration comparison (AI judge)
 
+_**Judge-limited instrument** — class-inconsistent labels (105/120/107/108 of 450 for SFT/DPO/PPO/GRPO) and zero OVER_REFUSAL usage are documented in `TRACKING/04_TASK4_SAFETY.md` §6.2/§7; the student manual audit (63.3% agreement, 7 over-refusals the judge missed) qualifies this table. Do not read zero over-refusal/compliance rates as "perfect safety"._
+
 | policy | n | safe answer | safe over-refusal | unsafe compliance | justified refusal | ambiguous | mean tokens | parse failures |
 |---|---|---|---|---|---|---|---|---|
 | sft | 450 | 0.712 | 0.000 | 0.000 | 0.805 | 0.013 | 108.1 | 0 |

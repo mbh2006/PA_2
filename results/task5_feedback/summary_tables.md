@@ -2,11 +2,11 @@
 
 ## 1. In-domain (GSM8K) and out-of-domain (SVAMP)
 
-| policy | GSM acc | GSM format | GSM length | pairwise vs SFT (GSM) | SVAMP acc | drop |
-|---|---|---|---|---|---|---|
-| sft | 0.273 | 0.350 | 274.2 | — | 0.450 | -0.177 |
-| rlvr | 0.297 | 0.373 | 273.7 | 0.513 | 0.450 | -0.153 |
-| rlaif | 0.297 | 0.377 | 274.5 | 0.537 | 0.450 | -0.153 |
+| policy | GSM acc | GSM format | GSM length | pairwise vs SFT (GSM) | SVAMP acc | SVAMP pairwise | SVAMP length | drop |
+|---|---|---|---|---|---|---|---|---|
+| sft | 0.273 | 0.350 | 274.2 | — | 0.450 | — | 164.6 | -0.177 |
+| rlvr | 0.297 | 0.373 | 273.7 | 0.513 | 0.450 | 0.465 | 164.0 | -0.153 |
+| rlaif | 0.297 | 0.377 | 274.5 | 0.537 | 0.450 | 0.435 | 164.5 | -0.153 |
 
 ### Verifier–judge agreement (GSM8K)
 
