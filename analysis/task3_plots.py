@@ -133,7 +133,7 @@ def fig_normalization(study: dict, outbase: Path):
     return True
 
 
-def tables_md(grpo: dict, study: dict, norm: dict, eval_std: dict):
+def tables_md(grpo: dict, study: dict, norm: dict, eval_std: dict, diag: dict | None = None):
     lines = ["# Task 3 — auto-generated result tables", ""]
     if grpo:
         h = grpo.get("history", [])
@@ -147,11 +147,14 @@ def tables_md(grpo: dict, study: dict, norm: dict, eval_std: dict):
             "|---|---|---|---|---|---|---|---|---|",
         ]
         for r in h:
+            ent = "undefined" if (r["entropy"] != r["entropy"]) else fmt(r["entropy"], 3)  # NaN = empty training mask
             lines.append(
                 f"| {r['update']} | {fmt(r['mean_reward'])} | {fmt(r['group_reward_std'])} | "
-                f"{'Y' if r['uninformative_group'] else ''} | {fmt(r['kl'], 4)} | {fmt(r['policy_loss'], 4)} | "
-                f"{fmt(r['grad_norm_policy'], 3)} | {fmt(r['entropy'], 3)} | {fmt(r['response_tokens_mean'], 0)} |"
+                f"{'yes' if r['uninformative_group'] else 'no'} | {fmt(r['kl'], 4)} | {fmt(r['policy_loss'], 4)} | "
+                f"{fmt(r['grad_norm_policy'], 3)} | {ent} | {fmt(r['response_tokens_mean'], 0)} |"
             )
+        lines.append("")
+        lines.append("_Column notes: 'uninf.' = reward-variance informativeness (group std <= 1e-6), **not** usable training signal. Updates 13 and 17 have all four completions truncated, so the released truncation mask empties the training batch: zero policy gradient (grad norm 0.000, policy loss 0.000) and **entropy undefined** (NaN = empty mask). The entropy diagnostic covers valid (unmasked) response tokens only and has no support when the mask is empty. Hence 0% uninformative reward groups does not mean every update provides training signal: 2/20 updates provided none._")
         lines.append("")
     if eval_std:
         lines += [
@@ -200,6 +203,31 @@ def tables_md(grpo: dict, study: dict, norm: dict, eval_std: dict):
                 f"{fmt(lc.get('corr_length_vs_grad_norm'))} |"
             )
         lines.append("")
+        lines.append("_Realized generated tokens (per audit): canonical **8,953** vs Dr. GRPO **10,109** (+12.9%). Update counts and caps are equal by the released short-run spec; realized tokens differ because Dr. GRPO's responses are longer - itself part of the effect under study (forcing realized-token equality would mean truncating completions and departing from the released generation settings). Disclosed, not assumed equal._")
+        lines.append("")
+    if diag:
+        lines += ["### 4b. Direct length-conditioned gradient diagnostic (fixed saved batch, S3c)", ""]
+        lines.append("_Per-completion gradient norms of log pi(y|x) over LoRA params measured on each fork's SAVED rollouts (no training, no generation). alpha = log-log slope of ||g|| vs completion length T; canonical contributions scale with ||g||/T (sequence mean), Dr. GRPO with ||g|| (constant). Non-truncated completions only (training-relevant). n per fork is small - treat as a fixed-batch diagnostic, not a law._")
+        lines.append("")
+        lines.append("| fork | n (non-trunc) | alpha (||g|| ~ T^alpha) | r(log T, log ||g||) | r(T, ||g||) [Dr.] | r(T, ||g||/T) [canonical] |")
+        lines.append("|---|---|---|---|---|---|")
+        for tag, d in diag.items():
+            s = d.get("stats", {})
+            lines.append(
+                f"| {tag} | {s.get('n_nontruncated')} | {fmt(s.get('loglog_slope_alpha'), 2)} | "
+                f"{fmt(s.get('pearson_logT_logG'), 2)} | {fmt(s.get('pearson_T_dr_contrib'), 2)} | "
+                f"{fmt(s.get('pearson_T_canonical_contrib'), 2)} |"
+            )
+        lines.append("")
+        lines.append("| fork | length quartile | tokens (mean) | ||g|| mean | ||g||/T mean (canonical) | |A|*||g|| mean (Dr.) |")
+        lines.append("|---|---|---|---|---|---|")
+        for tag, d in diag.items():
+            for b in d.get("stats", {}).get("quartile_bins", []):
+                lines.append(
+                    f"| {tag} | Q{b['bin']} | {fmt(b['tokens_mean'], 0)} | {fmt(b['grad_norm_mean'])} | "
+                    f"{fmt(b['canonical_contrib_mean'], 5)} | {fmt(b['adv_weighted_dr_mean'])} |"
+                )
+        lines.append("")
     return "\n".join(lines)
 
 
@@ -216,8 +244,9 @@ def main():
     study = load_json(results_dir / "group_size_study.json")
     norm = load_json(results_dir / "normalization_study.json")
     eval_std = load_json(results_dir / "eval_standard.json")
+    diag = load_json(results_dir / "grad_length_diag.json")
 
-    md = tables_md(grpo, study, norm, eval_std)
+    md = tables_md(grpo, study, norm, eval_std, diag)
     (results_dir / "summary_tables.md").write_text(md, encoding="utf-8")
     print(md)
 
