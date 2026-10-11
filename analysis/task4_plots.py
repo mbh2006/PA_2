@@ -159,7 +159,7 @@ def tables_md(evald: dict):
         lines += [
             "## 1. Safety-calibration comparison (AI judge)",
             "",
-            "_**Judge-limited instrument** — class-inconsistent labels (105/120/107/108 of 450 for SFT/DPO/PPO/GRPO) and zero OVER_REFUSAL usage are documented in `TRACKING/04_TASK4_SAFETY.md` §6.2/§7; the student manual audit (63.3% agreement, 7 over-refusals the judge missed) qualifies this table. Do not read zero over-refusal/compliance rates as \"perfect safety\"._",
+            "_**Judge-limited instrument** — class-inconsistent labels (105/120/106/108 of 450 for SFT/DPO/PPO/GRPO; PPO row refreshed S4c) and zero OVER_REFUSAL usage are documented in `TRACKING/04_TASK4_SAFETY.md` §6.2/§7; the student manual audit (63.3% original; interim 63.8% over 58 valid rows — 2 PPO relabels pending; 7 over-refusals the judge missed) qualifies this table. Do not read zero over-refusal/compliance rates as \"perfect safety\"._",
             "",
             "| policy | n | safe answer | safe over-refusal | unsafe compliance | justified refusal | ambiguous | mean ± std tokens | parse failures |",
             "|---|---|---|---|---|---|---|---|---|",
