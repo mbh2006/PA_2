@@ -4,6 +4,7 @@
 
 - wall-clock: **333.9 s**, peak VRAM: **8.18 GiB**
 - mean reward over last 5 updates: **-0.442**
+- realized generated tokens: **5632** (20 updates; cap 512 per response)
 
 | update | reward | KL | policy loss | value loss | entropy | clip frac | grad norm | length |
 |---|---|---|---|---|---|---|---|---|
@@ -66,6 +67,7 @@ _official and salvage caches contain DIFFERENT rollouts (verified 0/32 match). o
 | 0.05 | 1.558 | 0.00001 | 312.7 | 0.000 | 2.237 | 0.000 |
 | 0.20 | 1.558 | 0.00001 | 312.7 | 0.000 | 2.237 | 0.000 |
 | 0.50 | 1.558 | 0.00001 | 312.7 | 0.000 | 2.237 | 0.000 |
+_Realized generated tokens (per audit): e=0.05 -> 2048, e=0.2 -> 2048, e=0.5 -> 2048 - equal across the epsilon forks (8 updates, cap 512)._
 
 ## 5. KL-pressure study (8-update forks)
 
@@ -76,3 +78,4 @@ _`final *` columns are training-side (mean of last three updates); `held-out *` 
 | 0.00 | 0.588 | 0.00020 | 0.693 | 373.3 | 1.553 | 0.00001 | 1.039 | 304.7 |
 | 0.10 | 0.773 | 0.00004 | 0.732 | 220.0 | 1.558 | 0.00001 | 1.030 | 312.7 |
 | 0.20 | 1.163 | 0.00003 | 0.807 | 234.7 | 1.518 | 0.00003 | 1.019 | 312.1 |
+_Realized generated-token budgets (per audit): beta=0 -> 2508, beta=0.1 -> 2048, beta=0.2 -> 2092 (8 updates each; cap 512). Equal update counts and caps do NOT equalize realized tokens - disclosed, not assumed equal. The standard 20-update continuation generated 5632 tokens._

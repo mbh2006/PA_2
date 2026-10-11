@@ -152,8 +152,9 @@ def fig_kl_study(study: dict, outbase: Path, kl_evals: dict | None = None):
     return True
 
 
-def tables_md(ppo: dict, cache: dict, study: dict, kl_study: dict, eval_std: dict, kl_evals: dict | None = None):
+def tables_md(ppo: dict, cache: dict, study: dict, kl_study: dict, eval_std: dict, kl_evals: dict | None = None, budgets: dict | None = None):
     kl_evals = kl_evals or {}
+    budgets = budgets or {}
     lines = ["# Task 2 — auto-generated result tables", ""]
 
     if ppo:
@@ -163,6 +164,7 @@ def tables_md(ppo: dict, cache: dict, study: dict, kl_study: dict, eval_std: dic
             "",
             f"- wall-clock: **{fmt(ppo.get('wall_clock_seconds'), 1)} s**, peak VRAM: **{fmt(ppo.get('peak_vram_gib'), 2)} GiB**",
             f"- mean reward over last 5 updates: **{fmt(ppo.get('mean_reward_last5'))}**",
+            f"- realized generated tokens: **{budgets.get('std', sum(r['response_tokens'] for r in h))}** (20 updates; cap 512 per response)",
             "",
             "| update | reward | KL | policy loss | value loss | entropy | clip frac | grad norm | length |",
             "|---|---|---|---|---|---|---|---|---|",
@@ -218,6 +220,10 @@ def tables_md(ppo: dict, cache: dict, study: dict, kl_study: dict, eval_std: dic
                 f"{fmt(f['heldout_length'], 1)} | {fmt(s.get('clip_fraction_std'))} | "
                 f"{fmt(s.get('grad_norm_policy_std'))} | {fmt(s.get('ratio_deviation_final'))} |"
             )
+        et = ", ".join(
+            f"e={f['clip_epsilon']:g} -> {budgets.get('clip:' + format(f['clip_epsilon'], 'g'), 'n/a')}" for f in study["forks"]
+        )
+        lines.append(f"_Realized generated tokens (per audit): {et} - equal across the epsilon forks (8 updates, cap 512)._")
         lines.append("")
     if kl_study and kl_study.get("conditions"):
         lines += ["## 5. KL-pressure study (8-update forks)", ""]
@@ -233,6 +239,14 @@ def tables_md(ppo: dict, cache: dict, study: dict, kl_study: dict, eval_std: dic
                 f"{fmt(c['final_entropy'], 3)} | {fmt(c['final_length'], 1)} | {fmt(c['heldout_reward'])} | "
                 f"{fmt(c['heldout_kl'], 5)} | {fmt(ho_ent, 3)} | {fmt(c['heldout_length'], 1)} |"
             )
+        kt = ", ".join(
+            f"beta={c['kl_beta']:g} -> {budgets.get('kl:' + format(c['kl_beta'], 'g'), 'n/a')}" for c in kl_study["conditions"]
+        )
+        lines.append(
+            f"_Realized generated-token budgets (per audit): {kt} (8 updates each; cap 512). Equal update counts and caps do "
+            f"NOT equalize realized tokens - disclosed, not assumed equal. The standard 20-update continuation generated "
+            f"{budgets.get('std', 'n/a')} tokens._"
+        )
         lines.append("")
     return "\n".join(lines)
 
@@ -257,7 +271,23 @@ def main():
         if payload:
             kl_evals[path.stem[len("eval_"):]] = payload  # keys: kl_0, kl_0p1, kl_0p2
 
-    md = tables_md(ppo, cache, study, kl_study, eval_std, kl_evals)
+    def _realized(d):
+        return sum(x.get("response_tokens", 0) for x in (d or {}).get("history", []))
+
+    budgets = {"std": _realized(ppo)}
+    for nm, key in [
+        ("ppo_clip_eps_0p05", "clip:0.05"),
+        ("ppo_clip_eps_0p2", "clip:0.2"),
+        ("ppo_clip_eps_0p5", "clip:0.5"),
+        ("ppo_kl_0", "kl:0"),
+        ("ppo_kl_0p1", "kl:0.1"),
+        ("ppo_kl_0p2", "kl:0.2"),
+    ]:
+        p = results_dir / f"{nm}.json"
+        if p.exists():
+            budgets[key] = _realized(load_json(p))
+
+    md = tables_md(ppo, cache, study, kl_study, eval_std, kl_evals, budgets)
     (results_dir / "summary_tables.md").write_text(md, encoding="utf-8")
     print(md)
 
