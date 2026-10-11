@@ -73,7 +73,17 @@ class PairwiseAIJudge:
 
     def _key(self, problem, a, b):
         payload = json.dumps(
-            {"model": self.cfg["ai_judge_model"], "problem": problem, "a": a, "b": b},
+            {
+                "model": self.cfg["ai_judge_model"],
+                # include judge configuration in the cache key so a cache cannot be silently
+                # reused after a quantization / rubric / generation-setting change
+                "quantized": bool(self.cfg.get("quantize_judge", self.cfg.get("quantize_frozen_models", True))),
+                "rubric": PAIRWISE_RUBRIC,
+                "max_new_tokens": 4,
+                "problem": problem,
+                "a": a,
+                "b": b,
+            },
             sort_keys=True,
         )
         return hashlib.sha256(payload.encode()).hexdigest()

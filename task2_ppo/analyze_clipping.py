@@ -129,7 +129,7 @@ def estimate_values_with_critic(cfg, sequences):
             continue
         ids = item["full_ids"].unsqueeze(0).to(device)
         attn = torch.ones_like(ids)
-        v = token_values(value_model, ids, attn)[0, item["prompt_len"] :].float().cpu()
+        v = token_values(value_model, ids, attn)[0, item["prompt_len"] - 1 : -1].float().cpu()
         item["values"] = v
     clear_gpu(value_model)
     return sequences
@@ -183,7 +183,8 @@ def analyze_batch(cfg, sequences, eps_values, adapters, use_surrogate: bool):
 
         eps_table = {}
         for eps in eps_values:
-            ratios, affected, surrogates = [], [], []
+            ratios, affected = [], []
+            surr_sum, surr_n = 0.0, 0
             for item, nl in zip(sequences, new_logps):
                 m = min(len(nl), len(item["old_logprobs"]))
                 if m == 0:
@@ -194,11 +195,14 @@ def analyze_batch(cfg, sequences, eps_values, adapters, use_surrogate: bool):
                 if use_surrogate and item.get("returns") is not None and item.get("values") is not None:
                     mv = min(m, len(item["returns"]), len(item["values"]))
                     if mv:
-                        adv = (item["returns"][:mv] - item["values"][:mv]).clamp(-10.0, 10.0)
+                        # manual-consistent surrogate: no advantage clamping, token-weighted
+                        # aggregation across all valid response tokens (was: clamped, per-rollout mean)
+                        adv = item["returns"][:mv] - item["values"][:mv]
                         ratio_ = ratio[:mv]
                         s1 = ratio_ * adv
                         s2 = ratio_.clamp(1.0 - eps, 1.0 + eps) * adv
-                        surrogates.append(float(torch.minimum(s1, s2).mean()))
+                        surr_sum += float(torch.minimum(s1, s2).sum())
+                        surr_n += mv
             ratio_all = torch.cat(ratios) if ratios else torch.tensor([])
             aff_all = torch.cat(affected) if affected else torch.tensor([], dtype=torch.bool)
             eps_table[str(eps)] = {
@@ -208,7 +212,7 @@ def analyze_batch(cfg, sequences, eps_values, adapters, use_surrogate: bool):
                 "max_ratio": float(ratio_all.max()) if ratio_all.numel() else None,
                 "clip_fraction": float(aff_all.float().mean()) if aff_all.numel() else None,
                 "affected_token_fraction": float(aff_all.float().mean()) if aff_all.numel() else None,
-                "mean_clipped_surrogate": statistics.fmean(surrogates) if surrogates else None,
+                "mean_clipped_surrogate": (surr_sum / surr_n) if surr_n else None,
             }
         report["adapter_analyses"][tag] = {
             "adapter": str(adapter),

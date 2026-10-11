@@ -109,10 +109,24 @@ def test_grpo_truncation_masking():
     print("PASS  test_grpo_truncation_masking")
 
 
+def test_value_action_alignment_convention():
+    """Pin the manual V(s_t) convention: the value for response token t must be the
+    state at position pw-1+t (the state that produces that token), not pw+t."""
+    pw, R = 4, 3
+    full = torch.arange(pw + R, dtype=torch.float32)  # value at each sequence position
+    aligned = full[pw - 1 : -1]
+    expected = torch.tensor([pw - 1.0, pw, pw + 1.0])
+    assert torch.equal(aligned, expected), aligned  # V(s_t) = full[pw-1+t]
+    assert not torch.equal(full[pw:], expected)  # the earlier slice was one token late
+    assert len(aligned) == R
+    print("PASS  test_value_action_alignment_convention")
+
+
 if __name__ == "__main__":
     test_gae_hand_computed()
     test_shaped_rewards_hand_computed()
     test_value_loss_and_advantage_normalization()
     test_grpo_loss_denominators_and_clipping()
     test_grpo_truncation_masking()
+    test_value_action_alignment_convention()
     print("\nAll RL helper tests passed.")

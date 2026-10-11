@@ -20,6 +20,7 @@ import torch
 
 from common.data import load_yaml, prompt_messages, read_jsonl, repo_path
 from common.generation import batch_generate, response_token_logprobs, score_reward_pairs
+from common.logging_utils import set_seed
 from common.models import (
     clear_gpu,
     load_policy,
@@ -39,6 +40,7 @@ def evaluate_adapter_on_rl_eval(
     save_generations: bool = True,
 ):
     cfg = load_yaml(config_path)
+    set_seed(int(cfg["seed"]))  # reset eval seed: sampled evaluations become reproducible and prior-state independent
     rows = read_jsonl(cfg["paths"]["rl_prompt_eval"])
     tokenizer = load_tokenizer(cfg["base_model"])
     policy = load_policy(cfg, adapter_path=adapter, trainable=False)
@@ -60,6 +62,7 @@ def evaluate_adapter_on_rl_eval(
     records = []
     kl_token_sum = 0.0
     kl_token_count = 0
+    ent_token_sum = 0.0
     for start in range(0, len(prompts), batch_size):
         batch = prompts[start : start + batch_size]
         gen = batch_generate(
@@ -83,6 +86,8 @@ def evaluate_adapter_on_rl_eval(
         per_seq = diffs.sum(-1) / gen["response_mask"].sum(-1).clamp_min(1.0)
         kl_token_sum += float(diffs.sum())
         kl_token_count += int(gen["response_mask"].sum())
+        per_seq_ent = ((-pol_logp) * gen["response_mask"]).sum(-1) / gen["response_mask"].sum(-1).clamp_min(1.0)
+        ent_token_sum += float(((-pol_logp) * gen["response_mask"]).sum())
 
         rewards = score_reward_pairs(
             reward_model, reward_tokenizer, batch, gen["responses"], max_length=reward_max_length
@@ -95,6 +100,7 @@ def evaluate_adapter_on_rl_eval(
                     "response": gen["responses"][j],
                     "reward_model_score": float(rewards[j]),
                     "kl": float(per_seq[j]),
+                    "entropy": float(per_seq_ent[j]),
                     "response_tokens": int(gen["response_lengths"][j]),
                     "terminated_with_eos": bool(gen["terminated_with_eos"][j]),
                     "truncated": bool(gen["truncated"][j]),
@@ -111,6 +117,8 @@ def evaluate_adapter_on_rl_eval(
         "reward_model_score_std": statistics.pstdev(rewards_all) if len(rewards_all) > 1 else None,
         "kl_sampled_response_estimator": (kl_token_sum / kl_token_count) if kl_token_count else None,
         "kl_per_sequence_mean": statistics.fmean([r["kl"] for r in records]) if records else None,
+        "entropy_sampled_response_mean": (ent_token_sum / kl_token_count) if kl_token_count else None,
+        "entropy_sampled_response_std": statistics.pstdev([r["entropy"] for r in records]) if len(records) > 1 else None,
         "response_length_mean": statistics.fmean(lengths) if lengths else None,
         "response_length_std": statistics.pstdev(lengths) if len(lengths) > 1 else None,
         "truncated_fraction": (sum(1 for r in records if r["truncated"]) / len(records)) if records else None,

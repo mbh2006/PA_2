@@ -143,8 +143,10 @@ def run_ppo(config_path: str, output: str | None = None, updates: int | None = N
                 old_logp, _ = response_token_logprobs(policy, seq, attn, pw, rid)
                 with reference_mode(policy):
                     ref_logp, _ = response_token_logprobs(policy, seq, attn, pw, rid)
-                # fp32 value path: fp16 squared errors/gradients can become non-finite.
-                values = token_values(value_model, seq, attn)[:, pw:].float()
+                # Manual V(s_t) convention: the value of the state that produced response
+                # token t sits at position pw-1+t; [pw-1:-1] keeps R entries aligned with
+                # the action log-probs (the previous [:, pw:] was one token late).
+                values = token_values(value_model, seq, attn)[:, pw - 1 : -1].float()
 
             raw_reward = float(
                 score_reward_pairs(
@@ -164,7 +166,7 @@ def run_ppo(config_path: str, output: str | None = None, updates: int | None = N
             for _ in range(ppo_epochs):
                 new_logp, _ = response_token_logprobs(policy, seq, attn, pw, rid)
                 pol_loss, ratio, clip_frac = ppo_policy_loss(new_logp, old_logp, advantages, rmask, eps=eps)
-                v_pred = token_values(value_model, seq, attn)[:, pw:]
+                v_pred = token_values(value_model, seq, attn)[:, pw - 1 : -1]
                 val_loss = value_mse_loss(v_pred.float(), returns, rmask)
                 loss = pol_loss + value_coef * val_loss
 

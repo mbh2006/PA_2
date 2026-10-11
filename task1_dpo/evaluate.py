@@ -21,6 +21,7 @@ from common.generation import (
     response_token_logprobs,
     score_reward_pairs,
 )
+from common.logging_utils import set_seed
 from common.models import load_policy, load_reward_model, load_tokenizer, reference_mode
 
 
@@ -194,6 +195,7 @@ def run_evaluation(
 ):
     bundle = load_evaluation_bundle(config_path, adapter)
     cfg = bundle["cfg"]
+    set_seed(int(cfg["seed"]))  # reset eval seed: standalone and post-training evaluations use the same RNG state
     results_dir = repo_path(cfg["results_dir"])
     results_dir.mkdir(parents=True, exist_ok=True)
 
