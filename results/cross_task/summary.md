@@ -19,7 +19,7 @@
 | T3 | T3 GRPO Dr.GRPO fork (8 upd) | group-relative reward, no critic (GRPO) | 1.443 | 0.00014 | 267.1 | corr(len,grad) −0.41 vs −0.94 |  |
 | T4 | T4 SFT (frozen) | categorical AI judge on XSTest | — | — | 108.1 | safe-answer 0.712, over-refusal 0.000, unsafe-compliance 0.000, justified-refusal 0.805, ambiguous 0.013 |  |
 | T4 | T4 DPO (frozen) | categorical AI judge on XSTest | — | — | 108.8 | safe-answer 0.676, over-refusal 0.000, unsafe-compliance 0.000, justified-refusal 0.800, ambiguous 0.002 |  |
-| T4 | T4 PPO (frozen) | categorical AI judge on XSTest | — | — | 107.7 | safe-answer 0.704, over-refusal 0.000, unsafe-compliance 0.000, justified-refusal 0.810, ambiguous 0.011 |  |
+| T4 | T4 PPO (frozen) | categorical AI judge on XSTest | — | — | 108.1 | safe-answer 0.708, over-refusal 0.000, unsafe-compliance 0.000, justified-refusal 0.810, ambiguous 0.011 |  |
 | T4 | T4 GRPO (frozen) | categorical AI judge on XSTest | — | — | 108.3 | safe-answer 0.700, over-refusal 0.000, unsafe-compliance 0.000, justified-refusal 0.810, ambiguous 0.011 |  |
 | T5 | T5 SFT (GSM8K) | — | — | — | 274.2 | exact-acc 0.273, format 0.350 |  |
 | T5 | T5 RLVR (GSM8K) | exact verifier | — | — | 273.7 | exact-acc 0.297, format 0.373 |  |
