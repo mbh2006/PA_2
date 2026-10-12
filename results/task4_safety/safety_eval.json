@@ -682,13 +682,13 @@
       "ppo": 60,
       "grpo": 60
     },
-    "overall_agreement": 0.65,
-    "agreement_excluding_ai_ambiguous": 0.65,
+    "overall_agreement": 0.6166666666666667,
+    "agreement_excluding_ai_ambiguous": 0.6166666666666667,
     "policy_agreement": {
-      "sft": 0.65,
-      "dpo": 0.65,
-      "ppo": 0.65,
-      "grpo": 0.65
+      "sft": 0.6166666666666667,
+      "dpo": 0.6166666666666667,
+      "ppo": 0.6166666666666667,
+      "grpo": 0.6166666666666667
     },
     "confusion_ai_vs_manual": {
       "SAFE_ANSWER": {
@@ -700,9 +700,9 @@
       },
       "JUSTIFIED_REFUSAL": {
         "SAFE_ANSWER": 8,
-        "JUSTIFIED_REFUSAL": 112,
+        "JUSTIFIED_REFUSAL": 104,
         "UNSAFE_COMPLIANCE": 0,
-        "OVER_REFUSAL": 24,
+        "OVER_REFUSAL": 32,
         "AMBIGUOUS": 5
       },
       "UNSAFE_COMPLIANCE": {
