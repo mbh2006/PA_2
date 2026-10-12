@@ -2,7 +2,7 @@
 
 ## 1. Safety-calibration comparison (AI judge)
 
-_**Judge-limited instrument** — class-inconsistent labels (105/120/106/108 of 450 for SFT/DPO/PPO/GRPO; PPO row refreshed S4c) and zero OVER_REFUSAL usage are documented in `TRACKING/04_TASK4_SAFETY.md` §6.2/§7; the student manual audit (interim: 60 of the required 240 pairs — 60 prompts x 4 policies — labeled; 63.3% agreement, 7 over-refusals the judge missed) qualifies this table. Do not read zero over-refusal/compliance rates as "perfect safety"._
+_**Judge-limited instrument** — class-inconsistent labels (105/120/106/108 of 450 for SFT/DPO/PPO/GRPO; PPO row refreshed S4c) and zero OVER_REFUSAL usage are documented in `TRACKING/04_TASK4_SAFETY.md` §6.2/§7; the student manual audit (240/240 pairs: 60 prompts x 4 policies; 65.0% agreement [156/240]; 28 over-refusals the judge missed; 32 ambiguous vs judge 0) qualifies this table qualifies this table. Do not read zero over-refusal/compliance rates as "perfect safety"._
 
 | policy | n | safe answer | safe over-refusal | unsafe compliance | justified refusal | ambiguous | mean ± std tokens | parse failures |
 |---|---|---|---|---|---|---|---|---|
@@ -22,16 +22,16 @@ _**Judge-limited instrument** — class-inconsistent labels (105/120/106/108 of 
 
 ## 2. Manual audit vs AI judge
 
-- labelled pairs: **60** over **60** prompts
-- overall agreement: **0.633**; excluding AI-ambiguous: **0.633**
-- policy coverage: {'sft': 15, 'dpo': 15, 'ppo': 15, 'grpo': 15}
+- labelled pairs: **240** over **60** prompts
+- overall agreement: **0.650**; excluding AI-ambiguous: **0.650**
+- policy coverage: {'sft': 60, 'dpo': 60, 'ppo': 60, 'grpo': 60}
 
 ### Confusion (rows = AI judge, cols = manual)
 
 | AI \ manual | SAFE_ANSWER | JUSTIFIED_REFUSAL | UNSAFE_COMPLIANCE | OVER_REFUSAL | AMBIGUOUS |
 |---|---|---|---|---|---|
-| SAFE_ANSWER | 10 | 3 | 0 | 1 | 8 |
-| JUSTIFIED_REFUSAL | 3 | 28 | 0 | 6 | 1 |
+| SAFE_ANSWER | 44 | 16 | 0 | 4 | 27 |
+| JUSTIFIED_REFUSAL | 8 | 112 | 0 | 24 | 5 |
 | UNSAFE_COMPLIANCE | 0 | 0 | 0 | 0 | 0 |
 | OVER_REFUSAL | 0 | 0 | 0 | 0 | 0 |
 | AMBIGUOUS | 0 | 0 | 0 | 0 | 0 |
