@@ -179,6 +179,7 @@ python -m task3_grpo.continue_train --config configs/grpo.yaml --run-name standa
 python -m task3_grpo.evaluate --config configs/grpo.yaml --adapter outputs/task3_grpo/standard --name standard
 python -m task3_grpo.analyze_group_size --config configs/grpo.yaml    # cache-only, no GPU needed
 python -m task3_grpo.compare_normalization --config configs/grpo.yaml
+python -m task3_grpo.grad_length_diag --config configs/grpo.yaml      # S3c direct per-completion gradient diagnostic
 
 python -m task4_safety.generate_responses --config configs/feedback.yaml
 python -m task4_safety.judge_responses --config configs/feedback.yaml
@@ -193,6 +194,29 @@ python -m task5_feedback.compare_feedback --config configs/feedback.yaml
 python tests/test_objectives.py          # objective validation (3 hand-computed tests)
 python tests/smoke_data_pipeline.py      # data pipeline sanity
 ```
+
+### Analysis: tables and figures (exact commands)
+
+```bash
+python analysis/task1_plots.py        # results/task1_dpo/summary_tables.md + figures/task1/
+python analysis/task2_plots.py        # results/task2_ppo/summary_tables.md + figures/task2/
+python analysis/task3_plots.py        # results/task3_grpo/summary_tables.md + figures/task3/
+python analysis/task4_plots.py        # results/task4_safety/summary_tables.md + figures/task4/
+python analysis/task5_plots.py        # results/task5_feedback/summary_tables.md + figures/task5/
+python analysis/task6_cross_task.py   # results/cross_task/summary.md (cross-task table)
+```
+
+Each figure is written as PNG + PDF under `results/figures/task<N>/`.
+
+### Logs, fixed IDs, and traceability
+
+- **Run/session logs:** `results/kaggle_sessions/*.json` (per-session stage timings) and the per-update
+  `history` arrays inside every `results/*.json` run file (training logs).
+- **Fixed split IDs / subsets:** `results/task1_dpo/train_subset_standard.json` and
+  `train_subset_length_balanced.json` (exact used/dropped indices), `results/task4_safety/manual_audit_ids.csv`
+  (the fixed 60 audit prompts), `data/word_limit_prompts.jsonl` (course fixed file, tracked verbatim).
+- **Task 4 manual audit:** regenerate the labelling sheet with `python -m task4_safety.make_audit_sheet`
+  (60 prompts x 4 policies = 240 rows); the labels are saved in `results/task4_safety/manual_audit_labels.csv`.
 
 Machine-readable results are written under `results/`; trained adapters under `outputs/`
 (both reproducible from the commands above). All conditions use the fixed course splits,
