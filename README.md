@@ -106,6 +106,7 @@ python -m task3_grpo.continue_train --config configs/grpo.yaml --run-name standa
 python -m task3_grpo.evaluate --config configs/grpo.yaml --adapter outputs/task3_grpo/standard --name standard
 python -m task3_grpo.analyze_group_size --config configs/grpo.yaml
 python -m task3_grpo.compare_normalization --config configs/grpo.yaml
+python -m task3_grpo.grad_length_diag --config configs/grpo.yaml      # S3c direct per-completion gradient diagnostic (needs the saved fork adapters)
 ```
 
 ### Task 4 - Safety calibration

@@ -133,13 +133,19 @@ def fig_kl_study(study: dict, outbase: Path, kl_evals: dict | None = None):
     if not conds:
         return False
     betas = [c["kl_beta"] for c in conds]
-    ho_ent = [kl_evals.get(c.get("tag", ""), {}).get("entropy_sampled_response_mean") for c in conds]
+
+    def _ho_ent(c):
+        ev = kl_evals.get(c.get("tag", ""), {})
+        v = ev.get("entropy_full_vocab_mean")
+        return v if v is not None else ev.get("entropy_sampled_response_mean")
+
+    ho_ent = [_ho_ent(c) for c in conds]
     use_ho = all(v is not None for v in ho_ent)
     fig, axes = plt.subplots(1, 4, figsize=(16, 3.6))
     panels = [
         ("held-out reward", [c["heldout_reward"] for c in conds]),
         ("held-out KL", [c["heldout_kl"] for c in conds]),
-        ("held-out entropy" if use_ho else "training entropy", ho_ent if use_ho else [c["final_entropy"] for c in conds]),
+        ("held-out entropy (full-vocab)" if use_ho else "training entropy", ho_ent if use_ho else [c["final_entropy"] for c in conds]),
         ("held-out length", [c["heldout_length"] for c in conds]),
     ]
     for ax, (title, ys) in zip(axes, panels):

@@ -63,14 +63,14 @@ _Realized generated tokens (per audit): canonical **8,953** vs Dr. GRPO **10,109
 
 ### 4b. Direct length-conditioned gradient diagnostic (fixed saved batch, S3c)
 
-_Per-completion gradient norms of log pi(y|x) over LoRA params measured on each fork's SAVED rollouts (no training, no generation). alpha = log-log slope of ||g|| vs completion length T; canonical contributions scale with ||g||/T (sequence mean), Dr. GRPO with ||g|| (constant). Non-truncated completions only (training-relevant). n per fork is small - treat as a fixed-batch diagnostic, not a law._
+_Per-completion gradient norms of log pi(y|x) over LoRA params measured on each fork's SAVED rollouts (no training, no generation). alpha = log-log slope of ‖g‖ vs completion length T; canonical contributions scale with ‖g‖/T (sequence mean), Dr. GRPO with ‖g‖ (constant). Non-truncated completions only (training-relevant). n per fork is small - treat as a fixed-batch diagnostic, not a law._
 
-| fork | n (non-trunc) | alpha (||g|| ~ T^alpha) | r(log T, log ||g||) | r(T, ||g||) [Dr.] | r(T, ||g||/T) [canonical] |
+| fork | n (non-trunc) | alpha (‖g‖ ~ T^alpha) | r(log T, log ‖g‖) | r(T, ‖g‖) [Dr.] | r(T, ‖g‖/T) [canonical] |
 |---|---|---|---|---|---|
 | norm_grpo | 26 | 0.12 | 0.49 | 0.44 | -0.86 |
 | norm_dr_grpo | 25 | 0.09 | 0.27 | 0.20 | -0.85 |
 
-| fork | length quartile | tokens (mean) | ||g|| mean | ||g||/T mean (canonical) | |A|*||g|| mean (Dr.) |
+| fork | length quartile | tokens (mean) | ‖g‖ mean | ‖g‖/T mean (canonical) | |A|*‖g‖ mean (Dr.) |
 |---|---|---|---|---|---|
 | norm_grpo | Q1 | 36 | 81.570 | 2.27169 | 67.801 |
 | norm_grpo | Q2 | 109 | 99.311 | 1.23448 | 100.298 |

@@ -128,7 +128,7 @@ def word_limit_metrics(cfg: dict, policy, tokenizer):
     return {
         "num_prompts": len(per_prompt),
         "num_with_limit": len(compliant),
-        "word_limit_compliance_rate": (sum(1.0 for c in compliant) / len(compliant)) if compliant else None,
+        "word_limit_compliance_rate": (sum(1.0 for c in compliant if c) / len(compliant)) if compliant else None,
         "response_length_mean_tokens": statistics.fmean([p["response_tokens"] for p in per_prompt]) if per_prompt else None,
         "per_prompt": per_prompt,
     }

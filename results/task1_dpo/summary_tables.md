@@ -26,8 +26,8 @@ _Training strata after overlong-prompt filtering: preferred_longer 478 / length_
 
 | condition | compliance rate | response tokens (mean ± std) |
 |---|---|---|
-| standard | 1.000 | 49.6 ± 22.3 |
-| length_balanced | 1.000 | 48.8 ± 23.0 |
+| standard | 0.400 | 49.6 ± 22.3 |
+| length_balanced | 0.500 | 48.8 ± 23.0 |
 
 ## 4. Training runs (from train_*.json)
 

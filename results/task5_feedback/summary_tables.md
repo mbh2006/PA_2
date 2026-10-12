@@ -8,7 +8,7 @@
 | rlvr | 0.297 | 0.373 | 273.7 ± 84.8 | 0.488 | 0.450 | 0.490 | 164.0 ± 72.1 | -0.153 |
 | rlaif | 0.297 | 0.377 | 274.5 ± 85.8 | 0.458 | 0.450 | 0.510 | 164.5 ± 72.3 | -0.153 |
 
-_Judge-output validity (per audit): across the S5r judge cache (554 unique calls) **365 (66%) are multi-choice echoes** ('A, B' style) scored by first mention - not reliable preference expressions; the remaining 189 (34%) are single-answer, of which **164 are genuine TIE and only 25 decisive (20x A, 5x B)**. Released scores are retained for compliance, but win-rate interpretation must not rest on them (see `TRACKING/05_TASK5_RLVR_RLAIF.md` SS6.1b/SS7.7-7.8)._
+_Judge-output validity (per audit): across the S5r judge cache (554 unique calls) **365 (66%) are multi-choice echoes** ('A, B' style) scored by first mention - not reliable preference expressions; the remaining 189 (34%) are single-answer, of which **164 are genuine TIE and only 25 decisive (20x A, 5x B)**. Note: the eval JSON counters (`judge_multi_token_outputs` = 248 GSM / 97 transfer) count FRESH UNIQUE judge calls, not per-comparison counts; across the actual policy-vs-SFT comparisons the multi-choice-scored fractions are **210/300 (RLVR) and 214/300 (RLAIF) on GSM, and 86/100 for each transfer policy**. Released scores retained for compliance; win-rate interpretation must not rest on them (see `TRACKING/05_TASK5_RLVR_RLAIF.md` SS6.1b/SS7.7-7.8)._
 
 ### Verifier–judge agreement (GSM8K)
 

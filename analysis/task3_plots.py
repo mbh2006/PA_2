@@ -207,9 +207,9 @@ def tables_md(grpo: dict, study: dict, norm: dict, eval_std: dict, diag: dict | 
         lines.append("")
     if diag:
         lines += ["### 4b. Direct length-conditioned gradient diagnostic (fixed saved batch, S3c)", ""]
-        lines.append("_Per-completion gradient norms of log pi(y|x) over LoRA params measured on each fork's SAVED rollouts (no training, no generation). alpha = log-log slope of ||g|| vs completion length T; canonical contributions scale with ||g||/T (sequence mean), Dr. GRPO with ||g|| (constant). Non-truncated completions only (training-relevant). n per fork is small - treat as a fixed-batch diagnostic, not a law._")
+        lines.append("_Per-completion gradient norms of log pi(y|x) over LoRA params measured on each fork's SAVED rollouts (no training, no generation). alpha = log-log slope of ‖g‖ vs completion length T; canonical contributions scale with ‖g‖/T (sequence mean), Dr. GRPO with ‖g‖ (constant). Non-truncated completions only (training-relevant). n per fork is small - treat as a fixed-batch diagnostic, not a law._")
         lines.append("")
-        lines.append("| fork | n (non-trunc) | alpha (||g|| ~ T^alpha) | r(log T, log ||g||) | r(T, ||g||) [Dr.] | r(T, ||g||/T) [canonical] |")
+        lines.append("| fork | n (non-trunc) | alpha (‖g‖ ~ T^alpha) | r(log T, log ‖g‖) | r(T, ‖g‖) [Dr.] | r(T, ‖g‖/T) [canonical] |")
         lines.append("|---|---|---|---|---|---|")
         for tag, d in diag.items():
             s = d.get("stats", {})
@@ -219,7 +219,7 @@ def tables_md(grpo: dict, study: dict, norm: dict, eval_std: dict, diag: dict | 
                 f"{fmt(s.get('pearson_T_canonical_contrib'), 2)} |"
             )
         lines.append("")
-        lines.append("| fork | length quartile | tokens (mean) | ||g|| mean | ||g||/T mean (canonical) | |A|*||g|| mean (Dr.) |")
+        lines.append("| fork | length quartile | tokens (mean) | ‖g‖ mean | ‖g‖/T mean (canonical) | |A|*‖g‖ mean (Dr.) |")
         lines.append("|---|---|---|---|---|---|")
         for tag, d in diag.items():
             for b in d.get("stats", {}).get("quartile_bins", []):
